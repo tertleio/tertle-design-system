@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Btn, Link } from '@/cmps/Els';
-import { Dropdown, List, Text } from './cmps/Form';
+import { Dropdown, List, Text, Textarea } from './cmps/Form';
 
 const opts = [
   {
@@ -16,6 +16,7 @@ const opts = [
 
 function App() {
   const [text, setText] = useState('');
+  const [textarea, setTextarea] = useState('');
 
   return (
     <div className="min-h-screen justify-center items-center">
@@ -69,6 +70,13 @@ function App() {
       </div>
       <div className="flex justify-items-center text-red-500">
         <Text type="text" name="textFieldKey" value={text} cb={setText} />
+        <Textarea
+          name="textareaFieldKey"
+          value={textarea}
+          rows={10}
+          cols={30}
+          cb={setTextarea}
+        />
       </div>
     </div>
   );
