@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Btn, Link } from '@/cmps/Els';
-import { Dropdown, List } from './cmps/Form';
+import { Dropdown, List, Text } from './cmps/Form';
 
 const opts = [
   {
@@ -14,6 +15,8 @@ const opts = [
 ];
 
 function App() {
+  const [text, setText] = useState('');
+
   return (
     <div className="min-h-screen justify-center items-center">
       <div className="flex flex-column justify-center gap-3 m-1">
@@ -44,6 +47,7 @@ function App() {
           </Btn>
         </div>
         <div>
+          d
           <Btn variant="secondary" size="lg">
             secondary lg
           </Btn>
@@ -62,6 +66,9 @@ function App() {
         <label className="text-green-500">Some section label</label>
         <List type="radio" name="inputKey" value="1" label="Radio-1-label" />
         <List type="radio" name="inputKey" value="2" label="Radio-2-label" />
+      </div>
+      <div className="flex justify-items-center text-red-500">
+        <Text type="text" name="textFieldKey" value={text} cb={setText} />
       </div>
     </div>
   );
