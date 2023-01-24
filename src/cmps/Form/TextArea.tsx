@@ -8,7 +8,7 @@ type TextareaProps = FieldWrapperPassProps & {
   cb: any;
 };
 
-const TextArea = (props: TextareaProps) => {
+const Textarea = (props: TextareaProps) => {
   const { label, value, name, rows, cols, cb } = props;
 
   return (
@@ -25,4 +25,4 @@ const TextArea = (props: TextareaProps) => {
   );
 };
 
-export { TextArea };
+export { Textarea };

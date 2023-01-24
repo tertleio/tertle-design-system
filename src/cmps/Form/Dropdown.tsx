@@ -5,14 +5,14 @@ type Opt = {
   value: string | number | string[];
 };
 
-export type FieldSelectProps = FieldWrapperPassProps & {
+export type DropdownProps = FieldWrapperPassProps & {
   name: string;
   opts: Opt[];
   placeholder?: string;
   className?: string;
 };
 
-const Dropdown = (props: FieldSelectProps) => {
+const Dropdown = (props: DropdownProps) => {
   const { name, label, opts, error, className, placeholder } = props;
 
   return (

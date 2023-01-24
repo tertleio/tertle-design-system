@@ -1,16 +1,14 @@
 import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 
-type ListProps = FieldWrapperPassProps & {
+type TextProps = FieldWrapperPassProps & {
   name: string;
   type: 'text' | 'email' | 'password';
   value: string;
   cb: any;
 };
 
-const Text = (props: ListProps) => {
+const Text = (props: TextProps) => {
   const { type, label, value, name, id, cb } = props;
-
-  // if type = checkbox | radio -> map
 
   return (
     <FieldWrapper label={label} id={value}>

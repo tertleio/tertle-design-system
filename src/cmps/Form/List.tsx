@@ -9,8 +9,6 @@ type ListProps = FieldWrapperPassProps & {
 const List = (props: ListProps) => {
   const { type, label, value, name, id } = props;
 
-  // if type = checkbox | radio -> map
-
   return (
     <FieldWrapper label={label} id={value}>
       <input name={name} id={value} type={type} value={value} />
