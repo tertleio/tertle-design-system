@@ -1,5 +1,17 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Btn, Link } from '@/cmps/Els';
+import { FieldSelect } from './cmps/Form';
+
+const opts = [
+  {
+    val: 'opt1',
+    str: 'Option Number one',
+  },
+  {
+    val: 'opt2',
+    str: 'Option Number Two',
+  },
+];
 
 function App() {
   return (
@@ -42,6 +54,9 @@ function App() {
         <Router>
           <Link to="https://tertle.io">Some link</Link>
         </Router>
+      </div>
+      <div className="flex justify-items-center">
+        <FieldSelect label="Some label" opts={opts}></FieldSelect>
       </div>
     </div>
   );
