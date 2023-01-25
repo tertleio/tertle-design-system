@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Btn, Link } from '@/cmps/Els';
-import { Dropdown, List, Text, Textarea } from './cmps/Form';
+import { Form, Dropdown, List, Text, Textarea } from '@/cmps/Form';
 
 const opts = [
   {
@@ -17,6 +17,13 @@ const opts = [
 function App() {
   const [text, setText] = useState('');
   const [textarea, setTextarea] = useState('');
+
+  function handleSubmit(e: any) {
+    e.preventDefault();
+    console.log('handling submit');
+
+    return false;
+  }
 
   return (
     <div className="min-h-screen justify-center items-center">
@@ -48,7 +55,6 @@ function App() {
           </Btn>
         </div>
         <div>
-          d
           <Btn variant="secondary" size="lg">
             secondary lg
           </Btn>
@@ -60,24 +66,27 @@ function App() {
           <Link to="https://tertle.io">Some link</Link>
         </Router>
       </div>
-      <div className="flex justify-items-center">
-        <Dropdown name="selectKey" label="Some label" opts={opts} />
-      </div>
-      <div className="flex justify-items-center">
-        <label className="text-green-500">Some section label</label>
-        <List type="radio" name="inputKey" value="1" label="Radio-1-label" />
-        <List type="radio" name="inputKey" value="2" label="Radio-2-label" />
-      </div>
-      <div className="flex justify-items-center text-red-500">
-        <Text type="text" name="textFieldKey" value={text} cb={setText} />
-        <Textarea
-          name="textareaFieldKey"
-          value={textarea}
-          rows={10}
-          cols={30}
-          cb={setTextarea}
-        />
-      </div>
+      <Form id="formId" onSubmit={handleSubmit}>
+        <div className="flex justify-items-center">
+          <Dropdown name="selectKey" label="Some label" opts={opts} />
+        </div>
+        <div className="flex justify-items-center">
+          <label className="text-green-500">Some section label</label>
+          <List type="radio" name="inputKey" value="1" label="Radio-1-label" />
+          <List type="radio" name="inputKey" value="2" label="Radio-2-label" />
+        </div>
+        <div className="flex justify-items-center text-red-500">
+          <Text name="textFieldKey" value={text} cb={setText} />
+          <Textarea
+            name="textareaFieldKey"
+            value={textarea}
+            rows={10}
+            cols={30}
+            cb={setTextarea}
+          />
+        </div>
+        <Btn type="submit">Submit</Btn>
+      </Form>
     </div>
   );
 }
