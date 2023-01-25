@@ -1,14 +1,14 @@
 import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 
-type TextProps = FieldWrapperPassProps & {
+export type TextProps = FieldWrapperPassProps & {
   name: string;
-  type: 'text' | 'email' | 'password';
   value: string;
   cb: any;
+  type?: 'text' | 'email' | 'password';
 };
 
 const Text = (props: TextProps) => {
-  const { type, label, value, name, id, cb } = props;
+  const { name, value, cb, type = 'text', label } = props;
 
   return (
     <FieldWrapper label={label} id={value}>
