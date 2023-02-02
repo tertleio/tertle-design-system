@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <div className="flex justify-center gap-3 m-1">
+      <div className="m-1 flex justify-center gap-3">
         <h1 className="text-3xl font-bold text-green-600">Btn</h1>
         <div>
           <Btn variant="primary" size="sm">
@@ -61,21 +61,21 @@ function App() {
           </Btn>
         </div>
       </div>
-      <div className="flex flex-column justify-center gap-3 m-10">
+      <div className="flex-column m-10 flex justify-center gap-3">
         <h1 className="text-3xl font-bold text-green-600">Links</h1>
         <Router>
           <Link to="https://tertle.io">Some link</Link>
         </Router>
       </div>
 
-      <div className="mx-auto mw-xl max-w-xl">
+      <div className="mx-auto max-w-xl">
         <Container>
           <Form id="formId" onSubmit={handleSubmit}>
             <div className="flex justify-items-center">
               <Dropdown name="selectKey" label="Some label" opts={opts} />
             </div>
-            <div className="flex-1 direction justify-items-center border border-red-500">
-              <label className="text-green-500 border">
+            <div className="flex-initial justify-items-center border border-red-500">
+              <label className="border text-green-500">
                 Some section label
               </label>
               <List
@@ -90,8 +90,15 @@ function App() {
                 value="2"
                 label="Radio-2-label"
               />
+              <List
+                className="p-10"
+                type="radio"
+                name="inputKey"
+                value="3"
+                label="Radio-3-label"
+              />
             </div>
-            <div className="flex justify-items-center text-red-500">
+            <div className="flex">
               <Text name="textFieldKey" value={text} cb={setText} />
               <Textarea
                 name="textareaFieldKey"
