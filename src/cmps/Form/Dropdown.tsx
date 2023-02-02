@@ -16,7 +16,7 @@ const Dropdown = (props: DropdownProps) => {
   const { name, label, opts, error, className, placeholder } = props;
 
   return (
-    <FieldWrapper label={label} error={error}>
+    <FieldWrapper label={label} error={error} {...props}>
       <select name={name} placeholder={placeholder} className={className}>
         {opts.map(({ label, value }) => (
           <option key={label?.toString()} value={value}>

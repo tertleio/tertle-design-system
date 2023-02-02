@@ -7,11 +7,6 @@ type ListProps = FieldWrapperPassProps & {
   className?: string;
 };
 
-// tw examples: https://freefrontend.com/tailwind-radio-buttons/
-
-// 1. vertical or horizontal (easily changeable)
-// 2. Needs to wrap inside a box to selctable (mobile-like taps)
-
 const List = (props: ListProps) => {
   const { type, label, value, name, id } = props;
 

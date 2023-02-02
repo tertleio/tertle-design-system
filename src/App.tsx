@@ -72,12 +72,9 @@ function App() {
         <Container>
           <Form id="formId" onSubmit={handleSubmit}>
             <div className="flex justify-items-center">
-              <Dropdown name="selectKey" label="Some label" opts={opts} />
+              <Dropdown name="selectKey" opts={opts} />
             </div>
-            <div className="flex-initial justify-items-center border border-red-500">
-              <label className="border text-green-500">
-                Some section label
-              </label>
+            <div className="flex-initial justify-items-center">
               <List
                 type="radio"
                 name="inputKey"
@@ -95,7 +92,7 @@ function App() {
                 type="radio"
                 name="inputKey"
                 value="3"
-                label="Radio-3-label"
+                label="Radio-3-label thats long long long long long long long long long long long long long and even more long long smoke a bong"
               />
             </div>
             <div className="flex">
