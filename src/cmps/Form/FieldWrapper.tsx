@@ -11,8 +11,8 @@ export type FieldWrapperProps = {
 
 type FieldWrapperPassProps = Omit<FieldWrapperProps, 'children' | 'className'>;
 
-const FieldWrapper = ({ children, error, ...props }: FieldWrapperProps) => {
-  const { label, id, className } = props;
+const FieldWrapper = (props: FieldWrapperProps) => {
+  const { children, className, label, id, error } = props;
 
   return (
     <>

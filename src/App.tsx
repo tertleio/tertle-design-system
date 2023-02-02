@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
+// Components
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Btn, Link } from '@/cmps/Els';
+import { Button, Link } from '@/cmps/Els';
 import { Form, Fieldset, Dropdown, List, Text, Textarea } from '@/cmps/Form';
 import { Container } from '@/cmps/Container';
 
@@ -28,38 +30,28 @@ function App() {
 
   return (
     <>
-      <div className="m-1 flex justify-center gap-3">
-        <h1 className="text-3xl font-bold text-green-600">Btn</h1>
-        <div>
-          <Btn variant="primary" size="sm">
-            primary sm
-          </Btn>
-        </div>
-        <div>
-          <Btn variant="primary" size="md">
-            primary md
-          </Btn>
-        </div>
-        <div>
-          <Btn variant="primary" size="lg">
-            primary lg
-          </Btn>
-        </div>
-        <div>
-          <Btn variant="secondary" size="sm">
-            secondary sm
-          </Btn>
-        </div>
-        <div>
-          <Btn variant="secondary" size="md">
-            secondary md
-          </Btn>
-        </div>
-        <div>
-          <Btn variant="secondary" size="lg">
-            secondary lg
-          </Btn>
-        </div>
+      <h1 className="flex justify-center text-3xl font-bold text-green-600">
+        Btns
+      </h1>
+      <div className="w-100 m-auto flex max-w-5xl flex-wrap gap-2">
+        <Button variant="primary" size="sm">
+          primary sm
+        </Button>
+        <Button variant="primary" size="md">
+          primary md
+        </Button>
+        <Button variant="primary" size="lg">
+          primary lg
+        </Button>
+        <Button variant="secondary" size="sm">
+          secondary sm
+        </Button>
+        <Button variant="secondary" size="md">
+          secondary md
+        </Button>
+        <Button variant="secondary" size="lg">
+          secondary lg
+        </Button>
       </div>
       <div className="flex-column m-10 flex justify-center gap-3">
         <h1 className="text-3xl font-bold text-green-600">Links</h1>
@@ -77,6 +69,7 @@ function App() {
             >
               <Dropdown name="selectKey" opts={opts} />
             </Fieldset>
+
             <Fieldset
               legend="Some radio question?"
               className="flex-initial justify-items-center"
@@ -101,6 +94,7 @@ function App() {
                 label="Radio-3-label thats long long long long long long long long long long long long long and even more long long smoke a bong"
               />
             </Fieldset>
+
             <Fieldset legend="Some text and text question?" className="flex">
               <Text name="textFieldKey" value={text} cb={setText} />
               <Textarea
@@ -111,7 +105,8 @@ function App() {
                 cb={setTextarea}
               />
             </Fieldset>
-            <Btn type="submit">Submit</Btn>
+
+            <Button type="submit">Submit</Button>
           </Form>
         </Container>
       </div>
