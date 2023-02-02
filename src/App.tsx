@@ -95,6 +95,27 @@ function App() {
               />
             </Fieldset>
 
+            <Fieldset legend="Checkbox questions">
+              <List
+                name="inputKey"
+                type="checkbox"
+                value="c1"
+                label="Checkbox 1"
+              />
+              <List
+                name="inputKey"
+                type="checkbox"
+                value="c2"
+                label="Checkbox 2"
+              />
+              <List
+                name="inputKey"
+                type="checkbox"
+                value="c3"
+                label="Checkbox 3"
+              />
+            </Fieldset>
+
             <Fieldset legend="Some text and text question?" className="flex">
               <Text name="textFieldKey" value={text} cb={setText} />
               <Textarea
