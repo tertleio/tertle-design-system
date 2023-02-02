@@ -2,13 +2,12 @@ import React from 'react';
 
 type ContainerProps = {
   children: React.ReactNode;
+  className?: string;
 };
 
-const Container = ({ children }: ContainerProps) => {
+const Container = ({ children, className }: ContainerProps) => {
   return (
-    <div className="flex justify-center p-8 bg-gray-900 rounded-3xl">
-      {children}
-    </div>
+    <div className={`rounded-3xl bg-gray-900 p-8 ${className}`}>{children}</div>
   );
 };
 
