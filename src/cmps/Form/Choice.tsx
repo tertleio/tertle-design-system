@@ -1,6 +1,6 @@
 import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 
-type SelectionProps = FieldWrapperPassProps & {
+type ChoiceProps = FieldWrapperPassProps & {
   name: string;
   type: 'radio' | 'checkbox';
   value: string;
@@ -9,7 +9,7 @@ type SelectionProps = FieldWrapperPassProps & {
 
 // TODO: switch
 
-const Selection = (props: SelectionProps) => {
+const Choice = (props: ChoiceProps) => {
   const { type, label, value, name, id } = props;
 
   return (
@@ -25,4 +25,4 @@ const Selection = (props: SelectionProps) => {
   );
 };
 
-export { Selection };
+export { Choice };

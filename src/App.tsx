@@ -3,14 +3,7 @@ import { useState } from 'react';
 // Components
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Button, Link } from '@/cmps/Els';
-import {
-  Form,
-  Fieldset,
-  Dropdown,
-  Selection,
-  Input,
-  Textarea,
-} from '@/cmps/Form';
+import { Form, Fieldset, Dropdown, Choice, Text, Textarea } from '@/cmps/Form';
 import { Container } from '@/cmps/Container';
 
 const opts = [
@@ -81,19 +74,19 @@ function App() {
               legend="Some radio question?"
               className="flex-initial justify-items-center"
             >
-              <Selection
+              <Choice
                 name="inputKey"
                 type="radio"
                 value="1"
                 label="Radio-1-label"
               />
-              <Selection
+              <Choice
                 name="inputKey"
                 type="radio"
                 value="2"
                 label="Radio-2-label"
               />
-              <Selection
+              <Choice
                 className="p-10"
                 name="inputKey"
                 type="radio"
@@ -103,19 +96,19 @@ function App() {
             </Fieldset>
 
             <Fieldset legend="Checkbox questions">
-              <Selection
+              <Choice
                 name="inputKey"
                 type="checkbox"
                 value="c1"
                 label="Checkbox 1"
               />
-              <Selection
+              <Choice
                 name="inputKey"
                 type="checkbox"
                 value="c2"
                 label="Checkbox 2"
               />
-              <Selection
+              <Choice
                 name="inputKey"
                 type="checkbox"
                 value="c3"
@@ -124,7 +117,7 @@ function App() {
             </Fieldset>
 
             <Fieldset legend="Some text and text question?" className="flex">
-              <Input name="textFieldKey" value={text} cb={setText} />
+              <Text name="textFieldKey" value={text} cb={setText} />
               <Textarea
                 name="textareaFieldKey"
                 value={textarea}
