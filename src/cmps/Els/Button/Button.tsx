@@ -37,11 +37,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           ref={ref}
           type={type}
           className={`
-          flex items-center justify-center rounded-lg font-primary font-medium uppercase
-          hover:opacity-90 focus:outline-none disabled:cursor-not-allowed disabled:opacity-70
-          ${variants[variant]}
-          ${sizes[size]}
-          ${className}`}
+            flex items-center justify-center rounded-lg font-primary font-medium uppercase
+            hover:opacity-90 focus:outline-none disabled:cursor-not-allowed disabled:opacity-70
+            ${variants[variant]}
+            ${sizes[size]}
+            ${className}`}
           {...props}
         ></button>
       </div>
