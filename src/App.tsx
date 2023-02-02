@@ -3,7 +3,14 @@ import { useState } from 'react';
 // Components
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Button, Link } from '@/cmps/Els';
-import { Form, Fieldset, Dropdown, List, Text, Textarea } from '@/cmps/Form';
+import {
+  Form,
+  Fieldset,
+  Dropdown,
+  Selection,
+  Input,
+  Textarea,
+} from '@/cmps/Form';
 import { Container } from '@/cmps/Container';
 
 const opts = [
@@ -74,41 +81,41 @@ function App() {
               legend="Some radio question?"
               className="flex-initial justify-items-center"
             >
-              <List
-                type="radio"
+              <Selection
                 name="inputKey"
+                type="radio"
                 value="1"
                 label="Radio-1-label"
               />
-              <List
-                type="radio"
+              <Selection
                 name="inputKey"
+                type="radio"
                 value="2"
                 label="Radio-2-label"
               />
-              <List
+              <Selection
                 className="p-10"
-                type="radio"
                 name="inputKey"
+                type="radio"
                 value="3"
                 label="Radio-3-label thats long long long long long long long long long long long long long and even more long long smoke a bong"
               />
             </Fieldset>
 
             <Fieldset legend="Checkbox questions">
-              <List
+              <Selection
                 name="inputKey"
                 type="checkbox"
                 value="c1"
                 label="Checkbox 1"
               />
-              <List
+              <Selection
                 name="inputKey"
                 type="checkbox"
                 value="c2"
                 label="Checkbox 2"
               />
-              <List
+              <Selection
                 name="inputKey"
                 type="checkbox"
                 value="c3"
@@ -117,7 +124,7 @@ function App() {
             </Fieldset>
 
             <Fieldset legend="Some text and text question?" className="flex">
-              <Text name="textFieldKey" value={text} cb={setText} />
+              <Input name="textFieldKey" value={text} cb={setText} />
               <Textarea
                 name="textareaFieldKey"
                 value={textarea}

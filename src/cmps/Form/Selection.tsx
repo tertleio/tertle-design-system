@@ -1,13 +1,15 @@
 import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 
-type ListProps = FieldWrapperPassProps & {
+type SelectionProps = FieldWrapperPassProps & {
   name: string;
   type: 'radio' | 'checkbox';
   value: string;
   className?: string;
 };
 
-const List = (props: ListProps) => {
+// TODO: switch
+
+const Selection = (props: SelectionProps) => {
   const { type, label, value, name, id } = props;
 
   return (
@@ -23,4 +25,4 @@ const List = (props: ListProps) => {
   );
 };
 
-export { List };
+export { Selection };
