@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Btn, Link } from '@/cmps/Els';
-import { Form, Dropdown, List, Text, Textarea } from '@/cmps/Form';
+import { Form, Fieldset, Dropdown, List, Text, Textarea } from '@/cmps/Form';
 import { Container } from '@/cmps/Container';
 
 const opts = [
@@ -71,10 +71,16 @@ function App() {
       <div className="mx-auto max-w-xl">
         <Container>
           <Form id="formId" onSubmit={handleSubmit}>
-            <div className="flex justify-items-center">
+            <Fieldset
+              legend="Some dropdown question"
+              className="flex justify-items-center"
+            >
               <Dropdown name="selectKey" opts={opts} />
-            </div>
-            <div className="flex-initial justify-items-center">
+            </Fieldset>
+            <Fieldset
+              legend="Some radio question?"
+              className="flex-initial justify-items-center"
+            >
               <List
                 type="radio"
                 name="inputKey"
@@ -94,8 +100,8 @@ function App() {
                 value="3"
                 label="Radio-3-label thats long long long long long long long long long long long long long and even more long long smoke a bong"
               />
-            </div>
-            <div className="flex">
+            </Fieldset>
+            <Fieldset legend="Some text and text question?" className="flex">
               <Text name="textFieldKey" value={text} cb={setText} />
               <Textarea
                 name="textareaFieldKey"
@@ -104,7 +110,7 @@ function App() {
                 cols={30}
                 cb={setTextarea}
               />
-            </div>
+            </Fieldset>
             <Btn type="submit">Submit</Btn>
           </Form>
         </Container>
