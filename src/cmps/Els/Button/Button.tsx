@@ -13,13 +13,13 @@ const sizes = {
   lg: 'py-3 px-8 text-lg',
 };
 
-type BtnProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: keyof typeof variants;
   size?: keyof typeof sizes;
   isLoading?: boolean;
 };
 
-const Btn = React.forwardRef<HTMLButtonElement, BtnProps>(
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       type = 'button',
@@ -32,21 +32,22 @@ const Btn = React.forwardRef<HTMLButtonElement, BtnProps>(
     ref
   ) => {
     return (
-      <button
-        ref={ref}
-        type={type}
-        className={`
-          flex justify-center items-center
-          font-primary font-medium uppercase rounded-lg
-          focus:outline-none hover:opacity-90 disabled:opacity-70 disabled:cursor-not-allowed
+      <div>
+        <button
+          ref={ref}
+          type={type}
+          className={`
+          flex items-center justify-center rounded-lg font-primary font-medium uppercase
+          hover:opacity-90 focus:outline-none disabled:cursor-not-allowed disabled:opacity-70
           ${variants[variant]}
           ${sizes[size]}
           ${className}`}
-        {...props}
-      ></button>
+          {...props}
+        ></button>
+      </div>
     );
   }
 );
 
-Btn.displayName = 'Btn';
-export { Btn };
+Button.displayName = 'Button';
+export { Button };
