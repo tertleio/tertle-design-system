@@ -20,6 +20,7 @@ const opts = [
 function App() {
   const [text, setText] = useState('');
   const [textarea, setTextarea] = useState('');
+  const [dark, setDark] = useState(false);
 
   function handleSubmit(e: any) {
     e.preventDefault();
@@ -28,8 +29,19 @@ function App() {
     return false;
   }
 
+  console.log('App');
+
   return (
     <>
+      <Fieldset legend="Toggle dark mode">
+        <Choice
+          name="dark"
+          type="checkbox"
+          checked={dark}
+          onChange={(bool: boolean) => setDark(!!bool)}
+          label="Dark mode on"
+        />
+      </Fieldset>
       <h1 className="flex justify-center text-3xl font-bold text-green-600">
         Btns
       </h1>
