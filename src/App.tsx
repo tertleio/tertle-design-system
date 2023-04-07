@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Components
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Button, Link } from '@/cmps/Els';
 import { Form, Fieldset, Dropdown, Choice, Text, Textarea } from '@/cmps/Form';
 import { Container } from '@/cmps/Container';
+import fetchSim from '@/utils/fetchSim';
 
 const opts = [
   {
@@ -21,6 +22,13 @@ function App() {
   const [text, setText] = useState('');
   const [textarea, setTextarea] = useState('');
   const [darkTheme, setDarkTheme] = useState(false);
+  const [dummyData, setDummyData] = useState<Object>({});
+
+  useEffect(() => {
+    fetchSim().then((data) => setDummyData(data));
+  }, []);
+
+  console.log(dummyData);
 
   function handleSubmit(e: any) {
     e.preventDefault();
