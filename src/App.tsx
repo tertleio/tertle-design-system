@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
+import fetchSim from '@/utils/fetchSim';
 
 // Components
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Button, Link } from '@/cmps/Els';
 import { Form, Fieldset, Dropdown, Choice, Text, Textarea } from '@/cmps/Form';
 import { Container } from '@/cmps/Container';
-import fetchSim from '@/utils/fetchSim';
 
 const opts = [
   {
@@ -21,14 +21,26 @@ const opts = [
 function App() {
   const [text, setText] = useState('');
   const [textarea, setTextarea] = useState('');
-  const [darkTheme, setDarkTheme] = useState(false);
+  const [darkTheme, setDarkTheme] = useState<null | boolean>(null);
   const [dummyData, setDummyData] = useState<Object>({});
+
+  useEffect(() => {
+    if (
+      localStorage.getItem('theme') === 'dark' ||
+      (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    localStorage.setItem('theme', darkTheme ? 'dark' : 'light');
+  }, [darkTheme]);
 
   useEffect(() => {
     fetchSim().then((data) => setDummyData(data));
   }, []);
-
-  console.log(dummyData);
 
   function handleSubmit(e: any) {
     e.preventDefault();
@@ -43,8 +55,8 @@ function App() {
         <Choice
           name="darkTheme"
           type="checkbox"
-          checked={darkTheme}
-          onChange={() => setDarkTheme((isDark: boolean) => !isDark)}
+          checked={darkTheme ? true : false}
+          onChange={() => setDarkTheme((isDark) => !isDark)}
           label="Dark mode on"
         />
       </Fieldset>
