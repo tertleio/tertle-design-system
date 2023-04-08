@@ -8,7 +8,7 @@ export type FieldWrapperProps = {
   label?: string;
   name: any;
   info?: string;
-  id?: string | number;
+  id?: string | undefined;
   error?: string;
 };
 
