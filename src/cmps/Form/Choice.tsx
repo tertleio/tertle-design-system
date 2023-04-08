@@ -13,12 +13,13 @@ type ChoiceProps = FieldWrapperPassProps & {
 
 const Choice = (props: ChoiceProps) => {
   const { type, label, value, name, checked, onChange, id } = props;
+  console.log(id);
 
   return (
     <FieldWrapper label={label} name={name}>
       <input
         name={name}
-        id={name}
+        id={id}
         type={type}
         checked={checked}
         onChange={onChange}

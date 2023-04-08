@@ -22,7 +22,12 @@ function App() {
   const [text, setText] = useState('');
   const [textarea, setTextarea] = useState('');
   const [darkTheme, setDarkTheme] = useState<boolean | null>(null);
-  const [dummyData, setDummyData] = useState<Object>({});
+  const [dummyData, setDummyData] = useState<any>({});
+
+  function handleChange(e: any) {
+    const { name, value } = e.target;
+    setDummyData({ ...dummyData, [name]: value });
+  }
 
   useEffect(() => {
     // initial render state
@@ -113,27 +118,36 @@ function App() {
             </Fieldset>
 
             <Fieldset
-              legend="Some radio question?"
+              legend="Would you consider yourself technical?"
               className="flex-initial justify-items-center"
             >
               <Choice
-                name="inputKey"
+                name="isTechnical"
+                label="Yes, I can build the product"
+                checked={dummyData?.isTechnical == 1 ? true : false}
                 type="radio"
-                value="1"
-                label="Radio-1-label"
+                id="yes-technical"
+                value={1}
+                onChange={handleChange}
               />
               <Choice
-                name="inputKey"
+                name="isTechnical"
                 type="radio"
-                value="2"
-                label="Radio-2-label"
+                label="No, I need help"
+                checked={dummyData?.isTechnical == 2 ? true : false}
+                id="no-technical"
+                value={2}
+                onChange={handleChange}
               />
               <Choice
-                className="p-10"
-                name="inputKey"
+                name="isTechnical"
                 type="radio"
-                value="3"
-                label="Radio-3-label thats long long long long long long long long long long long long long and even more long long smoke a bong"
+                label="Some answer that is super long long long long long long long long long long long long long and even more long long smoke a bong"
+                className="isTechnical"
+                checked={dummyData?.isTechnical == 3 ? true : false}
+                id="some-answer"
+                value={3}
+                onChange={handleChange}
               />
             </Fieldset>
 
