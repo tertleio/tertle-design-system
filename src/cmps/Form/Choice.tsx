@@ -24,7 +24,7 @@ const Choice = (props: ChoiceProps) => {
         checked={checked}
         onChange={onChange}
         value={value}
-        className="border-red-300 focus:ring-blue-300 m-1 h-4 w-5"
+        className="m-1 h-4 w-5 checked:border-transparent focus:ring-0"
       />
     </FieldWrapper>
   );
