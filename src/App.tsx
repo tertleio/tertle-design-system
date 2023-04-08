@@ -36,6 +36,7 @@ function App() {
         setDarkTheme(isSysDark);
       }
     }
+
     // user override - subsequent renders
     if (darkTheme === true) {
       localStorage.theme = 'dark';
