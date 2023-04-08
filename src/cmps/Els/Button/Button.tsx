@@ -1,8 +1,8 @@
 import React from 'react';
 
 const variants = {
-  primary: 'bg-primary dark:bg-primary-dark text-base dark:text-base-dark',
-  secondary: 'border border-primary text-primary dark:text-primary-dark',
+  primary: 'bg-primary text-base dark:bg-primary-dark dark:text-base-dark',
+  secondary: `border border-primary text-primary dark:text-primary-dark dark:border-primary-dark`,
   inverse: 'bg-white text-blue-600',
   danger: 'bg-red-600 text-white',
 };
@@ -38,7 +38,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           type={type}
           className={`
             flex items-center justify-center rounded-lg font-primary font-medium uppercase
-            hover:opacity-90 focus:outline-none disabled:cursor-not-allowed disabled:opacity-70
+            hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70
             ${variants[variant]}
             ${sizes[size]}
             ${className}`}
