@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
-const dark = 'dark:text-gray-500 dark:border-gray-700 dark:border-[#0E0E0E]';
+const dark =
+  'dark:text-gray-600 dark:border-gray-700 dark:border-[#0E0E0E] dark:bg-gray-800 dark:hover:bg-gray-900';
 
 export type FieldWrapperProps = {
   children: ReactNode;
@@ -22,8 +23,9 @@ const FieldWrapper = (props: FieldWrapperProps) => {
       <label
         htmlFor={name}
         className={`
-          peer-checked:border-transparent bg-transparent my-0.5 flex cursor-pointer rounded-lg border border-gray-100 p-3 font-secondary
-          text-gray-600 hover:opacity-90 focus:outline-none peer-checked:ring-2 peer-checked:ring-primary
+          peer-checked:border-transparent bg-transparent peer-checked:ring- my-0.5 flex cursor-pointer rounded-lg border border-gray-100 p-3
+         font-secondary text-gray-600 hover:bg-gray-100 hover:opacity-90
+          focus:outline-none
           ${dark}
           ${className}`}
       >

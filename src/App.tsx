@@ -72,7 +72,7 @@ function App() {
           label="Dark mode on"
         />
       </Fieldset>
-      <h1 className="flex justify-center text-3xl font-bold text-green-600">
+      <h1 className="text-green-600 flex justify-center text-3xl font-bold">
         Btns
       </h1>
       <div className="w-100 m-auto flex max-w-5xl flex-wrap gap-2">
@@ -96,7 +96,7 @@ function App() {
         </Button>
       </div>
       <div className="flex-column m-10 flex justify-center gap-3">
-        <h1 className="text-3xl font-bold text-green-600">Links</h1>
+        <h1 className="text-green-600 text-3xl font-bold">Links</h1>
         <Router>
           <Link to="https://tertle.io">Some link</Link>
         </Router>

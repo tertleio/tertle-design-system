@@ -10,7 +10,7 @@ const Container = ({ children, className }: ContainerProps) => {
     <div
       className={`
       rounded-3xl border border-gray-200 bg-white
-      p-8 dark:border-gray-700 dark:bg-gray-800
+      p-6 dark:border-gray-700 dark:bg-gray-800
       ${className}`}
     >
       {children}
