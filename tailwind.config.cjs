@@ -6,7 +6,7 @@ module.exports = {
   content: ['./src/**/*.{html,js,ts,tsx}'],
   darkMode: 'class', // false | 'class' | 'media'
   theme: {
-    colors: tokens.colors,
+    colors: { ...tokens.colors, transparent: 'transparent' },
     extend: {
       fontFamily: {
         primary: ['poppins', 'Helvetica', 'Arial', 'sans-serif'],
