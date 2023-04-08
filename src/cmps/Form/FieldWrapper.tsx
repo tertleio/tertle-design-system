@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
-const dark =
-  'dark:text-gray-600 dark:border-gray-700 dark:border-[#0E0E0E] dark:bg-gray-800 dark:hover:bg-gray-900';
+const dark = `dark:text-gray-600 dark:border-gray-700 dark:border-[#0E0E0E] dark:bg-gray-800 dark:hover:bg-gray-900`;
 
 export type FieldWrapperProps = {
   children: ReactNode;
