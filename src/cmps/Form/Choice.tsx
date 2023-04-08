@@ -12,7 +12,7 @@ type ChoiceProps = FieldWrapperPassProps & {
 // TODO: switch
 
 const Choice = (props: ChoiceProps) => {
-  const { type, label, value, name, checked, onChange, id } = props;
+  const { type, label, value, name, checked, onChange, id = '' } = props;
   console.log(id);
 
   return (

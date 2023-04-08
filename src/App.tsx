@@ -123,30 +123,29 @@ function App() {
             >
               <Choice
                 name="isTechnical"
-                label="Yes, I can build the product"
-                checked={dummyData?.isTechnical == 1 ? true : false}
-                type="radio"
                 id="yes-technical"
                 value={1}
+                type="radio"
+                label="Yes, I can build the product"
+                checked={dummyData?.isTechnical == 1 ? true : false}
                 onChange={handleChange}
               />
               <Choice
                 name="isTechnical"
+                id="no-technical"
+                value={2}
                 type="radio"
                 label="No, I need help"
                 checked={dummyData?.isTechnical == 2 ? true : false}
-                id="no-technical"
-                value={2}
                 onChange={handleChange}
               />
               <Choice
                 name="isTechnical"
-                type="radio"
-                label="Some answer that is super long long long long long long long long long long long long long and even more long long smoke a bong"
-                className="isTechnical"
-                checked={dummyData?.isTechnical == 3 ? true : false}
                 id="some-answer"
                 value={3}
+                type="radio"
+                label="Some answer that is super long long long long long long long long long long long long long and even more long long smoke a bong"
+                checked={dummyData?.isTechnical == 3 ? true : false}
                 onChange={handleChange}
               />
             </Fieldset>
