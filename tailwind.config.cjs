@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import * as tokens from 'tertle-design-tokens';
+console.log(tokens);
 
 module.exports = {
   content: ['./src/**/*.{html,js,ts,tsx}'],
