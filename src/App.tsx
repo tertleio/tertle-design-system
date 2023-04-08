@@ -21,21 +21,30 @@ const opts = [
 function App() {
   const [text, setText] = useState('');
   const [textarea, setTextarea] = useState('');
-  const [darkTheme, setDarkTheme] = useState<null | boolean>(null);
+  const [darkTheme, setDarkTheme] = useState<boolean | null>(null);
   const [dummyData, setDummyData] = useState<Object>({});
 
   useEffect(() => {
-    if (
-      localStorage.getItem('theme') === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
+    // initial render state
+    if (darkTheme === null) {
+      const localTheme = localStorage.getItem('theme');
+      if (localTheme) {
+        setDarkTheme(localTheme === 'dark' ? true : false);
+      } else {
+        const prefersDark = '(prefers-color-scheme: dark)';
+        const isSysDark = window.matchMedia(prefersDark).matches;
+        setDarkTheme(isSysDark);
+      }
+    }
+    // user override - subsequent renders
+    if (darkTheme === true) {
+      localStorage.theme = 'dark';
       document.documentElement.classList.add('dark');
-    } else {
+    }
+    if (darkTheme === false) {
+      localStorage.theme = 'light';
       document.documentElement.classList.remove('dark');
     }
-
-    localStorage.setItem('theme', darkTheme ? 'dark' : 'light');
   }, [darkTheme]);
 
   useEffect(() => {
