@@ -1,8 +1,8 @@
 import React from 'react';
 
 const variants = {
-  primary: 'bg-green-600 text-white font-proxima-nova',
-  secondary: 'border border-1 border-white text-white',
+  primary: 'bg-primary dark:bg-primary-dark text-base dark:text-base-dark',
+  secondary: 'border border-primary text-primary dark:text-primary-dark',
   inverse: 'bg-white text-blue-600',
   danger: 'bg-red-600 text-white',
 };
