@@ -28,7 +28,7 @@ const FieldWrapper = (props: FieldWrapperProps) => {
           ${dark}
           ${className}`}
       >
-        <div>{children}</div>
+        <div className="pr-2">{children}</div>
         {label}
       </label>
       {error && <div>{error}</div>}
