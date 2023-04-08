@@ -17,7 +17,13 @@ const Dropdown = (props: DropdownProps) => {
 
   return (
     <FieldWrapper label={label} error={error} {...props}>
-      <select name={name} placeholder={placeholder} className={className}>
+      <select
+        name={name}
+        placeholder={placeholder}
+        className={`
+         bg-white focus:outline-none dark:bg-gray-800
+      ${className}`}
+      >
         {opts.map(({ label, value }) => (
           <option key={label?.toString()} value={value}>
             {label}
