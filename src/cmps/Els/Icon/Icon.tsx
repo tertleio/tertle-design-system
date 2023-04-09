@@ -10,7 +10,7 @@ const Icon = (props: IconProps) => {
   const { name, className } = props;
 
   return (
-    <svg className={`fill-black dark:fill-black ${className}`}>
+    <svg className={`fill-white dark:fill-black ${className}`}>
       <path d={icons[name]} />
     </svg>
   );
