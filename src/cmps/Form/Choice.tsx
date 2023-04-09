@@ -15,7 +15,7 @@ const Choice = (props: ChoiceProps) => {
   const { type, label, value, name, checked, onChange, id } = props;
 
   return (
-    <FieldWrapper label={label} name={name}>
+    <FieldWrapper label={label}>
       <input
         name={name}
         id={id}

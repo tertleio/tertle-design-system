@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
-const dark = `dark:text-gray-600 dark:border-[#141414] dark:bg-gray-800 dark:hover:bg-[#141414] dark:focus-within:border-b-gray-700`;
+const dark = `dark:text-gray-600  dark:hover:bg-[#141414] dark:focus-within:bg-[#141414]`;
+const fieldActiveDark = `dark:border-b-gray-700 dark:focus-within:border-b-primary-dark dark:focus-within:bg-transparent`;
 
 export type FieldWrapperProps = {
   children: ReactNode;
@@ -26,10 +27,15 @@ const FieldWrapper = (props: FieldWrapperProps) => {
       <label
         htmlFor={id}
         className={`
-          my-[1px] flex cursor-pointer justify-start rounded-lg border border-gray-100 bg-transparent p-3
-         font-secondary text-gray-600 focus-within:border-b-gray-300 hover:bg-gray-100 hover:opacity-90
+          my-[1px] flex cursor-pointer justify-start rounded-lg border border-transparent
+           p-3 font-secondary text-gray-600 focus-within:bg-gray-100 hover:bg-gray-100 hover:opacity-90
           ${dark}
-          ${className}`}
+          ${
+            isText
+              ? `border-b-gray-300 focus-within:border-b-primary focus-within:hover:bg-transparent ${fieldActiveDark}`
+              : ''
+          }
+            ${className}`}
       >
         <div className={isText ? 'w-full' : ''}>{children}</div>
         {label}
