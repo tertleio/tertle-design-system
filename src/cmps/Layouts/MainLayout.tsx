@@ -4,8 +4,8 @@ type MainLayoutProps = {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div className="flex min-h-screen flex-col">
-      <main className="flex-grow">{children}</main>
+    <div className="min-h-scren w-full">
+      <main className="justify-cente m-auto max-w-xl flex-row">{children}</main>
     </div>
   );
 };
