@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { SVG_github } from '@/assets/icons';
-
-console.log(SVG_github);
+import { Icon } from '@/cmps/Els/Icon';
 
 const Section = () => {
   return (
@@ -12,9 +10,7 @@ const Section = () => {
       </h2>
       <ul className="flex gap-3">
         <li>
-          <svg className="h-5 w-5 fill-black dark:fill-white">
-            <path d={SVG_github} />
-          </svg>
+          <Icon name="github"></Icon>
         </li>
       </ul>
     </div>
