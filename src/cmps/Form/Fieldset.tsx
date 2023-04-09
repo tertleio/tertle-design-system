@@ -12,10 +12,10 @@ const Fieldset = (props: FieldsetProps) => {
   return (
     <fieldset
       className={`
-        dark: dark:text-whit2 my-5 font-primary text-gray-600
+        my-5 font-primary
         ${className}`}
     >
-      <legend className={`text-md mx-5 my-1 text-gray-600 dark:text-gray-300`}>
+      <legend className={`text-md my-2 ml-1 text-gray-600 dark:text-gray-300`}>
         {legend}
       </legend>
       {children}

@@ -19,7 +19,7 @@ const Text = (props: TextProps) => {
         type={type}
         value={value}
         onChange={onChange}
-        className={`w-full self-stretch focus:outline-none`}
+        className={`w-full self-stretch bg-transparent focus:outline-none`}
       />
     </FieldWrapper>
   );
