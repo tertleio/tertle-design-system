@@ -7,7 +7,7 @@ type IconProps = {
 };
 
 const Icon = (props: IconProps) => {
-  const { name, className } = props;
+  const { name, className = '' } = props;
 
   return (
     <svg className={`fill-white dark:fill-black ${className}`}>
