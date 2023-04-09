@@ -150,7 +150,7 @@ function App() {
               />
             </Fieldset>
 
-            {/* <Fieldset legend="Checkbox questions">
+            <Fieldset legend="Checkbox questions">
               <Choice
                 name="inputKey"
                 type="checkbox"
@@ -169,7 +169,7 @@ function App() {
                 value="c3"
                 label="Checkbox 3"
               />
-            </Fieldset> */}
+            </Fieldset>
 
             <Fieldset legend="Idea URL">
               <Text
