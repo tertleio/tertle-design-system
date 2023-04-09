@@ -5,8 +5,7 @@ import fetchSim from '@/utils/fetchSim';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Button, Link } from '@/cmps/Els';
 import { Form, Fieldset, Dropdown, Choice, Text, Textarea } from '@/cmps/Form';
-import { Container } from '@/cmps/Container';
-import { Profile } from '@/features/profile/index';
+import { Profile } from '@/features/profile';
 
 const opts = [
   {
