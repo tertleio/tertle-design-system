@@ -171,10 +171,16 @@ function App() {
               />
             </Fieldset>
 
-            <Fieldset legend="Some text and text question?" className="flex">
-              <Text name="textFieldKey" value={text} cb={setText} />
+            <Fieldset legend="Idea URL">
+              <Text
+                name="ideaUrl"
+                value={dummyData?.ideaUrl}
+                onChange={handleChange}
+              />
+            </Fieldset>
+            <Fieldset legend="What is your idea about?">
               <Textarea
-                name="textareaFieldKey"
+                name="ideaPitch"
                 value={textarea}
                 rows={10}
                 cols={30}

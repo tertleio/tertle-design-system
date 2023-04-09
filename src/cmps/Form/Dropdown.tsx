@@ -22,7 +22,7 @@ const Dropdown = (props: DropdownProps) => {
         placeholder={placeholder}
         className={`
          bg-transparent focus:outline-none
-      ${className}`}
+        ${className}`}
       >
         {opts.map(({ label, value }) => (
           <option key={label?.toString()} value={value}>

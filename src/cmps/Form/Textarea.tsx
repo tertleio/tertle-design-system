@@ -19,6 +19,7 @@ const Textarea = (props: TextareaProps) => {
         value={value}
         rows={rows ?? 5}
         cols={cols ?? 1}
+        className="m-1 h-4 w-5 checked:border-transparent focus:ring-0"
         onChange={(e) => cb(e.target.value)}
       />
     </FieldWrapper>
