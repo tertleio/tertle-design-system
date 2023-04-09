@@ -1,7 +1,12 @@
-import React from 'react';
+import { Container } from '@/cmps/Container';
+import { MainLayout } from '@/cmps/Layouts';
 
 const Profile = () => {
-  return <h1>Profile</h1>;
+  return (
+    <MainLayout>
+      <Container>Profile</Container>
+    </MainLayout>
+  );
 };
 
-export default Profile;
+export { Profile };
