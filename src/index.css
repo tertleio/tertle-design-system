@@ -47,7 +47,7 @@
     height: 0.5em;
     border-radius: 50%;
     transform: scale(0);
-    transition: 90ms transform ease-in-out;
+    /* transition: 90ms transform ease-in-out; */
     border: 1px solid #60964f;
   }
 
@@ -65,6 +65,6 @@
   input[type='checkbox'],
   input[type='checkbox']:checked:before,
   input[type='checkbox']::before {
-    border-radius: 3%;
+    border-radius: 2%;
   }
 }
