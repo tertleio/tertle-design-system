@@ -1,9 +1,10 @@
+import React from 'react';
 import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 
 type ChoiceProps = FieldWrapperPassProps & {
   name: string;
   type: 'radio' | 'checkbox';
-  onChange?: any;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   checked: boolean;
   value?: string | number;
   className?: string;

@@ -1,3 +1,4 @@
+import React, { CSSProperties } from 'react';
 import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 
 type TextareaProps = FieldWrapperPassProps & {
@@ -5,22 +6,29 @@ type TextareaProps = FieldWrapperPassProps & {
   value: string;
   rows?: number;
   cols?: number;
-  cb: any;
+  onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
 };
 
 const Textarea = (props: TextareaProps) => {
-  const { label, value, name, rows, cols, cb } = props;
+  const { label, value, name, rows, cols, onChange } = props;
+  // onInput={e.target.style.height = '70px';
+  //         e.target.style.height = e.target.scrollHeight + 'px';
+  //       }}
+
+  function resize(e: React.FocusEvent<HTMLTextAreaElement, Element>): void {
+    e.target.style.height = '70px';
+    e.target.style.height = e.target.scrollHeight + 'px';
+  }
 
   return (
     <FieldWrapper label={label} id={value}>
       <textarea
+        onFocus={resize}
+        onInput={resize}
         name={name}
         id={value}
         value={value}
-        rows={rows ?? 5}
-        cols={cols ?? 1}
-        className="m-1 h-4 w-5 checked:border-transparent focus:ring-0"
-        onChange={(e) => cb(e.target.value)}
+        onChange={onChange}
       />
     </FieldWrapper>
   );

@@ -150,7 +150,7 @@ function App() {
               />
             </Fieldset>
 
-            <Fieldset legend="Checkbox questions">
+            {/* <Fieldset legend="Checkbox questions">
               <Choice
                 name="inputKey"
                 type="checkbox"
@@ -169,12 +169,12 @@ function App() {
                 value="c3"
                 label="Checkbox 3"
               />
-            </Fieldset>
+            </Fieldset> */}
 
             <Fieldset legend="Idea URL">
               <Text
                 name="ideaUrl"
-                value={dummyData?.ideaUrl}
+                value={dummyData?.ideaUrl || ''}
                 onChange={handleChange}
               />
             </Fieldset>
@@ -182,9 +182,7 @@ function App() {
               <Textarea
                 name="ideaPitch"
                 value={textarea}
-                rows={10}
-                cols={30}
-                cb={setTextarea}
+                onChange={(e) => setTextarea(e.target.value)}
               />
             </Fieldset>
 

@@ -9,13 +9,13 @@ export type TextProps = FieldWrapperPassProps & {
 };
 
 const Text = (props: TextProps) => {
-  const { name, value, type = 'text', label, onChange } = props;
+  const { name, value, type = 'text', label, id, onChange } = props;
 
   return (
-    <FieldWrapper label={label} id={value} type={type}>
+    <FieldWrapper label={label} id={id} type={type}>
       <input
         name={name}
-        id={value}
+        id={id}
         type={type}
         value={value}
         onChange={onChange}
