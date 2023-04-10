@@ -3,24 +3,28 @@ import * as icons from '@/assets/icons';
 type IconMember = keyof typeof icons;
 type IconProps = {
   name: IconMember;
+  size?: 'sm' | 'md' | 'lg';
   className?: string;
 };
 
+const sizes = {
+  sm: 'w-[16px] h-[16px]',
+  md: 'w-[18px] h-[18px]',
+  lg: 'w-[20px] h-[20px]',
+};
+
 const Icon = (props: IconProps) => {
-  const { name, className = '' } = props;
+  const { name, className = '', size = 'sm' } = props;
   const paths = icons[name];
 
   return (
     <svg
       className={`
-       h-[20px] w-[20px] border fill-black outline hover:cursor-pointer hover:opacity-90
+        fill-black outline outline-white hover:cursor-pointer hover:opacity-90
         dark:fill-white
+        ${sizes[size]}
         ${className}`}
-      // width="20px"
-      // height="20px"
-      // viewBox="0 0 16 16"
-      // preserveAspectRatio="xMidYMid meet"
-      // preserveAspectRatio="none"
+      viewBox="0 0 16 16"
     >
       {paths.map((path, i) => (
         <path key={i} d={path} />
