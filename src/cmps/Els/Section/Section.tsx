@@ -1,26 +1,27 @@
 import { Icon, IconMember } from '@/cmps/Els/Icon';
 
-const testIcons = ['github', 'twitter', 'linkedin'] as IconMember[];
+type SectionProps = {
+  title: string;
+  children: React.ReactNode;
+  aside?: React.ReactNode;
+  className?: string;
+};
 
-const Section = () => {
+const Section = (props: SectionProps) => {
+  const { title, aside, children, className = '' } = props;
+
   return (
-    <div className="m-7">
+    <div className={`m-7 ${className}`}>
       <div className="flex justify-between">
         <h2 className="font-primary text-2xl text-black dark:text-white">
-          Startup
+          {title}
         </h2>
         <div>
-          <div className="flex h-full flex-col justify-center">
-            <ul className="flex gap-6">
-              {testIcons.map((icon, i) => (
-                <li key={icon + i}>
-                  <Icon name={icon} />
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div className="flex h-full flex-col justify-center">{aside}</div>
         </div>
       </div>
+
+      {children}
     </div>
   );
 };
