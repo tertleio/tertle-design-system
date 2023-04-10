@@ -49,6 +49,15 @@ const Profile = () => {
         <Section title="Startup" aside={<List data={dummyData.startupLinks} />}>
           <h1>Profile</h1>
         </Section>
+        <Section title="Me" aside={<List data={dummyData.startupLinks} />}>
+          <h1>Some stuff about me</h1>
+        </Section>
+        <Section
+          title="Some other title that's abit longer"
+          aside={<List data={dummyData.startupLinks} />}
+        >
+          <h1>Some other section</h1>
+        </Section>
       </Container>
     </MainLayout>
   );
