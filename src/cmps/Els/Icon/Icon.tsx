@@ -1,3 +1,4 @@
+// imported icon base size must be 16x16px
 import * as icons from '@/assets/icons';
 
 type IconMember = keyof typeof icons;
