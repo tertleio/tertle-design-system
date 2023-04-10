@@ -20,7 +20,7 @@ const Icon = (props: IconProps) => {
   return (
     <svg
       className={`
-        fill-black outline outline-white hover:cursor-pointer hover:opacity-90
+        outlinehover:cursor-pointer fill-black hover:opacity-90
         dark:fill-white
         ${sizes[size]}
         ${className}`}
