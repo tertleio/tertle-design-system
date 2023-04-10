@@ -60,7 +60,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 ${
                   variant === 'primary'
                     ? 'fill-white dark:fill-black'
-                    : 'fill-gray-500 dark:fill-gray-500'
+                    : 'fill-gray-600 dark:fill-gray-500'
                 }`}
             />
           )}
