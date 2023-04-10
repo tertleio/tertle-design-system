@@ -5,8 +5,6 @@ const variants = {
   primary: 'bg-primary text-base dark:bg-primary-dark dark:text-base-dark',
   secondary: `border border-primary text-primary dark:text-primary-dark dark:border-primary-dark`,
   tertiary: `text-gray-500 border border-gray-200 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 text-white`,
-  inverse: 'bg-white text-blue-600',
-  danger: 'bg-red-600 text-white',
 };
 
 const sizes = {
@@ -37,6 +35,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const isIconOnly = !props.children;
+    console.log(variant);
+
     return (
       <div>
         <button
@@ -54,14 +54,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {icon && (
             <Icon
               name={icon}
+              variant={variant}
               size={size}
-              className={`
-                ${isIconOnly ? 'mr-0' : size === 'sm' ? 'mr-2' : 'mr-3'}
-                ${
-                  variant === 'primary'
-                    ? 'fill-white dark:fill-black'
-                    : 'fill-gray-600 dark:fill-gray-500'
-                }`}
+              className={`${
+                isIconOnly ? 'mr-0' : size === 'sm' ? 'mr-2' : 'mr-3'
+              }`}
             />
           )}
           {props.children}
