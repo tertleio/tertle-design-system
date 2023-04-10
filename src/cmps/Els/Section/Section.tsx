@@ -11,13 +11,17 @@ const Section = (props: SectionProps) => {
   const { title, aside, children, className = '' } = props;
 
   return (
-    <div className={`m-7 ${className}`}>
+    <div
+      className={`border-b border-gray-200  p-7 last:border-b-0 dark:border-gray-700 ${className}`}
+    >
       <div className="flex justify-between">
         <h2 className="font-primary text-2xl text-black dark:text-white">
           {title}
         </h2>
         <div>
-          <div className="flex h-full flex-col justify-center">{aside}</div>
+          <div className="mr-[-0.55em] flex h-full flex-col justify-center">
+            {aside}
+          </div>
         </div>
       </div>
 
