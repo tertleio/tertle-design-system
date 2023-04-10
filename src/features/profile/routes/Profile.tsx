@@ -82,6 +82,25 @@ const Profile = () => {
           <Button size="lg" variant="tertiary">
             Tertiary
           </Button>
+
+          <Button size="sm" variant="primary" icon="github" />
+
+          <Button size="md" variant="primary" icon="linkedin" />
+
+          <Button size="lg" variant="primary" icon="twitter" />
+
+          <Button size="sm" variant="secondary" />
+
+          <Button size="md" variant="secondary" />
+
+          <Button size="lg" variant="secondary">
+            Tertiary
+          </Button>
+          <Button size="sm" variant="tertiary" />
+
+          <Button size="md" variant="tertiary" />
+
+          <Button size="lg" variant="tertiary" />
         </Section>
       </Container>
     </MainLayout>

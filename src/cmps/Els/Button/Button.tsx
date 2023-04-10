@@ -36,7 +36,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const iconOnly = !props.children;
+    const isIconOnly = !props.children;
     return (
       <div>
         <button
@@ -45,7 +45,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className={`
             flex items-center justify-center font-primary font-medium uppercase
             hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70
-            ${iconOnly ? 'border-transparent dark:border-transparent' : ''}
+            ${isIconOnly ? 'border-transparent dark:border-transparent' : ''}
             ${variants[variant]}
             ${sizes[size]}
             ${className}`}
@@ -56,7 +56,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               name={icon}
               size={size}
               className={`
-                ${iconOnly ? 'mr-0' : 'mr-3'}
+                ${isIconOnly ? 'mr-0' : 'mr-3'}
                 ${
                   variant === 'primary'
                     ? 'fill-white dark:fill-black'
