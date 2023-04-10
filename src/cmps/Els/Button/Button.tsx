@@ -10,7 +10,7 @@ const variants = {
 };
 
 const sizes = {
-  sm: 'py-1.5 px-3 rounded-md text-sm font-secondary normal-case font-bold',
+  sm: 'py-1.5 px-2.5 rounded-md text-sm font-secondary normal-case font-bold',
   md: 'py-2 px-3 rounded-lg text-md',
   lg: 'py-3 px-6 rounded-lg text-lg',
 };

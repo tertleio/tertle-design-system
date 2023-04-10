@@ -24,7 +24,7 @@ const dummyData: dummyDataProps = {
 
 const List = ({ data }: any) => {
   return (
-    <ul className="flex gap-4 lg:gap-2">
+    <ul className="flex gap-2 lg:gap-0">
       {Object.entries(data).map((item, i) => {
         const iconName = item[0] as IconMember;
         const url = item[1] as string;
@@ -56,50 +56,68 @@ const Profile = () => {
         >
           <h1>Some other section</h1>
           <Button size="sm" variant="primary" icon="github">
-            With text
+            Primary Sm
           </Button>
           <Button size="md" variant="primary" icon="linkedin">
-            With text
+            Primary md
           </Button>
           <Button size="lg" variant="primary" icon="twitter">
-            With text
+            Primary lg
           </Button>
           <Button size="sm" variant="secondary">
-            With text
+            Secondary Sm
+          </Button>
+          <Button size="sm" variant="secondary" icon="github">
+            Primary Sm
+          </Button>
+          <Button size="md" variant="secondary" icon="linkedin">
+            Primary md
+          </Button>
+          <Button size="lg" variant="secondary" icon="twitter">
+            Primary lg
+          </Button>
+          <Button size="sm" variant="tertiary" icon="github">
+            Primary Sm
+          </Button>
+          <Button size="md" variant="tertiary" icon="linkedin">
+            Primary md
+          </Button>
+          <Button size="lg" variant="tertiary" icon="twitter">
+            Primary lg
+          </Button>
+          <Button size="sm" variant="secondary">
+            Secondary Sm
           </Button>
           <Button size="md" variant="secondary">
-            With text
+            Secondary Md
           </Button>
           <Button size="lg" variant="secondary">
-            Tertiary
+            Secondary Lg
           </Button>
           <Button size="sm" variant="tertiary">
-            With text
+            Tertiary Sm
           </Button>
           <Button size="md" variant="tertiary">
-            With text
+            Tertiary Md
           </Button>
           <Button size="lg" variant="tertiary">
-            Tertiary
+            Tertiary Lg
           </Button>
 
           <Button size="sm" variant="primary" icon="github" />
-
           <Button size="md" variant="primary" icon="linkedin" />
-
           <Button size="lg" variant="primary" icon="twitter" />
-
+          <Button size="sm" variant="secondary" icon="github" />
+          <Button size="md" variant="secondary" icon="linkedin" />
+          <Button size="lg" variant="secondary" icon="twitter" />
+          <Button size="sm" variant="tertiary" icon="github" />
+          <Button size="md" variant="tertiary" icon="linkedin" />
+          <Button size="lg" variant="tertiary" icon="twitter" />
           <Button size="sm" variant="secondary" />
-
           <Button size="md" variant="secondary" />
-
-          <Button size="lg" variant="secondary">
-            Tertiary
-          </Button>
+          <Button size="lg" variant="secondary" />
           <Button size="sm" variant="tertiary" />
-
           <Button size="md" variant="tertiary" />
-
           <Button size="lg" variant="tertiary" />
         </Section>
       </Container>
