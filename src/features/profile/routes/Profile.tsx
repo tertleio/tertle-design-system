@@ -40,14 +40,32 @@ const List = ({ data }: any) => {
   );
 };
 
+const Avatar = () => {
+  return (
+    <div className="flex flex-col items-center">
+      <img
+        className="h-24 w-24 rounded-full"
+        src="https://avatars.githubusercontent.com/u/1016365?v=4"
+        alt="Ryan Connaughton"
+      />
+      <h1 className="mt-2 font-primary text-2xl text-black dark:text-white">
+        {dummyData.name}
+      </h1>
+      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+        {dummyData.location}
+      </p>
+      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+        {dummyData.lookingFor}
+      </p>
+    </div>
+  );
+};
+
 const Profile = () => {
   return (
     <MainLayout>
       <Container>
-        <Section
-          title="Ryan Connaughton"
-          aside={<List data={dummyData.startupLinks} />}
-        >
+        <Section header={true} title="Ryan Connaughton" aside={<Avatar />}>
           <h1>Profile</h1>
         </Section>
 
