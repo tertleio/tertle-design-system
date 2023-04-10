@@ -35,7 +35,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const isIconOnly = !props.children;
-    console.log(variant);
 
     return (
       <div>
