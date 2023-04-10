@@ -10,7 +10,7 @@ const variants = {
 };
 
 const sizes = {
-  sm: 'py-1.5 px-[0.4rem] rounded-md text-sm font-secondary normal-case font-bold',
+  sm: 'py-1.5 px-3 rounded-md text-sm font-secondary normal-case font-bold',
   md: 'py-2 px-3 rounded-lg text-md',
   lg: 'py-3 px-6 rounded-lg text-lg',
 };
@@ -56,7 +56,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               name={icon}
               size={size}
               className={`
-                ${isIconOnly ? 'mr-0' : 'mr-3'}
+                ${isIconOnly ? 'mr-0' : size === 'sm' ? 'mr-2' : 'mr-3'}
                 ${
                   variant === 'primary'
                     ? 'fill-white dark:fill-black'
