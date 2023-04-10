@@ -1,4 +1,8 @@
-import { Icon, IconMember } from '@/cmps/Els/Icon';
+import { IconMember } from '@/cmps/Els/Icon';
+import { Button } from '@/cmps/Els/Button';
+import { MainLayout } from '@/cmps/Layouts';
+import { Container } from '@/cmps/Container';
+import { Section } from '@/cmps/Els/Section';
 
 type dummyDataProps = {
   name: string;
@@ -18,22 +22,16 @@ const dummyData: dummyDataProps = {
   },
 };
 
-import { MainLayout } from '@/cmps/Layouts';
-import { Container } from '@/cmps/Container';
-import { Section } from '@/cmps/Els/Section';
-
 const List = ({ data }: any) => {
-  const aside = Object.entries(data);
-
   return (
-    <ul className="flex gap-6">
-      {aside.map((item, i) => {
+    <ul className="flex gap-4 lg:gap-2">
+      {Object.entries(data).map((item, i) => {
         const iconName = item[0] as IconMember;
         const url = item[1] as string;
         return (
           <li key={item[0] + i}>
             <a href={url}>
-              <Icon name={iconName} />
+              <Button icon={iconName} variant="tertiary" />
             </a>
           </li>
         );
@@ -57,6 +55,33 @@ const Profile = () => {
           aside={<List data={dummyData.startupLinks} />}
         >
           <h1>Some other section</h1>
+          <Button size="sm" variant="primary" icon="github">
+            With text
+          </Button>
+          <Button size="md" variant="primary" icon="linkedin">
+            With text
+          </Button>
+          <Button size="lg" variant="primary" icon="twitter">
+            With text
+          </Button>
+          <Button size="sm" variant="secondary">
+            With text
+          </Button>
+          <Button size="md" variant="secondary">
+            With text
+          </Button>
+          <Button size="lg" variant="secondary">
+            Tertiary
+          </Button>
+          <Button size="sm" variant="tertiary">
+            With text
+          </Button>
+          <Button size="md" variant="tertiary">
+            With text
+          </Button>
+          <Button size="lg" variant="tertiary">
+            Tertiary
+          </Button>
         </Section>
       </Container>
     </MainLayout>
