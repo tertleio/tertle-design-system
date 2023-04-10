@@ -8,12 +8,25 @@ type IconProps = {
 
 const Icon = (props: IconProps) => {
   const { name, className = '' } = props;
+  const paths = icons[name];
 
   return (
-    <svg className={`fill-white dark:fill-black ${className}`}>
-      <path d={icons[name]} />
+    <svg
+      className={`
+       h-[20px] w-[20px] border fill-black outline hover:cursor-pointer hover:opacity-90
+        dark:fill-white
+        ${className}`}
+      // width="20px"
+      // height="20px"
+      // viewBox="0 0 16 16"
+      // preserveAspectRatio="xMidYMid meet"
+      // preserveAspectRatio="none"
+    >
+      {paths.map((path, i) => (
+        <path key={i} d={path} />
+      ))}
     </svg>
   );
 };
 
-export { Icon };
+export { Icon, type IconMember };
