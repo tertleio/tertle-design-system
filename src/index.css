@@ -22,8 +22,32 @@
     font-weight: 400;
     background: #fafafa;
   }
-  html.dark {
-    @apply bg-base-dark;
+  body {
+    @apply bg-white dark:bg-base-dark;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-primary;
+  }
+  h1 {
+    @apply text-2xl text-white dark:text-black md:text-3xl;
+  }
+  h2 {
+    @apply font-primary text-[1.1em] text-black dark:text-white sm:text-2xl lg:text-xl;
+  }
+  h3 {
+    @apply text-lg text-gray-600 dark:text-gray-500;
+  }
+  h4 {
+    @apply text-2xl;
+  }
+  p {
+    @apply text-gray-600;
+  }
+  a {
+    @apply text-primary hover:text-black dark:text-primary-dark dark:hover:text-white;
   }
 
   input[type='radio'],
