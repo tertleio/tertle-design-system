@@ -89,7 +89,7 @@ const Profile = () => {
             </p>
           </div>
           <div className="flex-row">
-            <Fieldset legend="Ambition">
+            <Fieldset legend="Ambition" variant="inline">
               <Choice
                 name="1"
                 id="1"
