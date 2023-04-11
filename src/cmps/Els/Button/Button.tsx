@@ -4,7 +4,7 @@ import { Icon, IconMember } from '../Icon';
 const variants = {
   primary: 'bg-primary text-base dark:bg-primary-dark dark:text-base-dark',
   secondary: `border border-primary text-primary dark:text-primary-dark dark:border-primary-dark`,
-  tertiary: `text-gray-500 border border-gray-200 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-[#181818] text-white`,
+  tertiary: `text-gray-500 border border-gray-200 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 text-white`,
 };
 
 const sizes = {

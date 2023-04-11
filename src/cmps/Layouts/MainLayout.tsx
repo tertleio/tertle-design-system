@@ -4,7 +4,7 @@ type MainLayoutProps = {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div className="w-full px-1 py-5 md:px-5">
+    <div className="w-full py-5">
       <main className="m-auto max-w-xl">{children}</main>
     </div>
   );

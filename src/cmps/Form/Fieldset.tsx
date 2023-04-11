@@ -17,7 +17,7 @@ const Fieldset = (props: FieldsetProps) => {
     >
       <div>
         <legend
-          className={`text-md my-2 ml-1 text-gray-600 dark:text-gray-300`}
+          className={`my-2 ml-1 text-base text-gray-600 dark:text-gray-300`}
         >
           {legend}
         </legend>

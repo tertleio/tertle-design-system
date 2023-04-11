@@ -55,13 +55,14 @@ const Profile = () => {
   return (
     <MainLayout>
       <Container>
-        <Section className="bg-black hover:cursor-auto  hover:bg-black dark:bg-[#171717] hover:dark:bg-[#171717]">
+        <Section className="bg-black hover:cursor-default  hover:bg-black dark:bg-[#171717] dark:hover:bg-[#171717]">
           <div className="flex justify-between">
             <div>
               <h1 className="mb-1 dark:text-white md:mb-2">{dummyData.name}</h1>
               <div className="text-[1.25em] text-gray-500 dark:text-gray-500 md:text-2xl">
                 {dummyData.location} 🇬🇧
               </div>
+              <p className="mt-2">{dummyData.lookingFor}</p>
             </div>
             <Avatar />
           </div>

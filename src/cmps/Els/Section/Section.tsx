@@ -15,8 +15,8 @@ const Section = (props: SectionProps) => {
   return (
     <div
       className={`
-        border-b border-gray-300 p-4 text-gray-600 first:rounded-t-3xl first:py-6 last:rounded-b-3xl last:border-b-0 last:pb-8 hover:cursor-pointer hover:bg-gray-100
-        dark:border-gray-700 dark:hover:bg-[#1D1D1D] sm:p-8 sm:first:py-5
+        border-b border-gray-300 p-5 text-gray-600 first:rounded-t-3xl first:pb-10 last:rounded-b-3xl last:border-b-0 hover:cursor-pointer hover:bg-gray-100
+        dark:border-gray-700 dark:hover:bg-[#171717] sm:p-8 sm:first:py-5
         ${className}`}
     >
       <div className="mb-3 flex justify-between sm:mb-5">
