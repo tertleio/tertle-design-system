@@ -89,7 +89,7 @@ const Profile = () => {
             </p>
           </div>
           <div className="flex-row">
-            <Fieldset legend="Ambition" className="flex-inline flex gap-1">
+            <Fieldset legend="Ambition">
               <Choice
                 name="1"
                 id="1"
