@@ -13,7 +13,7 @@ type dummyDataProps = {
 };
 
 const dummyData: dummyDataProps = {
-  name: 'Ryan Connaughton',
+  name: 'Ryan Smith',
   location: 'London, UK',
   lookingFor: 'Something cool to work on',
   startupLinks: {
@@ -44,7 +44,7 @@ const List = ({ data }: any) => {
 const Avatar = () => {
   return (
     <img
-      className="h-24 w-24 rounded-full border-2 border-gray-700 dark:border-gray-700 md:h-28 md:w-28"
+      className="ml-2 h-24 w-24 rounded-full border-2 border-gray-700 dark:border-gray-700 md:h-28 md:w-28"
       src="https://avatars.githubusercontent.com/u/1016365?v=4"
       alt="Ryan Connaughton"
     />
@@ -58,11 +58,19 @@ const Profile = () => {
         <Section className="bg-black hover:cursor-default  hover:bg-black dark:bg-[#171717] dark:hover:bg-[#171717]">
           <div className="flex justify-between">
             <div>
-              <h1 className="mb-1 dark:text-white md:mb-2">{dummyData.name}</h1>
+              <h1 className="mb-0.5 dark:text-white sm:mb-1">
+                {dummyData.name}
+              </h1>
               <div className="text-[1.25em] text-gray-500 dark:text-gray-500 md:text-2xl">
                 {dummyData.location} 🇬🇧
               </div>
-              <p className="mt-2">{dummyData.lookingFor}</p>
+              <ul className="flex-inline flex flex-wrap gap-3 sm:mt-1">
+                <li className="opacity-50">Join your idea</li>
+                <li className="opacity-50">|</li>
+                <li className="text-white dark:text-primary-dark">
+                  Join my idea
+                </li>
+              </ul>
             </div>
             <Avatar />
           </div>
@@ -77,7 +85,7 @@ const Profile = () => {
             </p>
           </div>
           <div className="flex-row">
-            <h3>Goal</h3>
+            <h3 className="mb-3">Goal</h3>
             <Fieldset legend="Goal" className="flex-inline flex gap-1">
               <Choice name="1" id="1" type="radio" label="Indie/lifestyle" />
               <Choice name="2" id="2" type="radio" label="To the moon" />
@@ -87,7 +95,8 @@ const Profile = () => {
         </Section>
 
         <Section title="Me" aside={<List data={dummyData.startupLinks} />}>
-          <p>Some stuff about me</p>
+          <h3 className="mb-3">Looking for</h3>
+          <p>{dummyData.lookingFor}</p>
         </Section>
 
         <Section
