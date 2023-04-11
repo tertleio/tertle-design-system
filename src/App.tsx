@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import fetchSim from '@/hooks/useFetchSim';
+import useFetchSim from '@/hooks/useFetchSim';
 
 // Components
 import { Container } from '@/cmps/Container';
@@ -19,16 +20,14 @@ const opts = [
   },
 ];
 
+const pid = '1';
+
 function App() {
+  const { isLoading, data } = useFetchSim(pid);
   const [text, setText] = useState('');
   const [textarea, setTextarea] = useState('');
   const [darkTheme, setDarkTheme] = useState<boolean | null>(null);
   const [dummyData, setDummyData] = useState<any>({});
-
-  function handleChange(e: any) {
-    const { name, value } = e.target;
-    setDummyData({ ...dummyData, [name]: value });
-  }
 
   useEffect(() => {
     // initial render state
@@ -57,8 +56,18 @@ function App() {
   }, [darkTheme]);
 
   useEffect(() => {
-    fetchSim().then((data) => setDummyData(data));
-  }, []);
+    if (data) setDummyData(data);
+  }, [isLoading, data]);
+
+  if (isLoading)
+    return (
+      <h1 className="m-5 flex content-center justify-center">Loading...</h1>
+    );
+
+  function handleChange(e: any) {
+    const { name, value } = e.target;
+    setDummyData({ ...dummyData, [name]: value });
+  }
 
   function handleSubmit(e: any) {
     e.preventDefault();
