@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { IconMember } from '@/cmps/Els/Icon';
 import { Button } from '@/cmps/Els/Button';
 import { MainLayout } from '@/cmps/Layouts';
@@ -52,6 +54,10 @@ const Avatar = () => {
 };
 
 const Profile = () => {
+  const [isEditing, setIsEditing] = React.useState(false);
+  const [isSaving, setIsSaving] = React.useState(false);
+  const [data, setData] = React.useState(dummyData);
+
   return (
     <MainLayout>
       <Container>
@@ -85,11 +91,28 @@ const Profile = () => {
             </p>
           </div>
           <div className="flex-row">
-            <h3 className="mb-3">Goal</h3>
-            <Fieldset legend="Goal" className="flex-inline flex gap-1">
-              <Choice name="1" id="1" type="radio" label="Indie/lifestyle" />
-              <Choice name="2" id="2" type="radio" label="To the moon" />
-              <Choice name="3" id="3" type="radio" label="To the stars" />
+            <Fieldset legend="Ambition" className="flex-inline flex gap-1">
+              <Choice
+                name="1"
+                id="1"
+                type="radio"
+                checked={true}
+                label="Indie/lifestyle"
+              />
+              <Choice
+                name="2"
+                id="2"
+                type="radio"
+                checked={false}
+                label="To the moon"
+              />
+              <Choice
+                name="3"
+                id="3"
+                type="radio"
+                checked={false}
+                label="To the stars"
+              />
             </Fieldset>
           </div>
         </Section>

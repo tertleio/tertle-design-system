@@ -2,7 +2,7 @@ import React from 'react';
 
 type FieldsetProps = {
   children: React.ReactNode;
-  legend: string;
+  legend?: string;
   className?: string;
 };
 

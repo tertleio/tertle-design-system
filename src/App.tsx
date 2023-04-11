@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import fetchSim from '@/utils/fetchSim';
+import fetchSim from '@/hooks/useFetchSim';
 
 // Components
 import { Container } from '@/cmps/Container';
@@ -69,27 +69,7 @@ function App() {
 
   return (
     <>
-      <div className="w-100 m-auto flex max-w-5xl flex-wrap gap-2">
-        <Button variant="primary" size="sm">
-          primary sm
-        </Button>
-        <Button variant="primary" size="md">
-          primary md
-        </Button>
-        <Button variant="primary" size="lg">
-          primary lg
-        </Button>
-        <Button variant="secondary" size="sm">
-          secondary sm
-        </Button>
-        <Button variant="secondary" size="md">
-          secondary md
-        </Button>
-        <Button variant="secondary" size="lg">
-          secondary lg
-        </Button>
-      </div>
-      <Fieldset legend="Toggle darkTheme mode">
+      <Fieldset className="mx-5">
         <Choice
           name="darkTheme"
           type="checkbox"
@@ -100,9 +80,6 @@ function App() {
       </Fieldset>
       <Profile />
 
-      <h1 className="text-green-600 flex justify-center text-3xl font-bold">
-        Btns
-      </h1>
       <div className="flex-column m-10 flex justify-center gap-3">
         <h1 className="text-green-600 text-3xl font-bold">Links</h1>
         <Router>
