@@ -13,7 +13,16 @@ type ChoiceProps = FieldWrapperPassProps & {
 // TODO: switch
 
 const Choice = (props: ChoiceProps) => {
-  const { type, label, value, name, checked, onChange, id } = props;
+  const {
+    type,
+    label,
+    value,
+    name,
+    checked,
+    onChange,
+    id,
+    className = '',
+  } = props;
 
   return (
     <FieldWrapper label={label}>
@@ -24,7 +33,9 @@ const Choice = (props: ChoiceProps) => {
         checked={checked}
         onChange={onChange}
         value={value}
-        className="mt-[0.3em] h-4 checked:border-transparent focus:ring-0"
+        className={`
+          mt-[0.3em] h-4 checked:border-transparent focus:ring-0
+          ${className}`}
       />
     </FieldWrapper>
   );

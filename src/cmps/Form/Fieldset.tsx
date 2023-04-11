@@ -7,7 +7,7 @@ type FieldsetProps = {
 };
 
 const Fieldset = (props: FieldsetProps) => {
-  const { children, legend, className } = props;
+  const { children, legend, className = '' } = props;
 
   return (
     <fieldset

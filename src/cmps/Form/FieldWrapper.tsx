@@ -19,7 +19,7 @@ type FieldWrapperPassProps = Omit<
 >;
 
 const FieldWrapper = (props: FieldWrapperProps) => {
-  const { children, className, label, error, id, type } = props;
+  const { children, className = '', label, error, id, type } = props;
   const isText = type === 'text' || type === 'email' || type === 'password';
 
   return (
