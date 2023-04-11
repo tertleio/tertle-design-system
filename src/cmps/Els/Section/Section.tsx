@@ -16,10 +16,10 @@ const Section = (props: SectionProps) => {
     <div
       className={`
         border-b border-gray-300 p-4 text-gray-600 first:rounded-t-3xl first:py-6 last:rounded-b-3xl last:border-b-0 last:pb-8 hover:cursor-pointer hover:bg-gray-100
-        dark:border-gray-700 dark:hover:bg-[#1D1D1D] sm:p-8 sm:first:py-9
+        dark:border-gray-700 dark:hover:bg-[#1D1D1D] sm:p-8 sm:first:py-5
         ${className}`}
     >
-      <div className="flex justify-between">
+      <div className="mb-3 flex justify-between sm:mb-5">
         <h2 className="lg:text-1xl font-primary text-[1.2em] text-black dark:text-white sm:text-2xl">
           {title}
         </h2>

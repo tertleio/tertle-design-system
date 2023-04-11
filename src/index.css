@@ -23,7 +23,7 @@
     background: #fafafa;
   }
   html.dark {
-    background: black;
+    @apply bg-base-dark;
   }
 
   input[type='radio'],

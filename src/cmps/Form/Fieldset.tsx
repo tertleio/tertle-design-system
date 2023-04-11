@@ -15,9 +15,13 @@ const Fieldset = (props: FieldsetProps) => {
         my-5 font-primary
         ${className}`}
     >
-      <legend className={`text-md my-2 ml-1 text-gray-600 dark:text-gray-300`}>
-        {legend}
-      </legend>
+      <div>
+        <legend
+          className={`text-md my-2 ml-1 text-gray-600 dark:text-gray-300`}
+        >
+          {legend}
+        </legend>
+      </div>
       {children}
     </fieldset>
   );

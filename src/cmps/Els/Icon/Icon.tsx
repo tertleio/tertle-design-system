@@ -12,7 +12,7 @@ type IconProps = {
 const variants = {
   primary: 'fill-white dark:fill-black',
   secondary: 'fill-primary dark:fill-primary-dark',
-  tertiary: 'fill-gray-600 dark:fill-gray-500',
+  tertiary: 'fill-gray-600 dark:fill-gray-600',
 };
 
 const sizes = {

@@ -3,6 +3,7 @@ import { Button } from '@/cmps/Els/Button';
 import { MainLayout } from '@/cmps/Layouts';
 import { Container } from '@/cmps/Container';
 import { Section } from '@/cmps/Els/Section';
+import { Form, Fieldset, Choice } from '@/cmps/Form';
 
 type dummyDataProps = {
   name: string;
@@ -69,7 +70,23 @@ const Profile = () => {
         </Section>
 
         <Section title="Startup" aside={<List data={dummyData.startupLinks} />}>
-          <h1>Profile</h1>
+          <div>
+            <h3 className="mb-3 font-primary text-gray-600 dark:text-gray-400">
+              Idea
+            </h3>
+            <p>
+              Tertle makes it easy for aspiring tech founders to discover and
+              meet one another in pursuit of a common goal.
+            </p>
+          </div>
+          <div className="flex-row">
+            <h3>Goal</h3>
+            <Fieldset legend="Goal" className="flex-inline flex gap-1">
+              <Choice name="1" id="1" type="radio" label="Indie/lifestyle" />
+              <Choice name="2" id="2" type="radio" label="To the moon" />
+              <Choice name="3" id="3" type="radio" label="To the stars" />
+            </Fieldset>
+          </div>
         </Section>
 
         <Section title="Me" aside={<List data={dummyData.startupLinks} />}>
