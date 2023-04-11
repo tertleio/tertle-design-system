@@ -43,7 +43,7 @@ const List = ({ data }: any) => {
 const Avatar = () => {
   return (
     <img
-      className="h-28 w-28 rounded-full border-2 border-gray-700 dark:border-gray-700"
+      className="h-24 w-24 rounded-full border-2 border-gray-700 dark:border-gray-700 md:h-28 md:w-28"
       src="https://avatars.githubusercontent.com/u/1016365?v=4"
       alt="Ryan Connaughton"
     />
@@ -57,12 +57,10 @@ const Profile = () => {
         <Section className="bg-black hover:cursor-auto  hover:bg-black dark:bg-[#171717] hover:dark:bg-[#171717]">
           <div className="flex justify-between">
             <div>
-              <h1
-                className={`mb-2 font-primary text-2xl text-white dark:text-white md:text-3xl`}
-              >
+              <h1 className="mb-1 font-primary text-2xl text-white dark:text-white md:mb-2 md:text-3xl">
                 {dummyData.name}
               </h1>
-              <div className="text-2xl text-gray-500 dark:text-gray-500">
+              <div className="text-[1.25em] text-gray-500 dark:text-gray-500 md:text-2xl">
                 {dummyData.location} 🇬🇧
               </div>
             </div>
