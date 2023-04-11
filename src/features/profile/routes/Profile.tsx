@@ -58,9 +58,7 @@ const Profile = () => {
         <Section className="bg-black hover:cursor-auto  hover:bg-black dark:bg-[#171717] hover:dark:bg-[#171717]">
           <div className="flex justify-between">
             <div>
-              <h1 className="mb-1 font-primary text-2xl text-white dark:text-white md:mb-2 md:text-3xl">
-                {dummyData.name}
-              </h1>
+              <h1 className="mb-1 dark:text-white md:mb-2">{dummyData.name}</h1>
               <div className="text-[1.25em] text-gray-500 dark:text-gray-500 md:text-2xl">
                 {dummyData.location} 🇬🇧
               </div>
@@ -71,9 +69,7 @@ const Profile = () => {
 
         <Section title="Startup" aside={<List data={dummyData.startupLinks} />}>
           <div>
-            <h3 className="mb-3 font-primary text-gray-600 dark:text-gray-400">
-              Idea
-            </h3>
+            <h3 className="mb-3">Idea</h3>
             <p>
               Tertle makes it easy for aspiring tech founders to discover and
               meet one another in pursuit of a common goal.
@@ -90,14 +86,14 @@ const Profile = () => {
         </Section>
 
         <Section title="Me" aside={<List data={dummyData.startupLinks} />}>
-          <h1>Some stuff about me</h1>
+          <p>Some stuff about me</p>
         </Section>
 
         <Section
           title="Some other title that's abit longer"
           aside={<List data={dummyData.startupLinks} />}
         >
-          <h1>Some stuff about me</h1>
+          <p>Some stuff about me</p>
         </Section>
       </Container>
     </MainLayout>
