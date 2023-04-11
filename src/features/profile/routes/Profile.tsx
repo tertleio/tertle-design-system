@@ -42,22 +42,11 @@ const List = ({ data }: any) => {
 
 const Avatar = () => {
   return (
-    <div className="flex flex-col items-center">
-      <img
-        className="h-24 w-24 rounded-full"
-        src="https://avatars.githubusercontent.com/u/1016365?v=4"
-        alt="Ryan Connaughton"
-      />
-      <h1 className="mt-2 font-primary text-2xl text-black dark:text-white">
-        {dummyData.name}
-      </h1>
-      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-        {dummyData.location}
-      </p>
-      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-        {dummyData.lookingFor}
-      </p>
-    </div>
+    <img
+      className="h-28 w-28 rounded-full border-2 border-gray-700 dark:border-gray-700"
+      src="https://avatars.githubusercontent.com/u/1016365?v=4"
+      alt="Ryan Connaughton"
+    />
   );
 };
 
@@ -65,8 +54,15 @@ const Profile = () => {
   return (
     <MainLayout>
       <Container>
-        <Section header={true} title="Ryan Connaughton" aside={<Avatar />}>
-          <h1>Profile</h1>
+        <Section className="bg-black hover:cursor-default hover:bg-black dark:bg-[#171717] dark:hover:bg-[#171717]">
+          <div className="flex justify-between">
+            <h1
+              className={`font-primary text-2xl text-white dark:text-white md:text-3xl`}
+            >
+              {dummyData.name}
+            </h1>
+            <Avatar />
+          </div>
         </Section>
 
         <Section title="Startup" aside={<List data={dummyData.startupLinks} />}>
