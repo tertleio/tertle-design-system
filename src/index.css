@@ -38,7 +38,7 @@
     @apply font-primary text-xl text-black dark:text-white sm:text-2xl;
   }
   h3 {
-    @apply text-base text-gray-600 dark:text-gray-500;
+    @apply text-base text-gray-600 dark:text-gray-400;
   }
   h4 {
     @apply text-2xl;
