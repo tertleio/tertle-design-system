@@ -12,7 +12,7 @@ type dummyDataProps = {
 };
 
 const dummyData: dummyDataProps = {
-  name: 'John Doe',
+  name: 'Ryan Connaughton',
   location: 'London, UK',
   lookingFor: 'Something cool to work on',
   startupLinks: {
@@ -54,13 +54,18 @@ const Profile = () => {
   return (
     <MainLayout>
       <Container>
-        <Section className="bg-black hover:cursor-default hover:bg-black dark:bg-[#171717] dark:hover:bg-[#171717]">
+        <Section className="bg-black hover:cursor-auto  hover:bg-black dark:bg-[#171717] hover:dark:bg-[#171717]">
           <div className="flex justify-between">
-            <h1
-              className={`font-primary text-2xl text-white dark:text-white md:text-3xl`}
-            >
-              {dummyData.name}
-            </h1>
+            <div>
+              <h1
+                className={`mb-2 font-primary text-2xl text-white dark:text-white md:text-3xl`}
+              >
+                {dummyData.name}
+              </h1>
+              <div className="text-2xl text-gray-500 dark:text-gray-500">
+                {dummyData.location} 🇬🇧
+              </div>
+            </div>
             <Avatar />
           </div>
         </Section>
