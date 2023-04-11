@@ -13,7 +13,7 @@ type FieldsetProps = {
 };
 
 const Fieldset = (props: FieldsetProps) => {
-  const { children, legend, variant = 'inline', className = '' } = props;
+  const { children, legend, variant = 'default', className = '' } = props;
 
   return (
     <fieldset
@@ -28,7 +28,10 @@ const Fieldset = (props: FieldsetProps) => {
           {legend}
         </legend>
       </div>
-      <div className={`${variant === 'inline' ? 'flex flex-wrap' : ''}`}>
+      <div
+        className={`
+          ${variant === 'inline' ? 'flex flex-wrap' : ''}`}
+      >
         {children}
       </div>
     </fieldset>
