@@ -22,9 +22,10 @@
     font-weight: 400;
     background: #fafafa;
   }
-  body {
-    @apply bg-white dark:bg-base-dark;
+  html.dark {
+    background: black;
   }
+
   h1,
   h2,
   h3,
