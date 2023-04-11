@@ -27,17 +27,13 @@ function App() {
   const { isLoading, data } = useFetchSim(pid);
   const [text, setText] = useState('');
   const [textarea, setTextarea] = useState('');
-  const [darkTheme, setDarkTheme] = useTheme(null);
+  const [darkTheme, setDarkTheme] = useTheme<>(null);
   const [dummyData, setDummyData] = useState<any>({});
 
   useEffect(() => {
     if (data) setDummyData(data);
   }, [isLoading, data]);
-
-  if (isLoading)
-    return (
-      <h1 className="m-5 flex content-center justify-center">Loading...</h1>
-    );
+  if (isLoading) return <h1 className="m-5 flex justify-center">Loading...</h1>;
 
   function handleChange(e: any) {
     const { name, value } = e.target;

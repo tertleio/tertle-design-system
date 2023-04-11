@@ -35,8 +35,9 @@ function fetchSim(pid: string | number) {
   });
 }
 
-const useFetchSim = ({ pid }: Sim) => {
-  const [loading, setLoading] = React.useState<boolean>(true);
+const useFetchSim = (pid: string | number) => {
+  const [isLoading, setLoading] = React.useState<boolean>(true);
+  const [error, setError] = React.useState<string>('');
   const [data, setData] = React.useState({});
 
   React.useEffect(() => {
@@ -47,7 +48,7 @@ const useFetchSim = ({ pid }: Sim) => {
     })();
   }, []);
 
-  return { loading, data };
+  return { isLoading, error, data };
 };
 
 export default useFetchSim;

@@ -64,9 +64,7 @@ const Profile = () => {
         <Section className="bg-black hover:cursor-default  hover:bg-black dark:bg-[#171717] dark:hover:bg-[#171717]">
           <div className="flex justify-between">
             <div>
-              <h1 className="mb-0.5 dark:text-white sm:mb-1">
-                {dummyData.name}
-              </h1>
+              <h1 className="mb-0.5 text-white sm:mb-1">{dummyData.name}</h1>
               <div className="text-[1.25em] text-gray-500 dark:text-gray-500 md:text-2xl">
                 {dummyData.location} 🇬🇧
               </div>
@@ -98,6 +96,7 @@ const Profile = () => {
                 type="radio"
                 checked={true}
                 label="Indie/lifestyle"
+                onChange={() => console.log('change')}
               />
               <Choice
                 name="2"
@@ -105,6 +104,7 @@ const Profile = () => {
                 type="radio"
                 checked={false}
                 label="To the moon"
+                onChange={() => console.log('change')}
               />
               <Choice
                 name="3"
@@ -112,6 +112,7 @@ const Profile = () => {
                 type="radio"
                 checked={false}
                 label="To the stars"
+                onChange={() => console.log('change')}
               />
             </Fieldset>
           </div>
