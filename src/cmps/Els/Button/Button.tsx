@@ -53,32 +53,30 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const isIconOnly = !props.children;
 
     return (
-      <div>
-        <button
-          ref={ref}
-          type={type}
-          className={`
+      <button
+        ref={ref}
+        type={type}
+        className={`
             flex content-center items-center justify-center font-primary font-medium uppercase
             hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70
             ${isIconOnly ? 'border-transparent dark:border-transparent' : ''}
             ${variants[variant]}
             ${sizes[size]}
             ${className}`}
-          {...props}
-        >
-          {icon && (
-            <Icon
-              name={icon}
-              size={size}
-              className={`
+        {...props}
+      >
+        {icon && (
+          <Icon
+            name={icon}
+            size={size}
+            className={`
                 ${iconFills[variant]}
                 ${isIconOnly ? 'mr-0' : size === 'sm' ? 'mr-2' : 'mr-3'}
                 `}
-            />
-          )}
-          {props.children}
-        </button>
-      </div>
+          />
+        )}
+        {props.children}
+      </button>
     );
   }
 );

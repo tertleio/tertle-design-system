@@ -27,7 +27,7 @@ const dummyData: dummyDataProps = {
 
 const List = ({ data }: any) => {
   return (
-    <ul className="flex gap-1 md:gap-0">
+    <ul className="flex items-center gap-1 md:gap-0">
       {Object.entries(data).map((item, i) => {
         const iconName = item[0] as IconMember;
         const url = item[1] as string;
