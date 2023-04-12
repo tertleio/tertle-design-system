@@ -25,39 +25,21 @@ const dummyData: dummyDataProps = {
   },
 };
 
-const List = ({ data }: any) => {
-  return (
-    <ul className="flex items-center gap-1 md:gap-0">
-      {Object.entries(data).map((item, i) => {
-        const iconName = item[0] as IconMember;
-        const url = item[1] as string;
-        return (
-          <li key={item[0] + i}>
-            <a href={url}>
-              <Button icon={iconName} variant="secondaryGray" />
-            </a>
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
-
-const Avatar = () => {
-  return (
-    <img
-      className="ml-2 h-24 w-24 rounded-full border-2 border-gray-700 dark:border-gray-700 md:h-28 md:w-28"
-      src="https://avatars.githubusercontent.com/u/1016365?v=4"
-      alt="Ryan Connaughton"
-    />
-  );
-};
-
 const Profile = () => {
   const [isEditing, setIsEditing] = React.useState(false);
   const [isSaving, setIsSaving] = React.useState(false);
   const [isAdmin, setIsAdmin] = React.useState(true);
   const [data, setData] = React.useState(dummyData);
+
+  const Avatar = () => {
+    return (
+      <img
+        className="ml-2 h-24 w-24 rounded-full border-2 border-gray-700 dark:border-gray-700 md:h-28 md:w-28"
+        src="https://avatars.githubusercontent.com/u/1016365?v=4"
+        alt="Ryan Connaughton"
+      />
+    );
+  };
 
   const Controls = () => {
     return !isEditing ? (
@@ -73,6 +55,25 @@ const Profile = () => {
           Save
         </Button>
       </>
+    );
+  };
+
+  const AsideStartup = ({ data }: any) => {
+    return (
+      <ul className="flex items-center gap-3 sm:gap-1">
+        {Object.entries(data).map((item, i) => {
+          const iconName = item[0] as IconMember;
+          const url = item[1] as string;
+          return (
+            <li key={item[0] + i}>
+              <a href={url}>
+                <Button icon={iconName} variant="secondaryGray" />
+              </a>
+            </li>
+          );
+        })}
+        {isAdmin && <Controls />}
+      </ul>
     );
   };
 
@@ -100,12 +101,7 @@ const Profile = () => {
 
         <Section
           title="Startup"
-          aside={
-            <div className="flex gap-3">
-              <List data={dummyData.startupLinks} />
-              {isAdmin && <Controls />}
-            </div>
-          }
+          aside={<AsideStartup data={dummyData.startupLinks} />}
         >
           <div>
             <h3 className="mb-3">Idea</h3>
@@ -147,21 +143,17 @@ const Profile = () => {
           </div>
         </Section>
 
-        <Section title="Me" aside={<List data={dummyData.startupLinks} />}>
+        <Section
+          title="Me"
+          aside={<AsideStartup data={dummyData.startupLinks} />}
+        >
           <h3 className="mb-3">Looking for</h3>
           <p>{dummyData.lookingFor}</p>
         </Section>
 
         <Section
           title="Preferences"
-          aside={
-            <Button
-              onClick={() => setIsEditing(true)}
-              className="bg-[orange] dark:bg-[orange]"
-            >
-              Edit
-            </Button>
-          }
+          aside={<AsideStartup data={dummyData.startupLinks} />}
         >
           <p>Preferences here</p>
         </Section>
