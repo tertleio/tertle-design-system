@@ -8,6 +8,7 @@ type ChoiceProps = FieldWrapperPassProps & {
   checked: boolean;
   value?: string | number;
   readOnly?: boolean;
+  readOnlyIcon?: React.ReactNode | string;
   className?: string;
 };
 
@@ -23,12 +24,15 @@ const Choice = (props: ChoiceProps) => {
     onChange,
     id,
     readOnly = false,
+    readOnlyIcon = '',
     className = '',
   } = props;
 
   return (
     <FieldWrapper label={label} checked={checked}>
-      {!readOnly && (
+      {readOnly ? (
+        <span className="mr-3 h-5 w-5 text-sm">{readOnlyIcon}</span>
+      ) : (
         <input
           readOnly={readOnly}
           name={name}

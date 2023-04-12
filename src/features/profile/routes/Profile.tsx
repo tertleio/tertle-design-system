@@ -132,6 +132,7 @@ const Profile = () => {
                 checked={true}
                 label="Indie/lifestyle"
                 readOnly={isEditing ? false : true}
+                readOnlyIcon="🌎"
                 onChange={() => console.log('change')}
               />
               <Choice
@@ -141,6 +142,7 @@ const Profile = () => {
                 checked={false}
                 label="To the moon"
                 readOnly={isEditing ? false : true}
+                readOnlyIcon="🌙"
                 onChange={() => console.log('change')}
               />
               <Choice
@@ -150,6 +152,7 @@ const Profile = () => {
                 checked={false}
                 label="To the stars"
                 readOnly={isEditing ? false : true}
+                readOnlyIcon="✨"
                 onChange={() => console.log('change')}
               />
             </Fieldset>
