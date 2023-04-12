@@ -8,7 +8,7 @@ const variants = {
   primaryGray: `bg-gray-200 text-black dark:bg-gray-700 dark:text-white`,
   secondaryGreen: `border border-primary text-primary dark:text-primary-dark dark:border-primary-dark`,
   secondaryOrange: `border border-orange text-orange dark:text-orange-dark dark:border-orange-dark dark:text-orange-dark`,
-  secondaryRed: `border border-green text-green dark:text-red-dark dark:border-red-dark`,
+  secondaryRed: `border border-red text-red dark:text-red-dark dark:border-red-dark`,
   secondaryGray: `text-black border border-gray-200 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-white`,
 };
 
