@@ -100,6 +100,7 @@ const Profile = () => {
                 type="radio"
                 checked={true}
                 label="Indie/lifestyle"
+                readOnly={isEditing ? false : true}
                 onChange={() => console.log('change')}
               />
               <Choice
@@ -108,6 +109,7 @@ const Profile = () => {
                 type="radio"
                 checked={false}
                 label="To the moon"
+                readOnly={isEditing ? false : true}
                 onChange={() => console.log('change')}
               />
               <Choice
@@ -116,6 +118,7 @@ const Profile = () => {
                 type="radio"
                 checked={false}
                 label="To the stars"
+                readOnly={isEditing ? false : true}
                 onChange={() => console.log('change')}
               />
             </Fieldset>
@@ -129,7 +132,14 @@ const Profile = () => {
 
         <Section
           title="Preferences"
-          aside={<Button className="bg-[orange] dark:bg-[orange]">Edit</Button>}
+          aside={
+            <Button
+              onClick={() => setIsEditing(true)}
+              className="bg-[orange] dark:bg-[orange]"
+            >
+              Edit
+            </Button>
+          }
         >
           <p>Preferences here</p>
         </Section>

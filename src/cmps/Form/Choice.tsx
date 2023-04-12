@@ -7,6 +7,7 @@ type ChoiceProps = FieldWrapperPassProps & {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   checked: boolean;
   value?: string | number;
+  readOnly?: boolean;
   className?: string;
 };
 
@@ -21,22 +22,26 @@ const Choice = (props: ChoiceProps) => {
     checked,
     onChange,
     id,
+    readOnly = false,
     className = '',
   } = props;
 
   return (
-    <FieldWrapper label={label}>
-      <input
-        name={name}
-        id={id}
-        type={type}
-        checked={checked}
-        onChange={onChange}
-        value={value}
-        className={`
-          mt-[0.3em] h-4 checked:border-transparent focus:ring-0
-          ${className}`}
-      />
+    <FieldWrapper label={label} checked={checked}>
+      {!readOnly && (
+        <input
+          readOnly={readOnly}
+          name={name}
+          id={id}
+          type={type}
+          checked={checked}
+          onChange={onChange}
+          value={value}
+          className={`
+            mt-[0.3em] h-4 checked:border-transparent focus:ring-0
+            ${className}`}
+        />
+      )}
     </FieldWrapper>
   );
 };

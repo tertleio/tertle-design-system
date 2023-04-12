@@ -114,6 +114,7 @@ function App() {
               <Choice
                 name="inputKey"
                 type="checkbox"
+                checked={true}
                 value="c1"
                 label="Checkbox 1"
               />

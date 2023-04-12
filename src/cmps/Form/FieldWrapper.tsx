@@ -6,6 +6,7 @@ const fieldActiveDark = `dark:border-b-gray-700 dark:focus-within:border-b-prima
 export type FieldWrapperProps = {
   children: ReactNode;
   className?: string;
+  checked?: boolean;
   type?: 'text' | 'email' | 'password' | 'radio' | 'checkbox';
   label?: string;
   info?: string;
@@ -19,7 +20,7 @@ type FieldWrapperPassProps = Omit<
 >;
 
 const FieldWrapper = (props: FieldWrapperProps) => {
-  const { children, className = '', label, error, id, type } = props;
+  const { children, className = '', label, error, id, type, checked } = props;
   const isText = type === 'text' || type === 'email' || type === 'password';
 
   return (
@@ -28,14 +29,17 @@ const FieldWrapper = (props: FieldWrapperProps) => {
         htmlFor={id}
         className={`
           mb-[2px] mr-[2px] flex cursor-pointer justify-start rounded-lg border border-transparent
-           p-3 font-secondary text-gray-600 focus-within:bg-gray-100 hover:bg-gray-100 hover:opacity-90
-          ${dark}
-          ${
-            isText
-              ? `border-b-gray-300 focus-within:border-b-primary focus-within:hover:bg-transparent ${fieldActiveDark}`
-              : ''
-          }
-            ${className}`}
+           p-3 font-secondary text-gray-600 focus-within:bg-gray-100 hover:bg-gray-100
+           hover:opacity-90
+            ${dark}
+            ${
+              isText
+                ? `border-b-gray-300 focus-within:border-b-primary focus-within:hover:bg-transparent ${fieldActiveDark}`
+                : ''
+            }
+            ${checked && !isText ? 'text-primary dark:text-primary-dark' : ''}
+            ${className}
+          `}
       >
         <div className={isText ? 'w-full' : ''}>{children}</div>
         {label}
