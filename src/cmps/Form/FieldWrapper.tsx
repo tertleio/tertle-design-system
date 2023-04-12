@@ -8,9 +8,10 @@ export type FieldWrapperProps = {
   className?: string;
   checked?: boolean;
   type?: 'text' | 'email' | 'password' | 'radio' | 'checkbox';
+  readOnly: boolean;
   label?: string;
   info?: string;
-  id?: string | undefined;
+  id?: string;
   error?: string;
 };
 
