@@ -2,8 +2,12 @@ import React from 'react';
 import { Icon, IconMember } from '../Icon';
 
 const variants = {
-  primary: 'bg-primary text-base dark:bg-primary-dark dark:text-base-dark',
+  primary: 'bg-primary text-base dark:bg-primary-dark dark:text-black',
+  primaryOrange: `bg-[orange] text-black dark:[orange] dark:text-black`,
+  primaryRed: `bg-[red] text-black dark:text-black dark:bg-[red]`,
   secondary: `border border-primary text-primary dark:text-primary-dark dark:border-primary-dark`,
+  secondaryOrange: `border border-[orange] text-[orange] dark:text[orange] dark:border-[orange] dark:text-[orange]`,
+  secondaryRed: `border border-[red] text-[red] dark:text[red] dark:border-[red] dark:text-[red]`,
   tertiary: `text-gray-500 border border-gray-200 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 text-white`,
 };
 

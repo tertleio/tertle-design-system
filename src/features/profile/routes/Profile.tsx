@@ -61,24 +61,15 @@ const Profile = () => {
 
   const Controls = () => {
     return !isEditing ? (
-      <Button
-        className="bg-[orange] dark:bg-[orange]"
-        onClick={() => setIsEditing(true)}
-      >
+      <Button variant="primaryOrange" onClick={() => setIsEditing(true)}>
         Edit
       </Button>
     ) : (
       <>
-        <Button
-          className="bg-[red] dark:bg-[red]"
-          onClick={() => setIsEditing(false)}
-        >
+        <Button variant="primaryRed" onClick={() => setIsEditing(false)}>
           Cancel
         </Button>
-        <Button
-          className="bg-[orange] dark:bg-[orange]"
-          onClick={() => setIsEditing(false)}
-        >
+        <Button variant="primary" onClick={() => setIsEditing(false)}>
           Save
         </Button>
       </>
