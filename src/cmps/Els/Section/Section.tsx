@@ -19,7 +19,7 @@ const Section = (props: SectionProps) => {
         <div className="mb-4 flex justify-between sm:mb-5">
           <h2>{title}</h2>
           <div>
-            <div className="ml-7 mr-[-0.55em] flex h-full flex-col justify-start">
+            <div className="ml-1 mr-[-0.55em] flex h-full flex-col justify-start">
               {aside}
             </div>
           </div>
