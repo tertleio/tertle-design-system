@@ -10,7 +10,15 @@ type TextareaProps = FieldWrapperPassProps & {
 };
 
 const Textarea = (props: TextareaProps) => {
-  const { label, value, name, onChange, placeholder, className = '' } = props;
+  const {
+    label,
+    value,
+    name,
+    onChange,
+    placeholder,
+    readOnly = false,
+    className = '',
+  } = props;
 
   function resize(e: React.FocusEvent<HTMLTextAreaElement, Element>): void {
     e.target.style.height = '70px';
@@ -18,10 +26,12 @@ const Textarea = (props: TextareaProps) => {
   }
 
   return (
-    <FieldWrapper label={label} type="text">
+    <FieldWrapper label={label} type="text" readOnly={readOnly}>
       <textarea
         onFocus={resize}
         onInput={resize}
+        onBlur={resize}
+        readOnly={readOnly}
         name={name}
         placeholder={placeholder}
         id={value}
@@ -29,7 +39,7 @@ const Textarea = (props: TextareaProps) => {
         onChange={onChange}
         className={`
           ${className}
-          w-full bg-transparent px-1 focus:outline-none
+          w-full bg-transparent px-1 placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700
         `}
       />
     </FieldWrapper>
