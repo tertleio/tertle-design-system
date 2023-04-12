@@ -35,7 +35,7 @@ const Icon = (props: IconProps) => {
       viewBox="0 0 16 16"
     >
       {paths.map((path, i) => (
-        <path key={i} d={path} />
+        <path key={i + name} d={path} />
       ))}
     </svg>
   );
