@@ -44,6 +44,7 @@ const Profile = () => {
   const Controls = () => {
     return !isEditing ? (
       <Button
+        className="border-orange"
         variant="secondaryOrange"
         icon="edit"
         onClick={() => setIsEditing(true)}
@@ -51,11 +52,13 @@ const Profile = () => {
     ) : (
       <>
         <Button
+          className="border"
           variant="secondaryRed"
           icon="cancel"
           onClick={() => setIsEditing(false)}
         />
         <Button
+          className="border"
           variant="primaryGreen"
           icon="save"
           onClick={() => setIsEditing(false)}
@@ -66,7 +69,7 @@ const Profile = () => {
 
   const AsideStartup = ({ data }: any) => {
     return (
-      <ul className="last:li:outline flex items-center gap-2 sm:gap-1">
+      <ul className="flex items-center gap-2 sm:gap-2">
         {Object.entries(data).map((item, i) => {
           const iconName = item[0] as IconMember;
           const url = item[1] as string;
