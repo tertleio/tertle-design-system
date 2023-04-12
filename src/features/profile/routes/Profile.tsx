@@ -89,7 +89,11 @@ const Profile = () => {
             </p>
           </div>
           <div className="flex-row">
-            <Fieldset legend="Ambition" variant="inline">
+            <Fieldset
+              legend="Ambition"
+              variant="inline"
+              className="first-child:border"
+            >
               <Choice
                 name="1"
                 id="1"
@@ -124,10 +128,10 @@ const Profile = () => {
         </Section>
 
         <Section
-          title="Some other title that's abit longer"
-          aside={<List data={dummyData.startupLinks} />}
+          title="Preferences"
+          aside={<Button className="bg-[orange] dark:bg-[orange]">Edit</Button>}
         >
-          <p>Some stuff about me</p>
+          <p>Preferences here</p>
         </Section>
       </Container>
     </MainLayout>
