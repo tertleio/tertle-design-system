@@ -4,9 +4,9 @@ import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 type TextareaProps = FieldWrapperPassProps & {
   name: string;
   value: string;
-  className?: string;
   placeholder: string;
   onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
+  className?: string;
 };
 
 const Textarea = (props: TextareaProps) => {

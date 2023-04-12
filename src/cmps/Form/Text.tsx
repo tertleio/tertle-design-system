@@ -4,10 +4,10 @@ import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 export type TextProps = FieldWrapperPassProps & {
   name: string;
   value: string;
-  type?: 'text' | 'email' | 'password';
-  className?: string;
   placeholder: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
+  type?: 'text' | 'email' | 'password';
+  className?: string;
 };
 
 const Text = (props: TextProps) => {
@@ -28,6 +28,7 @@ const Text = (props: TextProps) => {
         name={name}
         id={id}
         type={type}
+        placeholder={placeholder}
         value={value}
         onChange={onChange}
         className={`
