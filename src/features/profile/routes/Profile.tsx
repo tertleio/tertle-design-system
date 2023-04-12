@@ -54,93 +54,26 @@ const Avatar = () => {
 };
 
 const Profile = () => {
-  const [isEditing, setIsEditing] = React.useState(true);
+  const [isEditing, setIsEditing] = React.useState(false);
   const [isSaving, setIsSaving] = React.useState(false);
   const [isAdmin, setIsAdmin] = React.useState(true);
   const [data, setData] = React.useState(dummyData);
 
   const Controls = () => {
-    return (
+    return !isEditing ? (
+      <Button variant="secondaryGreen" onClick={() => setIsEditing(true)}>
+        Edit
+      </Button>
+    ) : (
       <>
-        <Button onClick={() => setIsEditing(false)}>Edit</Button>
-        <Button
-          variant="primaryGreen"
-          icon="github"
-          onClick={() => setIsEditing(false)}
-        >
+        <Button variant="secondaryRed" onClick={() => setIsEditing(false)}>
           Cancel
         </Button>
-        <Button
-          variant="primaryOrange"
-          icon="github"
-          onClick={() => setIsEditing(false)}
-        >
-          Edit
-        </Button>
-        <Button
-          variant="primaryRed"
-          icon="linkedin"
-          onClick={() => setIsEditing(false)}
-        >
+        <Button variant="primaryGreen" onClick={() => setIsEditing(false)}>
           Save
-        </Button>
-        <Button
-          variant="primaryGray"
-          icon="twitter"
-          onClick={() => setIsEditing(false)}
-        >
-          Cancel
-        </Button>
-        <Button
-          variant="secondaryGreen"
-          icon="github"
-          onClick={() => setIsEditing(false)}
-        >
-          Cancel
-        </Button>
-        <Button
-          variant="secondaryOrange"
-          icon="github"
-          onClick={() => setIsEditing(false)}
-        >
-          Edit
-        </Button>
-        <Button
-          variant="secondaryRed"
-          icon="linkedin"
-          onClick={() => setIsEditing(false)}
-        >
-          Save
-        </Button>
-        <Button
-          variant="secondaryGray"
-          icon="twitter"
-          onClick={() => setIsEditing(false)}
-        >
-          Cancel
         </Button>
       </>
     );
-    // return !isEditing ? (
-    //   <Button onClick={() => setIsEditing(true)}>Edit</Button>
-    // ) : (
-    //   <>
-    //     <Button
-    //       variant="primary"
-    //       color="orange"
-    //       onClick={() => setIsEditing(false)}
-    //     >
-    //       Cancel
-    //     </Button>
-    //     <Button
-    //       variant="secondary"
-    //       color="orange"
-    //       onClick={() => setIsEditing(false)}
-    //     >
-    //       Save
-    //     </Button>
-    //   </>
-    // );
   };
 
   return (
