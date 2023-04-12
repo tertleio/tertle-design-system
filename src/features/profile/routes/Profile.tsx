@@ -56,7 +56,34 @@ const Avatar = () => {
 const Profile = () => {
   const [isEditing, setIsEditing] = React.useState(false);
   const [isSaving, setIsSaving] = React.useState(false);
+  const [isAdmin, setIsAdmin] = React.useState(true);
   const [data, setData] = React.useState(dummyData);
+
+  const Controls = () => {
+    return !isEditing ? (
+      <Button
+        className="bg-[orange] dark:bg-[orange]"
+        onClick={() => setIsEditing(true)}
+      >
+        Edit
+      </Button>
+    ) : (
+      <>
+        <Button
+          className="bg-[red] dark:bg-[red]"
+          onClick={() => setIsEditing(false)}
+        >
+          Cancel
+        </Button>
+        <Button
+          className="bg-[orange] dark:bg-[orange]"
+          onClick={() => setIsEditing(false)}
+        >
+          Save
+        </Button>
+      </>
+    );
+  };
 
   return (
     <MainLayout>
@@ -80,7 +107,15 @@ const Profile = () => {
           </div>
         </Section>
 
-        <Section title="Startup" aside={<List data={dummyData.startupLinks} />}>
+        <Section
+          title="Startup"
+          aside={
+            <div className="flex gap-3">
+              <List data={dummyData.startupLinks} />
+              {isAdmin && <Controls />}
+            </div>
+          }
+        >
           <div>
             <h3 className="mb-3">Idea</h3>
             <p>
@@ -89,11 +124,7 @@ const Profile = () => {
             </p>
           </div>
           <div className="flex-row">
-            <Fieldset
-              legend="Ambition"
-              variant="inline"
-              className="first-child:border"
-            >
+            <Fieldset legend="Ambition" variant="inline">
               <Choice
                 name="1"
                 id="1"
