@@ -115,16 +115,9 @@ const Profile = () => {
           title="Startup"
           aside={<AsideStartup data={dummyData.startupLinks} />}
           className={
-            isEditing ? 'hover:bg-trapsarent dark:hover:bg-transparent' : ''
+            isEditing ? 'hover:bg-transparent dark:hover:bg-transparent' : ''
           }
         >
-          {/* <div>
-            <h3 className="mb-3">Idea</h3>
-            <p>
-              Tertle makes it easy for aspiring tech founders to discover and
-              meet one another in pursuit of a common goal.
-            </p>
-          </div> */}
           <Fieldset legend="Idea" className="">
             <Textarea
               name="idea"
