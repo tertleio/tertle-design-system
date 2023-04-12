@@ -43,24 +43,30 @@ const Profile = () => {
 
   const Controls = () => {
     return !isEditing ? (
-      <Button variant="secondaryOrange" onClick={() => setIsEditing(true)}>
-        Edit
-      </Button>
+      <Button
+        variant="secondaryOrange"
+        icon="edit"
+        onClick={() => setIsEditing(true)}
+      ></Button>
     ) : (
       <>
-        <Button variant="secondaryRed" onClick={() => setIsEditing(false)}>
-          Cancel
-        </Button>
-        <Button variant="primaryGreen" onClick={() => setIsEditing(false)}>
-          Save
-        </Button>
+        <Button
+          variant="secondaryRed"
+          icon="cancel"
+          onClick={() => setIsEditing(false)}
+        />
+        <Button
+          variant="primaryGreen"
+          icon="save"
+          onClick={() => setIsEditing(false)}
+        ></Button>
       </>
     );
   };
 
   const AsideStartup = ({ data }: any) => {
     return (
-      <ul className="flex items-center gap-3 sm:gap-1">
+      <ul className="last:li:outline flex items-center gap-2 sm:gap-1">
         {Object.entries(data).map((item, i) => {
           const iconName = item[0] as IconMember;
           const url = item[1] as string;

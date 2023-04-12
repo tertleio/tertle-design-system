@@ -5,7 +5,7 @@ const variants = {
   primaryGreen: `border border-transparent bg-primary text-base dark:bg-primary-dark dark:text-black`,
   primaryOrange: `border border-transparent  bg-orange text-white dark:orange dark:text-black`,
   primaryRed: `border border-transparent  bg-red text-white dark:text-black dark:bg-red-dark`,
-  primaryGray: `border-transparent bg-gray-200 text-black dark:bg-gray-700 dark:text-white`,
+  primaryGray: `border border-transparent bg-gray-200 text-black dark:bg-gray-700 dark:text-white`,
   secondaryGreen: `border border-primary text-primary dark:text-primary-dark dark:border-primary-dark`,
   secondaryOrange: `border border-orange text-orange dark:text-orange-dark dark:border-orange-dark dark:text-orange-dark`,
   secondaryRed: `border border-red text-red dark:text-red-dark dark:border-red-dark`,
@@ -13,7 +13,7 @@ const variants = {
 };
 
 const sizes = {
-  sm: 'py-1 px-2 rounded-md text-sm font-secondary normal-case font-bold sm:py-2 sm:px-3',
+  sm: 'py-1 px-2 rounded-md text-sm font-secondary normal-case font-bold sm:h-7 sm:px-3',
   md: 'py-2 px-3 rounded-lg text-md sm:py-2 sm:px-4',
   lg: 'py-2 px-4 rounded-lg text-lg sm:py-3 sm:px-6',
 };
