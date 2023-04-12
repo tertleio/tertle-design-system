@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 const dark = `dark:text-gray-600  dark:hover:bg-[#181818] dark:focus-within:bg-[#181818]`;
 const fieldActiveDark = `dark:border-b-gray-700 dark:focus-within:border-b-primary-dark dark:focus-within:bg-transparent`;
 
-export type FieldWrapperProps = {
+type FieldWrapperProps = {
   children: ReactNode;
   className?: string;
   checked?: boolean;
