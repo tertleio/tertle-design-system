@@ -59,7 +59,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={`
             flex content-center items-center justify-center font-primary font-medium uppercase
             hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70
-            ${isIconOnly ? 'border-transparent dark:border-transparent' : ''}
             ${variants[variant]}
             ${sizes[size]}
             ${className}`}

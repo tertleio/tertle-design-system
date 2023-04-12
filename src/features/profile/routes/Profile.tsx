@@ -44,7 +44,7 @@ const Profile = () => {
   const Controls = () => {
     return !isEditing ? (
       <Button
-        className="border-orange"
+        className="border-orange dark:border-orange-dark"
         variant="secondaryOrange"
         icon="edit"
         onClick={() => setIsEditing(true)}
@@ -52,7 +52,7 @@ const Profile = () => {
     ) : (
       <>
         <Button
-          className="border"
+          className="border-red dark:border-red-dark"
           variant="secondaryRed"
           icon="cancel"
           onClick={() => setIsEditing(false)}
@@ -76,7 +76,11 @@ const Profile = () => {
           return (
             <li key={item[0] + i}>
               <a href={url}>
-                <Button icon={iconName} variant="secondaryGray" />
+                <Button
+                  icon={iconName}
+                  className="border-trapsarent dark:border-transparent"
+                  variant="secondaryGray"
+                />
               </a>
             </li>
           );
