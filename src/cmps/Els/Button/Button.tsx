@@ -13,7 +13,7 @@ const variants = {
 };
 
 const sizes = {
-  sm: 'py-1.5 px-2 rounded-md text-sm font-secondary normal-case font-bold sm:h-7 sm:px-3',
+  sm: 'py-1.5 px-2.5 rounded-md text-sm font-secondary normal-case font-bold sm:h-7 sm:px-3',
   md: 'py-2 px-3 rounded-lg text-md sm:py-2 sm:px-4',
   lg: 'py-2 px-4 rounded-lg text-lg sm:py-3 sm:px-6',
 };
