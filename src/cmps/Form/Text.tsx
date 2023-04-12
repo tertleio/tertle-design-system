@@ -32,9 +32,9 @@ const Text = (props: TextProps) => {
         value={value}
         onChange={onChange}
         className={`
-          ${className}
-          w-full  bg-transparent
-          px-1 placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700`}
+          my-1  w-full bg-transparent
+        placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700
+          ${className}`}
       />
     </FieldWrapper>
   );

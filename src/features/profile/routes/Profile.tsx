@@ -114,6 +114,9 @@ const Profile = () => {
         <Section
           title="Startup"
           aside={<AsideStartup data={dummyData.startupLinks} />}
+          className={
+            isEditing ? 'hover:bg-trapsarent dark:hover:bg-transparent' : ''
+          }
         >
           {/* <div>
             <h3 className="mb-3">Idea</h3>

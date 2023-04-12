@@ -38,21 +38,20 @@ const FieldWrapper = (props: FieldWrapperProps) => {
       <label
         htmlFor={id}
         className={`
-            flex cursor-pointer justify-start rounded-lg border
-            border-transparent p-3 font-secondary text-gray-600 focus-within:bg-gray-100
-           hover:bg-gray-100 hover:opacity-90 
+            flex cursor-pointer items-center justify-start rounded-lg border
+            border-transparent font-secondary text-gray-600
+           focus-within:bg-gray-100 hover:bg-gray-100 hover:opacity-90
             ${dark}
             ${
               isText
-                ? `${fieldActiveDark} rounded-none border-b-gray-300 focus-within:border-b-primary focus-within:bg-transparent hover:bg-transparent`
-                : ''
+                ? `py-2 ${fieldActiveDark} rounded-none border-b-gray-300 focus-within:border-b-primary focus-within:bg-transparent hover:bg-transparent`
+                : 'p-2'
             }
-            ${checked && !isText ? 'text-primary dark:text-primary-dark' : ''}
             ${readOnly && isText ? 'pointer-events-none border-b-0' : ''}
             ${className}
           `}
       >
-        <div className={isText ? 'mx-[-1em] w-full ' : ''}>{children}</div>
+        {children}
         {label}
       </label>
       {error && <div>{error}</div>}

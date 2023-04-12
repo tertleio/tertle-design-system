@@ -16,22 +16,13 @@ const Fieldset = (props: FieldsetProps) => {
   const { children, legend, variant = 'default', className = '' } = props;
 
   return (
-    <fieldset
-      className={`
-        ${variants[variant]}
-        ${className}`}
-    >
+    <fieldset className={`${variants[variant]} ${className}`}>
       <div>
-        <legend
-          className={`my-2 font-primary text-base text-gray-600 dark:text-gray-300`}
-        >
+        <legend className="mb-2 font-primary text-base text-gray-600 dark:text-gray-300">
           {legend}
         </legend>
       </div>
-      <div
-        className={`
-          ${variant === 'inline' ? 'flex flex-wrap' : ''}`}
-      >
+      <div className={`${variant === 'inline' ? 'flex flex-wrap' : ''}`}>
         {children}
       </div>
     </fieldset>
