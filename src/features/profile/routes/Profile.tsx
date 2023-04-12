@@ -5,7 +5,7 @@ import { Button } from '@/cmps/Els/Button';
 import { MainLayout } from '@/cmps/Layouts';
 import { Container } from '@/cmps/Container';
 import { Section } from '@/cmps/Els/Section';
-import { Form, Fieldset, Choice } from '@/cmps/Form';
+import { Form, Textarea, Fieldset, Choice } from '@/cmps/Form';
 
 type dummyDataProps = {
   name: string;
@@ -112,13 +112,21 @@ const Profile = () => {
           title="Startup"
           aside={<AsideStartup data={dummyData.startupLinks} />}
         >
-          <div>
+          {/* <div>
             <h3 className="mb-3">Idea</h3>
             <p>
               Tertle makes it easy for aspiring tech founders to discover and
               meet one another in pursuit of a common goal.
             </p>
-          </div>
+          </div> */}
+          <Fieldset legend="Idea" className="ml-[-1em] mr-[-1em]">
+            <Textarea
+              name="idea"
+              placeholder="Write something about your idea..."
+              readOnly={isEditing ? false : true}
+              value="Tertle makes it easy for aspiring tech founders to discover and meet one another in pursuit of a common goal."
+            />
+          </Fieldset>
           <div className="flex-row">
             <Fieldset legend="Ambition" variant="inline">
               <Choice

@@ -6,6 +6,7 @@ export type TextProps = FieldWrapperPassProps & {
   value: string;
   type?: 'text' | 'email' | 'password';
   className?: string;
+  placeholder: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
@@ -15,6 +16,7 @@ const Text = (props: TextProps) => {
     value,
     type = 'text',
     label,
+    placeholder,
     id,
     onChange,
     className = '',

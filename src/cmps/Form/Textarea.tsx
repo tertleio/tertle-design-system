@@ -5,11 +5,12 @@ type TextareaProps = FieldWrapperPassProps & {
   name: string;
   value: string;
   className?: string;
+  placeholder: string;
   onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
 };
 
 const Textarea = (props: TextareaProps) => {
-  const { label, value, name, onChange, className = '' } = props;
+  const { label, value, name, onChange, placeholder, className = '' } = props;
 
   function resize(e: React.FocusEvent<HTMLTextAreaElement, Element>): void {
     e.target.style.height = '70px';
@@ -22,6 +23,7 @@ const Textarea = (props: TextareaProps) => {
         onFocus={resize}
         onInput={resize}
         name={name}
+        placeholder={placeholder}
         id={value}
         value={value}
         onChange={onChange}
