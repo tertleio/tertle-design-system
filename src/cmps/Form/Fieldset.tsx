@@ -18,7 +18,7 @@ const Fieldset = (props: FieldsetProps) => {
   return (
     <fieldset className={`${variants[variant]} ${className}`}>
       <div>
-        <legend className="mb-2 font-primary text-base text-gray-600 dark:text-gray-300">
+        <legend className="text-md font-primary text-gray-600 dark:text-gray-300">
           {legend}
         </legend>
       </div>

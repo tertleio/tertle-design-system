@@ -31,7 +31,7 @@ const Choice = (props: ChoiceProps) => {
   return (
     <FieldWrapper label={label} checked={checked}>
       {readOnly ? (
-        <span className="mr-3 text-xs">{readOnlyIcon}</span>
+        <span className="mx-1 my-1.5 mr-3.5 text-sm">{readOnlyIcon}</span>
       ) : (
         <input
           readOnly={readOnly}
@@ -41,7 +41,7 @@ const Choice = (props: ChoiceProps) => {
           checked={checked}
           onChange={onChange}
           value={value}
-          className={`mx-3 my-2 ${className}`}
+          className={`mx-1 my-1.5 ${className}`}
         />
       )}
     </FieldWrapper>

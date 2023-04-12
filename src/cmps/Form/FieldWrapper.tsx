@@ -38,7 +38,7 @@ const FieldWrapper = (props: FieldWrapperProps) => {
       <label
         htmlFor={id}
         className={`
-            flex cursor-pointer items-center justify-start rounded-lg border
+            my-[2px] mr-[2px] flex cursor-pointer items-center justify-start rounded-lg border
             border-transparent font-secondary text-gray-600
            focus-within:bg-gray-100 hover:bg-gray-100 hover:opacity-90
             ${dark}
