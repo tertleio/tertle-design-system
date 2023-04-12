@@ -30,6 +30,9 @@ const Profile = () => {
   const [isSaving, setIsSaving] = React.useState(false);
   const [isAdmin, setIsAdmin] = React.useState(true);
   const [data, setData] = React.useState(dummyData);
+  const [textarea, setTextarea] = React.useState(
+    'Tertle makes it easy for aspiring tech founders to discover and meet one another in pursuit of a common goal.'
+  );
 
   const Avatar = () => {
     return (
@@ -119,12 +122,13 @@ const Profile = () => {
               meet one another in pursuit of a common goal.
             </p>
           </div> */}
-          <Fieldset legend="Idea" className="ml-[-1em] mr-[-1em]">
+          <Fieldset legend="Idea" className="">
             <Textarea
               name="idea"
               placeholder="Write something about your idea..."
               readOnly={isEditing ? false : true}
-              value="Tertle makes it easy for aspiring tech founders to discover and meet one another in pursuit of a common goal."
+              value={textarea}
+              onChange={(e) => setTextarea(e.target.value)}
             />
           </Fieldset>
           <div className="flex-row">
