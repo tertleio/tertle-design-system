@@ -34,7 +34,7 @@ const List = ({ data }: any) => {
         return (
           <li key={item[0] + i}>
             <a href={url}>
-              <Button icon={iconName} variant="tertiary" />
+              <Button icon={iconName} variant="tertiaryGray" />
             </a>
           </li>
         );
@@ -54,26 +54,72 @@ const Avatar = () => {
 };
 
 const Profile = () => {
-  const [isEditing, setIsEditing] = React.useState(false);
+  const [isEditing, setIsEditing] = React.useState(true);
   const [isSaving, setIsSaving] = React.useState(false);
   const [isAdmin, setIsAdmin] = React.useState(true);
   const [data, setData] = React.useState(dummyData);
 
   const Controls = () => {
-    return !isEditing ? (
-      <Button variant="primaryOrange" onClick={() => setIsEditing(true)}>
-        Edit
-      </Button>
-    ) : (
+    return (
       <>
-        <Button variant="primaryRed" onClick={() => setIsEditing(false)}>
+        <Button onClick={() => setIsEditing(false)}>Edit</Button>
+        <Button
+          variant="secondaryGreen"
+          icon="github"
+          onClick={() => setIsEditing(false)}
+        >
+          Save
+        </Button>
+        <Button
+          variant="tertiaryGray"
+          icon="github"
+          onClick={() => setIsEditing(false)}
+        >
           Cancel
         </Button>
-        <Button variant="primary" onClick={() => setIsEditing(false)}>
+        <Button
+          variant="secondaryOrange"
+          icon="github"
+          onClick={() => setIsEditing(false)}
+        >
+          Edit
+        </Button>
+        <Button
+          variant="secondaryRed"
+          icon="linkedin"
+          onClick={() => setIsEditing(false)}
+        >
           Save
+        </Button>
+        <Button
+          variant="tertiaryGray"
+          icon="twitter"
+          onClick={() => setIsEditing(false)}
+        >
+          Cancel
         </Button>
       </>
     );
+    // return !isEditing ? (
+    //   <Button onClick={() => setIsEditing(true)}>Edit</Button>
+    // ) : (
+    //   <>
+    //     <Button
+    //       variant="primary"
+    //       color="orange"
+    //       onClick={() => setIsEditing(false)}
+    //     >
+    //       Cancel
+    //     </Button>
+    //     <Button
+    //       variant="secondary"
+    //       color="orange"
+    //       onClick={() => setIsEditing(false)}
+    //     >
+    //       Save
+    //     </Button>
+    //   </>
+    // );
   };
 
   return (
