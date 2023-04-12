@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 const dark = `dark:text-gray-600  dark:hover:bg-[#181818] dark:focus-within:bg-[#181818]`;
 const fieldActiveDark = `dark:border-b-gray-700 dark:focus-within:border-b-primary-dark dark:focus-within:bg-transparent`;
+const readOnlyStyles = `px-0 pb-0 border-b-0 bg-transparent cursor:default hover:bg-transparent dark:hover:bg-transparent focus:none`;
 
 type FieldWrapperProps = {
   children: ReactNode;
@@ -21,7 +22,16 @@ type FieldWrapperPassProps = Omit<
 >;
 
 const FieldWrapper = (props: FieldWrapperProps) => {
-  const { children, className = '', label, error, id, type, checked } = props;
+  const {
+    children,
+    className = '',
+    label,
+    error,
+    id,
+    type,
+    readOnly,
+    checked,
+  } = props;
   const isText = type === 'text' || type === 'email' || type === 'password';
 
   return (
@@ -29,7 +39,7 @@ const FieldWrapper = (props: FieldWrapperProps) => {
       <label
         htmlFor={id}
         className={`
-          mb-[2px] mr-[2px] flex cursor-pointer justify-start rounded-lg border border-transparent
+          flex cursor-pointer justify-start rounded-lg border border-transparent
            p-3 font-secondary text-gray-600 focus-within:bg-gray-100 hover:bg-gray-100
            hover:opacity-90
             ${dark}
@@ -39,6 +49,7 @@ const FieldWrapper = (props: FieldWrapperProps) => {
                 : ''
             }
             ${checked && !isText ? 'text-primary dark:text-primary-dark' : ''}
+            ${readOnly && isText ? readOnlyStyles : ''}
             ${className}
           `}
       >

@@ -39,7 +39,8 @@ const Textarea = (props: TextareaProps) => {
         onChange={onChange}
         className={`
           ${className}
-          w-full bg-transparent px-1 placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700
+          w-full bg-transparent placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700
+          ${readOnly ? 'resize-none px-0' : ''}
         `}
       />
     </FieldWrapper>
