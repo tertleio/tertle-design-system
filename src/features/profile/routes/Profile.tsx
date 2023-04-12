@@ -41,7 +41,7 @@ const Profile = () => {
   const [isAdmin, setIsAdmin] = React.useState(true);
   const [data, setData] = React.useState(dummyData);
   const [textarea, setTextarea] = React.useState(
-    'Tertle makes it easy for aspiring tech founders to discover and meet one another in pursuit of a common goal.'
+    'Tertle makes it easy for aspiring tech founders to discover and meet one another in pursuit of a common goal. '
   );
 
   const Controls = () => {

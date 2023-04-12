@@ -42,7 +42,8 @@ const Choice = (props: ChoiceProps) => {
           onChange={onChange}
           value={value}
           className={`
-            mt-[0.3em] h-4 checked:border-transparent focus:ring-0
+            mx-6 mt-[0.3em] h-4 checked:border-transparent
+            focus:ring-0 
             ${className}`}
         />
       )}

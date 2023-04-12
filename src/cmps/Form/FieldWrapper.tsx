@@ -1,8 +1,7 @@
 import { ReactNode } from 'react';
 
 const dark = `dark:text-gray-600  dark:hover:bg-[#181818] dark:focus-within:bg-[#181818]`;
-const fieldActiveDark = `dark:border-b-gray-700 dark:focus-within:border-b-primary-dark dark:focus-within:bg-transparent`;
-const readOnlyStyles = `px-0 pb-0 border-b-0 bg-transparent cursor:default hover:bg-transparent dark:hover:bg-transparent focus:none`;
+const fieldActiveDark = `dark:border-b-gray-700 dark:hover:bg-transparent dark:focus-within:border-b-primary-dark dark:focus-within:bg-transparent`;
 
 type FieldWrapperProps = {
   children: ReactNode;
@@ -39,21 +38,21 @@ const FieldWrapper = (props: FieldWrapperProps) => {
       <label
         htmlFor={id}
         className={`
-          flex cursor-pointer justify-start rounded-lg border border-transparent
-           p-3 font-secondary text-gray-600 focus-within:bg-gray-100 hover:bg-gray-100
-           hover:opacity-90
+            flex cursor-pointer justify-start rounded-lg border
+            border-transparent p-3 font-secondary text-gray-600 focus-within:bg-gray-100
+           hover:bg-gray-100 hover:opacity-90 
             ${dark}
             ${
               isText
-                ? `border-b-gray-300 focus-within:border-b-primary focus-within:hover:bg-transparent ${fieldActiveDark}`
+                ? `${fieldActiveDark} rounded-none border-b-gray-300 focus-within:border-b-primary focus-within:bg-transparent hover:bg-transparent`
                 : ''
             }
             ${checked && !isText ? 'text-primary dark:text-primary-dark' : ''}
-            ${readOnly && isText ? readOnlyStyles : ''}
+            ${readOnly && isText ? 'pointer-events-none border-b-0' : ''}
             ${className}
           `}
       >
-        <div className={isText ? 'w-full' : ''}>{children}</div>
+        <div className={isText ? 'mx-[-1em] w-full ' : ''}>{children}</div>
         {label}
       </label>
       {error && <div>{error}</div>}
