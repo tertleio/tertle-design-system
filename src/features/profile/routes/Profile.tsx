@@ -34,7 +34,7 @@ const List = ({ data }: any) => {
         return (
           <li key={item[0] + i}>
             <a href={url}>
-              <Button icon={iconName} variant="tertiaryGray" />
+              <Button icon={iconName} variant="secondaryGray" />
             </a>
           </li>
         );
