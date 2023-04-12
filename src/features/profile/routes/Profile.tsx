@@ -61,7 +61,7 @@ const Profile = () => {
 
   const Controls = () => {
     return !isEditing ? (
-      <Button variant="secondaryGreen" onClick={() => setIsEditing(true)}>
+      <Button variant="secondaryOrange" onClick={() => setIsEditing(true)}>
         Edit
       </Button>
     ) : (

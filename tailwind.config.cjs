@@ -13,10 +13,15 @@ module.exports = {
         light: tokens.colors.primary.light,
         dark: tokens.colors.primary.light,
       },
+      primary: {
+        DEFAULT: '#4D783F',
+        light: '#4D783F',
+        dark: '#0DFF0D',
+      },
       orange: {
         DEFAULT: '#C97C00',
         light: '#C97C00',
-        dark: '#FF5C28',
+        dark: '#FBA00D',
       },
       red: {
         DEFAULT: '#BC2929',
