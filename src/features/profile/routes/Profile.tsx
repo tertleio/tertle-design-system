@@ -64,14 +64,35 @@ const Profile = () => {
       <>
         <Button onClick={() => setIsEditing(false)}>Edit</Button>
         <Button
-          variant="secondaryGreen"
+          variant="primaryGreen"
           icon="github"
+          onClick={() => setIsEditing(false)}
+        >
+          Cancel
+        </Button>
+        <Button
+          variant="primaryOrange"
+          icon="github"
+          onClick={() => setIsEditing(false)}
+        >
+          Edit
+        </Button>
+        <Button
+          variant="primaryRed"
+          icon="linkedin"
           onClick={() => setIsEditing(false)}
         >
           Save
         </Button>
         <Button
-          variant="tertiaryGray"
+          variant="primaryGray"
+          icon="twitter"
+          onClick={() => setIsEditing(false)}
+        >
+          Cancel
+        </Button>
+        <Button
+          variant="secondaryGreen"
           icon="github"
           onClick={() => setIsEditing(false)}
         >
@@ -92,7 +113,7 @@ const Profile = () => {
           Save
         </Button>
         <Button
-          variant="tertiaryGray"
+          variant="secondaryGray"
           icon="twitter"
           onClick={() => setIsEditing(false)}
         >

@@ -3,12 +3,13 @@ import { Icon, IconMember } from '../Icon';
 
 const variants = {
   primaryGreen: 'bg-primary text-base dark:bg-primary-dark dark:text-black',
-  primaryOrange: `bg-orange text-black dark:orange dark:text-black`,
-  primaryRed: `bg-green text-black dark:text-black dark:bg-green`,
+  primaryOrange: `bg-orange text-white dark:orange dark:text-black`,
+  primaryRed: `bg-red text-white dark:text-black dark:bg-red-dark`,
+  primaryGray: `bg-gray-200 text-black dark:bg-gray-700 dark:text-white`,
   secondaryGreen: `border border-primary text-primary dark:text-primary-dark dark:border-primary-dark`,
   secondaryOrange: `border border-orange text-orange dark:text-orange-dark dark:border-orange-dark dark:text-orange-dark`,
   secondaryRed: `border border-green text-green dark:text-red-dark dark:border-red-dark`,
-  tertiaryGray: `text-black border border-gray-200 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-white`,
+  secondaryGray: `text-black border border-gray-200 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-white`,
 };
 
 const sizes = {
@@ -18,13 +19,14 @@ const sizes = {
 };
 
 const iconFills = {
-  primaryGreen: 'fill-primary dark:fill-primary-dark',
-  primaryOrange: 'fill-orange dark:fill-orange-dark',
-  primaryRed: 'fill-red dark:fill-red-dark',
+  primaryGreen: 'fill-white dark:fill-black',
+  primaryOrange: 'fill-white dark:fill-black',
+  primaryRed: 'fill-white dark:fill-black',
+  primaryGray: 'fill-gray-600 dark:fill-gray-500',
   secondaryGreen: 'fill-primary dark:fill-primary-dark',
   secondaryOrange: 'fill-orange dark:fill-orange-dark',
   secondaryRed: 'fill-red dark:fill-red-dark',
-  tertiaryGray: 'fill-gray-600 dark:fill-gray-500',
+  secondaryGray: 'fill-gray-600 dark:fill-gray-500',
 };
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
