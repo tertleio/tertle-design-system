@@ -69,7 +69,7 @@ const Profile = () => {
 
   const AsideStartup = ({ data }: any) => {
     return (
-      <ul className="flex items-center gap-2 sm:gap-2">
+      <ul className="flex items-center gap-5 sm:gap-2">
         {Object.entries(data).map((item, i) => {
           const iconName = item[0] as IconMember;
           const url = item[1] as string;
