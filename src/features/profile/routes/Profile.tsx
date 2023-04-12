@@ -25,6 +25,16 @@ const dummyData: dummyDataProps = {
   },
 };
 
+const Avatar = () => {
+  return (
+    <img
+      className="ml-2 h-24 w-24 rounded-full border-2 border-gray-700 dark:border-gray-700 md:h-28 md:w-28"
+      src="https://avatars.githubusercontent.com/u/1016365?v=4"
+      alt="Ryan Connaughton"
+    />
+  );
+};
+
 const Profile = () => {
   const [isEditing, setIsEditing] = React.useState(false);
   const [isSaving, setIsSaving] = React.useState(false);
@@ -33,16 +43,6 @@ const Profile = () => {
   const [textarea, setTextarea] = React.useState(
     'Tertle makes it easy for aspiring tech founders to discover and meet one another in pursuit of a common goal.'
   );
-
-  const Avatar = () => {
-    return (
-      <img
-        className="ml-2 h-24 w-24 rounded-full border-2 border-gray-700 dark:border-gray-700 md:h-28 md:w-28"
-        src="https://avatars.githubusercontent.com/u/1016365?v=4"
-        alt="Ryan Connaughton"
-      />
-    );
-  };
 
   const Controls = () => {
     return !isEditing ? (
