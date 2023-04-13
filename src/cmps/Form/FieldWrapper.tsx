@@ -21,16 +21,7 @@ type FieldWrapperPassProps = Omit<
 >;
 
 const FieldWrapper = (props: FieldWrapperProps) => {
-  const {
-    children,
-    className = '',
-    label,
-    error,
-    id,
-    type,
-    readOnly,
-    checked,
-  } = props;
+  const { children, className = '', label, error, id, type, readOnly } = props;
   const isText = type === 'text' || type === 'email' || type === 'password';
 
   return (
@@ -38,14 +29,14 @@ const FieldWrapper = (props: FieldWrapperProps) => {
       <label
         htmlFor={id}
         className={`
-            my-[2px] mr-[2px] flex cursor-pointer items-center justify-start rounded-lg border
+            flex cursor-pointer items-center justify-start rounded-lg border
             border-transparent font-secondary text-gray-600
            focus-within:bg-gray-100 hover:bg-gray-100 hover:opacity-90
             ${dark}
             ${
               isText
-                ? `py-2 ${fieldActiveDark} rounded-none border-b-gray-300 focus-within:border-b-primary focus-within:bg-transparent hover:bg-transparent`
-                : 'p-2'
+                ? `p-1 pr-1.5 ${fieldActiveDark} rounded-none border-b-gray-300 focus-within:border-b-primary focus-within:bg-transparent hover:bg-transparent`
+                : 'p-1 pr-1.5'
             }
             ${readOnly && isText ? 'pointer-events-none border-b-0' : ''}
             ${className}

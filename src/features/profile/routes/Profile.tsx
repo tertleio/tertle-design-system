@@ -127,8 +127,8 @@ const Profile = () => {
               onChange={(e) => setTextarea(e.target.value)}
             />
           </Fieldset>
-          <div className="flex-row">
-            <Fieldset legend="Ambition" variant="inline">
+          <Fieldset legend="Ambition" variant="inline">
+            <span className={`${!isEditing && 'hidden sm:flex'}`}>
               <Choice
                 name="1"
                 id="1"
@@ -139,16 +139,18 @@ const Profile = () => {
                 readOnlyIcon="🌎"
                 onChange={() => console.log('change')}
               />
-              <Choice
-                name="2"
-                id="2"
-                type="radio"
-                checked={false}
-                label="To the moon"
-                readOnly={isEditing ? false : true}
-                readOnlyIcon="🌙"
-                onChange={() => console.log('change')}
-              />
+            </span>
+            <Choice
+              name="2"
+              id="2"
+              type="radio"
+              checked={false}
+              label="To the moon"
+              readOnly={isEditing ? false : true}
+              readOnlyIcon="🌙"
+              onChange={() => console.log('change')}
+            />
+            <span className={`${!isEditing && 'hidden sm:flex'}`}>
               <Choice
                 name="3"
                 id="3"
@@ -159,8 +161,72 @@ const Profile = () => {
                 readOnlyIcon="✨"
                 onChange={() => console.log('change')}
               />
-            </Fieldset>
-          </div>
+            </span>
+          </Fieldset>
+          <Fieldset legend="Stage" variant="inline">
+            <Choice
+              name="1"
+              id="1"
+              type="radio"
+              checked={true}
+              label="Discovery"
+              readOnly={isEditing ? false : true}
+              readOnlyIcon="🔬"
+              onChange={() => console.log('change')}
+            />
+            <Choice
+              name="2"
+              id="2"
+              type="radio"
+              checked={false}
+              label="Prototype"
+              readOnly={isEditing ? false : true}
+              readOnlyIcon="🧪"
+              onChange={() => console.log('change')}
+            />
+            <Choice
+              name="3"
+              id="3"
+              type="radio"
+              checked={false}
+              label="Paying customers"
+              readOnly={isEditing ? false : true}
+              readOnlyIcon="💰"
+              onChange={() => console.log('change')}
+            />
+          </Fieldset>
+          <Fieldset legend="Stage" variant="inline">
+            <Choice
+              name="1"
+              id="1"
+              type="radio"
+              checked={true}
+              label="Discovery"
+              readOnly={isEditing ? false : true}
+              readOnlyIcon="🔬"
+              onChange={() => console.log('change')}
+            />
+            <Choice
+              name="2"
+              id="2"
+              type="radio"
+              checked={false}
+              label="Prototype"
+              readOnly={isEditing ? false : true}
+              readOnlyIcon="🧪"
+              onChange={() => console.log('change')}
+            />
+            <Choice
+              name="3"
+              id="3"
+              type="radio"
+              checked={false}
+              label="Paying customers"
+              readOnly={isEditing ? false : true}
+              readOnlyIcon="💰"
+              onChange={() => console.log('change')}
+            />
+          </Fieldset>
         </Section>
 
         <Section
