@@ -92,7 +92,7 @@ const Profile = () => {
   return (
     <MainLayout>
       <Container>
-        <Section className="bg-black hover:cursor-default  hover:bg-black dark:bg-[#171717] dark:hover:bg-[#171717]">
+        <Section className="bg-black hover:cursor-default  hover:bg-black dark:bg-gray-800 dark:hover:bg-[#171717]">
           <div className="flex justify-between">
             <div>
               <h1 className="mb-0.5 text-white sm:mb-1">{dummyData.name}</h1>
