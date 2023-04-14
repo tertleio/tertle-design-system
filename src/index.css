@@ -72,7 +72,6 @@
     content: '';
     width: 0.5em;
     height: 0.5em;
-    background: red;
     border-radius: 50%;
     transform: scale(0);
     @apply bg-primary dark:bg-primary-dark;
