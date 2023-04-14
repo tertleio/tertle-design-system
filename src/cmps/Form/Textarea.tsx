@@ -28,8 +28,8 @@ const Textarea = (props: TextareaProps) => {
   return (
     <FieldWrapper label={label} type="text" readOnly={readOnly}>
       <textarea
-        onFocus={() => resize}
-        onInput={() => resize}
+        onFocus={resize}
+        onInput={resize}
         readOnly={readOnly}
         name={name}
         placeholder={placeholder}
