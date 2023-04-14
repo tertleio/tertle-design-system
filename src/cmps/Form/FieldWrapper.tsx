@@ -4,7 +4,7 @@ import clsx from 'clsx';
 const twText = `dark:border-b-gray-700 border-b-gray-300 dark:border-transparent border-transparent hover:bg-transparent dark:hover:bg-transparent focus-within:border-b-primary dark:focus-within:border-b-primary-dark`;
 
 const sizes = {
-  sm: 'py-3 px-2.5 sm:py-1 sm:px-1.5 rounded-md',
+  sm: 'py-2 px-2.5 sm:py-1 sm:px-1.5 rounded-md',
   md: 'p-3 rounded-lg',
 };
 

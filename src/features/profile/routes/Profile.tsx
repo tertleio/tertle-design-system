@@ -116,7 +116,7 @@ const Profile = () => {
           title="Startup"
           aside={<AsideStartup data={dummyData.startupLinks} />}
           className={clsx(
-            'flex flex-col gap-4 sm:gap-3',
+            'flex flex-col',
             isEditing && 'hover:bg-transparent dark:hover:bg-transparent'
           )}
         >
@@ -156,7 +156,7 @@ const Profile = () => {
                 onChange={() => console.log('change')}
               />
             </div>
-            <div className="w-full">
+            <div className="mb-5 w-full">
               <Textarea
                 name="ideaPitch"
                 placeholder="Write something about your idea..."
@@ -167,11 +167,13 @@ const Profile = () => {
             </div>
           </Fieldset>
 
-          <div className="flex flex-col gap-2 sm:gap-[3px]">
+          <div
+            className={clsx('flex flex-col sm:gap-[3px]', isEditing && 'gap-5')}
+          >
             <Fieldset
               legend="Ambition"
               className={clsx(
-                'block items-center sm:flex',
+                'block items-center gap-[2px] sm:flex',
                 !isEditing && 'flex'
               )}
             >
@@ -213,7 +215,7 @@ const Profile = () => {
             <Fieldset
               legend="Stage"
               className={clsx(
-                'block items-center sm:flex',
+                'block items-center gap-[2px] sm:flex',
                 !isEditing && 'flex'
               )}
             >
