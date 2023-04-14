@@ -115,14 +115,16 @@ const Profile = () => {
           title="Startup"
           aside={<AsideStartup data={dummyData.startupLinks} />}
           className={
-            isEditing ? 'hover:bg-transparent dark:hover:bg-transparent' : ''
+            isEditing
+              ? 'border- hover:bg-transparent dark:hover:bg-transparent'
+              : ''
           }
         >
           <Fieldset legend="Idea" className="">
             <Textarea
               name="idea"
               placeholder="Write something about your idea..."
-              readOnly={isEditing ? false : true}
+              readOnly={!!isEditing ? false : true}
               value={textarea}
               onChange={(e) => setTextarea(e.target.value)}
             />
@@ -133,7 +135,7 @@ const Profile = () => {
               id="1"
               type="radio"
               checked={false}
-              label="Indie/lifestyle"
+              label="Indie"
               readOnly={isEditing ? false : true}
               readOnlyIcon="🌎"
               onChange={() => console.log('change')}
@@ -191,13 +193,13 @@ const Profile = () => {
               onChange={() => console.log('change')}
             />
           </Fieldset>
-          <Fieldset legend="Stage" variant="inline">
+          <Fieldset legend="Tags" variant="inline">
             <Choice
               name="1"
               id="1"
               type="radio"
               checked={true}
-              label="Discovery"
+              label="AI"
               readOnly={isEditing ? false : true}
               readOnlyIcon="#"
               onChange={() => console.log('change')}
@@ -207,7 +209,7 @@ const Profile = () => {
               id="2"
               type="radio"
               checked={false}
-              label="Prototype"
+              label="SaaS"
               readOnly={isEditing ? false : true}
               readOnlyIcon="#"
               onChange={() => console.log('change')}
@@ -217,7 +219,7 @@ const Profile = () => {
               id="3"
               type="radio"
               checked={false}
-              label="Paying customers"
+              label="B2C"
               readOnly={isEditing ? false : true}
               readOnlyIcon="#"
               onChange={() => console.log('change')}
