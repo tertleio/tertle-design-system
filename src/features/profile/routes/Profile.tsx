@@ -164,81 +164,83 @@ const Profile = () => {
             </div>
           </Fieldset>
 
-          <div className="flex flex-col gap-1 sm:gap-[3px]">
+          <div className="flex flex-col gap-2 sm:gap-[3px]">
             <Fieldset
               legend="Ambition"
-              className="flex-inline flex items-center justify-between"
+              className={clsx(
+                'block items-center sm:flex',
+                !isEditing && 'flex'
+              )}
             >
-              <div className="flex h-2 sm:h-9">
-                <Choice
-                  name="1"
-                  id="1"
-                  className="h-5"
-                  type="radio"
-                  checked={false}
-                  label="Indie"
-                  readOnly={!isEditing}
-                  readOnlyIcon="🌎"
-                  onChange={() => console.log('change')}
-                />
-                <Choice
-                  name="2"
-                  id="2"
-                  type="radio"
-                  checked={true}
-                  label="To the moon"
-                  readOnly={!isEditing}
-                  readOnlyIcon="🌙"
-                  onChange={() => console.log('change')}
-                />
-                <Choice
-                  name="3"
-                  id="3"
-                  type="radio"
-                  checked={false}
-                  label="To the stars"
-                  readOnly={!isEditing}
-                  readOnlyIcon="✨"
-                  onChange={() => console.log('change')}
-                />
-              </div>
+              <Choice
+                name="1"
+                id="1"
+                type="radio"
+                checked={false}
+                label="Indie"
+                readOnly={!isEditing}
+                readOnlyIcon="🌎"
+                onChange={() => console.log('change')}
+              />
+              <Choice
+                name="2"
+                id="2"
+                type="radio"
+                checked={true}
+                label="To the moon"
+                readOnly={!isEditing}
+                readOnlyIcon="🌙"
+                onChange={() => console.log('change')}
+              />
+              <Choice
+                name="3"
+                id="3"
+                type="radio"
+                checked={false}
+                label="To the stars"
+                readOnly={!isEditing}
+                readOnlyIcon="✨"
+                onChange={() => console.log('change')}
+              />
             </Fieldset>
+
             <Fieldset
               legend="Stage"
-              className="flex-inline flex items-center justify-between"
+              className={clsx(
+                'block items-center sm:flex',
+                !isEditing && 'flex'
+              )}
             >
-              <div className="flex h-2 sm:h-9">
-                <Choice
-                  name="1"
-                  id="1"
-                  type="radio"
-                  checked={false}
-                  label="Discovery"
-                  readOnly={!isEditing}
-                  readOnlyIcon="🔬"
-                  onChange={() => console.log('change')}
-                />
-                <Choice
-                  name="2"
-                  id="2"
-                  type="radio"
-                  checked={false}
-                  label="Prototype"
-                  readOnly={!isEditing}
-                  readOnlyIcon="🧪"
-                  onChange={() => console.log('change')}
-                />
-                <Choice
-                  name="3"
-                  id="3"
-                  type="radio"
-                  checked={true}
-                  label="Paying customers"
-                  readOnly={!isEditing}
-                  readOnlyIcon="💰"
-                  onChange={() => console.log('change')}
-                />
-              </div>
+              <Choice
+                name="1"
+                id="1"
+                type="radio"
+                checked={false}
+                label="Discovery"
+                readOnly={!isEditing}
+                readOnlyIcon="🔬"
+                onChange={() => console.log('change')}
+              />
+              <Choice
+                name="2"
+                id="2"
+                type="radio"
+                checked={false}
+                label="Prototype"
+                readOnly={!isEditing}
+                readOnlyIcon="🧪"
+                onChange={() => console.log('change')}
+              />
+              <Choice
+                name="3"
+                id="3"
+                type="radio"
+                checked={true}
+                label="Paying customers"
+                readOnly={!isEditing}
+                readOnlyIcon="💰"
+                onChange={() => console.log('change')}
+              />
             </Fieldset>
           </div>
         </Section>
