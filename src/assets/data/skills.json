@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "category": "discipline",
+    "strVal": "software development",
+    "isSelected": false
+  },
+  {
+    "id": 2,
+    "category": "discipline",
+    "strVal": "design",
+    "isSelected": false
+  },
+  {
+    "id": 3,
+    "category": "discipline",
+    "strVal": "research",
+    "isSelected": false
+  },
+  {
+    "id": 4,
+    "category": "discipline",
+    "strVal": "product management",
+    "isSelected": false
+  },
+  {
+    "id": 5,
+    "category": "discipline",
+    "strVal": "marketing",
+    "isSelected": false
+  },
+  {
+    "id": 6,
+    "category": "discipline",
+    "strVal": "business development",
+    "isSelected": false
+  }
+]

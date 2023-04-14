@@ -1,0 +1,51 @@
+{
+  "id": 2,
+  "user_id": "d8806265-c708-4f36-9b3e-68a86b81feeb",
+  "has_startup": false,
+  "startup_stage": 3,
+  "startup_pitch": "",
+  "startup_link": "",
+  "display_pic": "https://s3.eu-west-2.amazonaws.com/app.tertle.io/usrs/imgs/2--avatar__min.jpeg",
+  "city_country": "London, UK",
+  "country": "United Kingdom",
+  "country_code": "GB",
+  "lat_long": "51.5073509, -0.1277583",
+  "link_linkedin": "https://linkedin.com/in/ryanconnaughton",
+  "link_personal": "https://ryanconnaughton.com",
+  "startup_history": 2,
+  "workplace": 3,
+  "commitment": 2,
+  "referral_code": null,
+  "package_id": 1,
+  "headline": "Maker of Tertle 👋",
+  "achievement": "",
+  "link_twitter": "https://twitter.com/ryanconnaughton",
+  "is_technical": true,
+  "url": "raz",
+  "skills": [
+    {
+      "id": 1,
+      "category": "discipline",
+      "strVal": "software development",
+      "isSelected": true
+    },
+    {
+      "id": 4,
+      "category": "discipline",
+      "strVal": "product management",
+      "isSelected": true
+    },
+    {
+      "id": 6,
+      "category": "discipline",
+      "strVal": "business development",
+      "isSelected": true
+    },
+    {
+      "id": 288,
+      "category": "other",
+      "strVal": "awdawd",
+      "isSelected": true
+    }
+  ]
+}
