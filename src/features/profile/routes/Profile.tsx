@@ -120,15 +120,45 @@ const Profile = () => {
               : ''
           }
         >
-          <Fieldset legend="Idea" className="">
-            <Textarea
-              name="idea"
-              placeholder="Write something about your idea..."
-              readOnly={!!isEditing ? false : true}
-              value={textarea}
-              onChange={(e) => setTextarea(e.target.value)}
+          <Fieldset legend="Idea" variant="inline">
+            <Choice
+              name="1"
+              id="1"
+              type="radio"
+              checked={true}
+              label="AI"
+              readOnly={isEditing ? false : true}
+              readOnlyIcon="#"
+              onChange={() => console.log('change')}
+            />
+            <Choice
+              name="2"
+              id="2"
+              type="radio"
+              checked={false}
+              label="SaaS"
+              readOnly={isEditing ? false : true}
+              readOnlyIcon="#"
+              onChange={() => console.log('change')}
+            />
+            <Choice
+              name="3"
+              id="3"
+              type="radio"
+              checked={false}
+              label="B2C"
+              readOnly={isEditing ? false : true}
+              readOnlyIcon="#"
+              onChange={() => console.log('change')}
             />
           </Fieldset>
+          <Textarea
+            name=""
+            placeholder="Write something about your idea..."
+            readOnly={!!isEditing ? false : true}
+            value={textarea}
+            onChange={(e) => setTextarea(e.target.value)}
+          />
           <Fieldset legend="Ambition" variant="inline">
             <Choice
               name="1"
@@ -186,42 +216,10 @@ const Profile = () => {
               name="3"
               id="3"
               type="radio"
-              checked={false}
+              checked={true}
               label="Paying customers"
               readOnly={isEditing ? false : true}
               readOnlyIcon="💰"
-              onChange={() => console.log('change')}
-            />
-          </Fieldset>
-          <Fieldset legend="Tags" variant="inline">
-            <Choice
-              name="1"
-              id="1"
-              type="radio"
-              checked={true}
-              label="AI"
-              readOnly={isEditing ? false : true}
-              readOnlyIcon="#"
-              onChange={() => console.log('change')}
-            />
-            <Choice
-              name="2"
-              id="2"
-              type="radio"
-              checked={false}
-              label="SaaS"
-              readOnly={isEditing ? false : true}
-              readOnlyIcon="#"
-              onChange={() => console.log('change')}
-            />
-            <Choice
-              name="3"
-              id="3"
-              type="radio"
-              checked={false}
-              label="B2C"
-              readOnly={isEditing ? false : true}
-              readOnlyIcon="#"
               onChange={() => console.log('change')}
             />
           </Fieldset>

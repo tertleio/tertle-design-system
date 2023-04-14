@@ -18,7 +18,7 @@ const Fieldset = (props: FieldsetProps) => {
   return (
     <fieldset className={`mb-[2px] ${variants[variant]} ${className}`}>
       <span className="flex flex-grow items-center">
-        <legend className="text-md font-primary text-gray-600 dark:text-gray-300">
+        <legend className="text-md font-primary text-gray-600  dark:text-gray-300">
           {legend}
         </legend>
       </span>
