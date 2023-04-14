@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 import { IconMember } from '@/cmps/Els/Icon';
 import { Button } from '@/cmps/Els/Button';
@@ -114,13 +115,12 @@ const Profile = () => {
         <Section
           title="Startup"
           aside={<AsideStartup data={dummyData.startupLinks} />}
-          className={
-            isEditing
-              ? 'border- hover:bg-transparent dark:hover:bg-transparent'
-              : ''
-          }
+          className={clsx(
+            'flex flex-col gap-4',
+            isEditing && 'hover:bg-transparent dark:hover:bg-transparent'
+          )}
         >
-          <Fieldset legend="Idea" variant="inline">
+          <Fieldset legend="Idea" className="flex flex-row">
             <Choice
               name="1"
               id="1"
@@ -151,47 +151,53 @@ const Profile = () => {
               readOnlyIcon="#"
               onChange={() => console.log('change')}
             />
-          </Fieldset>
-          <Textarea
-            name=""
-            placeholder="Write something about your idea..."
-            readOnly={!!isEditing ? false : true}
-            value={textarea}
-            onChange={(e) => setTextarea(e.target.value)}
-          />
-          <Fieldset legend="Ambition" variant="inline">
-            <Choice
-              name="1"
-              id="1"
-              type="radio"
-              checked={false}
-              label="Indie"
-              readOnly={isEditing ? false : true}
-              readOnlyIcon="🌎"
-              onChange={() => console.log('change')}
-            />
-            <Choice
-              name="2"
-              id="2"
-              type="radio"
-              checked={true}
-              label="To the moon"
-              readOnly={isEditing ? false : true}
-              readOnlyIcon="🌙"
-              onChange={() => console.log('change')}
-            />
-            <Choice
-              name="3"
-              id="3"
-              type="radio"
-              checked={false}
-              label="To the stars"
-              readOnly={isEditing ? false : true}
-              readOnlyIcon="✨"
-              onChange={() => console.log('change')}
+            <Textarea
+              name=""
+              placeholder="Write something about your idea..."
+              readOnly={!!isEditing ? false : true}
+              value={textarea}
+              onChange={(e) => setTextarea(e.target.value)}
             />
           </Fieldset>
-          <Fieldset legend="Stage" variant="inline">
+
+          <Fieldset
+            legend="Ambition"
+            className="gap-1px] flex items-center justify-between"
+          >
+            <div className="flex gap-[1px]">
+              <Choice
+                name="1"
+                id="1"
+                type="radio"
+                checked={false}
+                label="Indie"
+                readOnly={isEditing ? false : true}
+                readOnlyIcon="🌎"
+                onChange={() => console.log('change')}
+              />
+              <Choice
+                name="2"
+                id="2"
+                type="radio"
+                checked={true}
+                label="To the moon"
+                readOnly={isEditing ? false : true}
+                readOnlyIcon="🌙"
+                onChange={() => console.log('change')}
+              />
+              <Choice
+                name="3"
+                id="3"
+                type="radio"
+                checked={false}
+                label="To the stars"
+                readOnly={isEditing ? false : true}
+                readOnlyIcon="✨"
+                onChange={() => console.log('change')}
+              />
+            </div>
+          </Fieldset>
+          <Fieldset legend="Stage">
             <Choice
               name="1"
               id="1"

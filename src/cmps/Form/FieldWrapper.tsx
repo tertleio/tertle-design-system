@@ -39,8 +39,8 @@ const FieldWrapper = (props: FieldWrapperProps) => {
         htmlFor={id}
         // prettier-ignore
         className={clsx(
-          `dark:hover:bg-700 flex cursor-pointer items-center justify-start rounded-lg border 
-           font-secondary text-gray-600 p-1.5 px-2.5 hover:bg-gray-100 dark:hover:bg-gray-800 border-gray-100 dark:border-gray-800`,
+          `dark:hover:bg-700 flex cursor-pointer items-center justify-start rounded-lg border mb-[-1px]
+           font-secondary text-gray-600 p-2.5 px-2.5 hover:bg-gray-100 dark:hover:bg-gray-800 border-gray-100 dark:border-gray-800`,
            isText && twText,
            readOnly && 'pointer-events-none border-transparent dark:border-transparent',
            readOnly && isText && 'border-b-transparent dark:border-b-transparent',

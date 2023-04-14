@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import clsx from 'clsx';
 import useTheme from '@/hooks/useTheme';
 import fetchSim from '@/hooks/useFetchSim';
 import useFetchSim from '@/hooks/useFetchSim';
@@ -69,7 +70,11 @@ function App() {
 
       <div className="mx-auto max-w-xl">
         <Container className="p-7">
-          <Form id="formId" onSubmit={handleSubmit}>
+          <Form
+            id="formId"
+            className={clsx('flex flex-col gap-6')}
+            onSubmit={handleSubmit}
+          >
             <Fieldset
               legend="Some dropdown question"
               className="flex justify-items-center"
