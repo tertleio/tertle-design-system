@@ -40,7 +40,9 @@ const Choice = (props: ChoiceProps) => {
       readOnly={readOnly}
       size={size}
     >
-      <span className={clsx('text-xs', size === 'sm' ? 'mr-1.5' : 'mr-2.5')}>
+      <span
+        className={clsx(size === 'sm' ? 'mr-1.5 text-xs' : 'mr-2.5 text-sm')}
+      >
         {!readOnly && (
           <input
             readOnly={readOnly}
