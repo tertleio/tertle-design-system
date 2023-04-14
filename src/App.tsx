@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import useTheme from '@/hooks/useTheme';
-import fetchSim from '@/hooks/useFetchSim';
-import useFetchSim from '@/hooks/useFetchSim';
+import fetchSim from '@/hooks/useFetch';
+import useFetch from '@/hooks/useFetch';
 
 // Components
 import { Container } from '@/cmps/Container';
@@ -25,10 +25,10 @@ const opts = [
 const pid = '1';
 
 function App() {
-  const { isLoading, data } = useFetchSim(pid);
+  const { isLoading, data } = useFetch(pid);
   const [text, setText] = useState('');
   const [textarea, setTextarea] = useState('');
-  const [darkTheme, setDarkTheme] = useTheme<>(null);
+  const [darkTheme, setDarkTheme] = useTheme(null);
   const [dummyData, setDummyData] = useState<any>({});
 
   useEffect(() => {

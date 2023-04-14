@@ -31,8 +31,6 @@ const Choice = (props: ChoiceProps) => {
     className = '',
   } = props;
 
-  console.log(size);
-
   return (
     <FieldWrapper
       label={label}

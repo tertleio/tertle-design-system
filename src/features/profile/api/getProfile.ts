@@ -1,1 +1,1 @@
-import useFetchSim from 'src/hooks/useFetchSim';
+import useFetch from '@/hooks/useFetch';

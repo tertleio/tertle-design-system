@@ -1,5 +1,8 @@
-import React from 'react';
+import { useState } from 'react';
 import clsx from 'clsx';
+import jsonProfile from '@/assets/data/profile.json';
+import jsonUser from '@/assets/data/user.json';
+import jsonPrefs from '@/assets/data/prefs.json';
 
 import { IconMember } from '@/cmps/Els/Icon';
 import { Button } from '@/cmps/Els/Button';
@@ -7,24 +10,6 @@ import { MainLayout } from '@/cmps/Layouts';
 import { Container } from '@/cmps/Container';
 import { Section } from '@/cmps/Els/Section';
 import { Form, Textarea, Fieldset, Choice } from '@/cmps/Form';
-
-type dummyDataProps = {
-  name: string;
-  location: string;
-  lookingFor: string;
-  startupLinks: {};
-};
-
-const dummyData: dummyDataProps = {
-  name: 'Ryan Smith',
-  location: 'London, UK',
-  lookingFor: 'Something cool to work on',
-  startupLinks: {
-    github: 'https://github.com/ryanconnaughton',
-    linkedin: 'https://www.linkedin.com/in/ryanconnaughton/',
-    twitter: 'https://twitter.com/ryanconnaughton',
-  },
-};
 
 const Avatar = () => {
   return (
@@ -37,13 +22,36 @@ const Avatar = () => {
 };
 
 const Profile = () => {
-  const [isEditing, setIsEditing] = React.useState(false);
-  const [isSaving, setIsSaving] = React.useState(false);
-  const [isAdmin, setIsAdmin] = React.useState(true);
-  const [data, setData] = React.useState(dummyData);
-  const [textarea, setTextarea] = React.useState(
-    'Tertle makes it easy for aspiring tech founders to discover and meet one another in pursuit of a common goal. Tertle makes it easy for aspiring tech founders to discover and meet one another in pursuit of a common goal.'
-  );
+  const [isEditing, setIsEditing] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [profile, setProfile] = useState(jsonProfile);
+  const [prefs, setPrefs] = useState(jsonPrefs);
+  const [user] = useState(jsonUser);
+
+  function handleProfileChange(e: any) {
+    const { name, value } = e.target;
+    setProfile({ ...profile, [name]: value });
+  }
+
+  const AsideStartup = ({ data }: any) => {
+    return (
+      <ul className="flex items-center gap-3.5 sm:gap-2">
+        {Object.entries(data).map((item, i) => {
+          const iconName = item[0] as IconMember;
+          const url = item[1] as string;
+          return (
+            <li key={item[0] + i}>
+              <a href={url}>
+                <Button icon={iconName} variant="secondaryGray" />
+              </a>
+            </li>
+          );
+        })}
+        {isAdmin && <Controls />}
+      </ul>
+    );
+  };
 
   const Controls = () => {
     return !isEditing ? (
@@ -71,34 +79,17 @@ const Profile = () => {
     );
   };
 
-  const AsideStartup = ({ data }: any) => {
-    return (
-      <ul className="flex items-center gap-3.5 sm:gap-2">
-        {Object.entries(data).map((item, i) => {
-          const iconName = item[0] as IconMember;
-          const url = item[1] as string;
-          return (
-            <li key={item[0] + i}>
-              <a href={url}>
-                <Button icon={iconName} variant="secondaryGray" />
-              </a>
-            </li>
-          );
-        })}
-        {isAdmin && <Controls />}
-      </ul>
-    );
-  };
-
   return (
     <MainLayout>
       <Container>
         <Section className="bg-black hover:cursor-default  hover:bg-black dark:bg-gray-800 dark:hover:bg-[#171717]">
           <div className="flex justify-between">
             <div>
-              <h1 className="mb-0.5 text-white sm:mb-1">{dummyData.name}</h1>
+              <h1 className="mb-0.5 text-white sm:mb-1">
+                {user.firstName + ' ' + user.lastName}
+              </h1>
               <div className="text-[1.25em] text-gray-500 dark:text-gray-500 md:text-2xl">
-                {dummyData.location} 🇬🇧
+                {profile.city_country} 🇬🇧
               </div>
               <ul className="flex-inline flex flex-wrap gap-3 sm:mt-1">
                 <li className="opacity-50">Join your idea</li>
@@ -114,7 +105,13 @@ const Profile = () => {
 
         <Section
           title="Startup"
-          aside={<AsideStartup data={dummyData.startupLinks} />}
+          aside={
+            <AsideStartup
+              data={{
+                github: profile.link_personal,
+              }}
+            />
+          }
           className={clsx(
             'flex flex-col',
             isEditing && 'hover:bg-transparent dark:hover:bg-transparent'
@@ -161,8 +158,8 @@ const Profile = () => {
                 name="ideaPitch"
                 placeholder="Write something about your idea..."
                 readOnly={!isEditing}
-                value={textarea}
-                onChange={(e) => setTextarea(e.target.value)}
+                value={profile.startup_pitch}
+                onChange={handleProfileChange}
               />
             </div>
           </Fieldset>
@@ -258,10 +255,18 @@ const Profile = () => {
 
         <Section
           title="Me"
-          aside={<AsideStartup data={dummyData.startupLinks} />}
+          aside={
+            <AsideStartup
+              data={{
+                linkedin: profile.link_linkedin,
+                github: profile.link_personal,
+                twitter: profile.link_twitter,
+              }}
+            />
+          }
         >
           <h3 className="mb-3">Looking for</h3>
-          <p>{dummyData.lookingFor}</p>
+          <p>{profile.headline}</p>
         </Section>
 
         <Section
