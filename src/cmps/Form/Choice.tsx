@@ -32,7 +32,7 @@ const Choice = (props: ChoiceProps) => {
 
   return (
     <FieldWrapper label={label} checked={checked} readOnly={readOnly}>
-      <span className={clsx('mr-2 text-sm', className)}>
+      <span className={clsx('mr-2.5 text-sm', className)}>
         {!readOnly && (
           <input
             readOnly={readOnly}
@@ -43,7 +43,7 @@ const Choice = (props: ChoiceProps) => {
             onChange={onChange}
             value={value}
             className={clsx(
-              'mr-2.5 checked:border-primary  hover:border-primary dark:checked:border-primary-dark dark:hover:border-primary-dark',
+              'checked:border-primary  hover:border-primary dark:checked:border-primary-dark dark:hover:border-primary-dark',
               className
             )}
           />
