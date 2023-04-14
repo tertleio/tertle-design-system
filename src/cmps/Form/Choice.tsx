@@ -25,14 +25,22 @@ const Choice = (props: ChoiceProps) => {
     checked,
     onChange,
     id,
+    size,
     readOnly = false,
     readOnlyIcon = '',
     className = '',
   } = props;
 
+  console.log(size);
+
   return (
-    <FieldWrapper label={label} checked={checked} readOnly={readOnly}>
-      <span className={clsx('mr-2')}>
+    <FieldWrapper
+      label={label}
+      checked={checked}
+      readOnly={readOnly}
+      size={size}
+    >
+      <span className={clsx('text-xs', size === 'sm' ? 'mr-1.5' : 'mr-2.5')}>
         {!readOnly && (
           <input
             readOnly={readOnly}

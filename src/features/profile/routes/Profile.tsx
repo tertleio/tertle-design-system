@@ -116,7 +116,7 @@ const Profile = () => {
           title="Startup"
           aside={<AsideStartup data={dummyData.startupLinks} />}
           className={clsx(
-            'flex flex-col gap-2 sm:gap-3',
+            'flex flex-col gap-4 sm:gap-3',
             isEditing && 'hover:bg-transparent dark:hover:bg-transparent'
           )}
         >
@@ -126,6 +126,7 @@ const Profile = () => {
                 name="1"
                 id="1"
                 type="radio"
+                size="sm"
                 checked={true}
                 label="AI"
                 readOnly={!isEditing}
@@ -136,6 +137,7 @@ const Profile = () => {
                 name="2"
                 id="2"
                 type="radio"
+                size="sm"
                 checked={false}
                 label="SaaS"
                 readOnly={!isEditing}
@@ -146,6 +148,7 @@ const Profile = () => {
                 name="3"
                 id="3"
                 type="radio"
+                size="sm"
                 checked={false}
                 label="B2C"
                 readOnly={!isEditing}
@@ -176,6 +179,7 @@ const Profile = () => {
                 name="1"
                 id="1"
                 type="radio"
+                size="sm"
                 checked={false}
                 label="Indie"
                 readOnly={!isEditing}
@@ -186,6 +190,7 @@ const Profile = () => {
                 name="2"
                 id="2"
                 type="radio"
+                size="sm"
                 checked={true}
                 label="To the moon"
                 readOnly={!isEditing}
@@ -196,6 +201,7 @@ const Profile = () => {
                 name="3"
                 id="3"
                 type="radio"
+                size="sm"
                 checked={false}
                 label="To the stars"
                 readOnly={!isEditing}
@@ -216,6 +222,7 @@ const Profile = () => {
                 id="1"
                 type="radio"
                 checked={false}
+                size="sm"
                 label="Discovery"
                 readOnly={!isEditing}
                 readOnlyIcon="🔬"
@@ -225,6 +232,7 @@ const Profile = () => {
                 name="2"
                 id="2"
                 type="radio"
+                size="sm"
                 checked={false}
                 label="Prototype"
                 readOnly={!isEditing}
@@ -235,6 +243,7 @@ const Profile = () => {
                 name="3"
                 id="3"
                 type="radio"
+                size="sm"
                 checked={true}
                 label="Paying customers"
                 readOnly={!isEditing}
