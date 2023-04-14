@@ -45,6 +45,7 @@ const FieldWrapper = (props: FieldWrapperProps) => {
            readOnly && 'pointer-events-none border-transparent dark:border-transparent',
            readOnly && isText && 'border-b-transparent dark:border-b-transparent',
            readOnly && !isText ? checked ? 'text-primary dark:text-primary-dark' : 'opacity-20 dark:opacity-30' : '',
+           readOnly && !isText && !checked && 'hidden sm:flex',
            className
         )}
       >

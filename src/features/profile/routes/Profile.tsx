@@ -116,7 +116,7 @@ const Profile = () => {
           title="Startup"
           aside={<AsideStartup data={dummyData.startupLinks} />}
           className={clsx(
-            'flex flex-col gap-4',
+            'flex flex-col gap-2 sm:gap-3',
             isEditing && 'hover:bg-transparent dark:hover:bg-transparent'
           )}
         >
@@ -164,12 +164,12 @@ const Profile = () => {
             </div>
           </Fieldset>
 
-          <div className="flex flex-col gap-2 sm:gap-[3px]">
+          <div className="flex flex-col gap-1 sm:gap-[3px]">
             <Fieldset
               legend="Ambition"
-              className="items-center justify-between sm:flex"
+              className="flex-inline flex items-center justify-between"
             >
-              <div className="gap-[1px] sm:flex sm:h-9">
+              <div className="flex h-2 sm:h-9">
                 <Choice
                   name="1"
                   id="1"
@@ -205,9 +205,9 @@ const Profile = () => {
             </Fieldset>
             <Fieldset
               legend="Stage"
-              className="items-center justify-between sm:flex"
+              className="flex-inline flex items-center justify-between"
             >
-              <div className="gap-[2px] sm:flex sm:h-9">
+              <div className="flex h-2 sm:h-9">
                 <Choice
                   name="1"
                   id="1"
