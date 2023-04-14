@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
-const dark = `dark:text-gray-600  dark:hover:bg-[#181818] dark:focus-within:bg-[#181818]`;
-const fieldActiveDark = `dark:border-b-gray-700 dark:hover:bg-transparent dark:focus-within:border-b-primary-dark dark:focus-within:bg-transparent`;
+const twText = `dark:border-transparent border-transparent border-b-gray-300 hover:bg-transparent dark:border-b-gray-700 dark:hover:bg-transparent focus-within:border-b-primary dark:focus-within:border-b-primary-dark`;
 
 type FieldWrapperProps = {
   children: ReactNode;
@@ -21,25 +20,31 @@ type FieldWrapperPassProps = Omit<
 >;
 
 const FieldWrapper = (props: FieldWrapperProps) => {
-  const { children, className = '', label, error, id, type, readOnly } = props;
+  const {
+    children,
+    className = '',
+    label,
+    error,
+    id,
+    type,
+    readOnly,
+    checked,
+  } = props;
   const isText = type === 'text' || type === 'email' || type === 'password';
 
   return (
     <>
       <label
         htmlFor={id}
-        className={`
-            flex cursor-pointer items-center justify-start rounded-lg border
-            border-transparent font-secondary text-gray-600
-           focus-within:bg-gray-100 hover:bg-gray-100 hover:opacity-90
-            ${dark}
-            ${
-              isText
-                ? `p-1 pr-1.5 ${fieldActiveDark} rounded-none border-b-gray-300 focus-within:border-b-primary focus-within:bg-transparent hover:bg-transparent`
-                : 'p-1 pr-1.5'
-            }
-            ${readOnly && isText ? 'pointer-events-none border-b-0' : ''}
-            ${className}
+        // prettier-ignore
+        className={`        
+            dark:hover:bg-700 flex cursor-pointer items-center justify-start rounded-lg 
+            border border-gray-100 font-secondary text-gray-600 p-1 py-2.5
+           hover:bg-gray-100 dark:border-gray-900 dark:hover:bg-gray-800
+           ${isText && twText}
+          ${readOnly ? 'pointer-events-none border-transparent dark:border-transparent' : ''}
+          ${checked && 'border-gray-200 dark:border-gray-800'}
+          ${className}
           `}
       >
         {children}

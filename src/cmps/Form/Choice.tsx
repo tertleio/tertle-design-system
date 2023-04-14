@@ -43,7 +43,10 @@ const Choice = (props: ChoiceProps) => {
           checked={checked}
           onChange={onChange}
           value={value}
-          className={`m-1 ${className}`}
+          className={`
+            m-1 checked:border-primary hover:border-primary 
+            dark:checked:border-primary-dark dark:hover:border-primary-dark
+            ${className}`}
         />
       )}
     </FieldWrapper>

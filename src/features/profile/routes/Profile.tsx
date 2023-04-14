@@ -128,47 +128,43 @@ const Profile = () => {
             />
           </Fieldset>
           <Fieldset legend="Ambition" variant="inline">
-            <span className={`${!isEditing && 'hidden sm:flex'}`}>
-              <Choice
-                name="1"
-                id="1"
-                type="radio"
-                checked={true}
-                label="Indie/lifestyle"
-                readOnly={isEditing ? false : true}
-                readOnlyIcon="🌎"
-                onChange={() => console.log('change')}
-              />
-            </span>
+            <Choice
+              name="1"
+              id="1"
+              type="radio"
+              checked={false}
+              label="Indie/lifestyle"
+              readOnly={isEditing ? false : true}
+              readOnlyIcon="🌎"
+              onChange={() => console.log('change')}
+            />
             <Choice
               name="2"
               id="2"
               type="radio"
-              checked={false}
+              checked={true}
               label="To the moon"
               readOnly={isEditing ? false : true}
               readOnlyIcon="🌙"
               onChange={() => console.log('change')}
             />
-            <span className={`${!isEditing && 'hidden sm:flex'}`}>
-              <Choice
-                name="3"
-                id="3"
-                type="radio"
-                checked={false}
-                label="To the stars"
-                readOnly={isEditing ? false : true}
-                readOnlyIcon="✨"
-                onChange={() => console.log('change')}
-              />
-            </span>
+            <Choice
+              name="3"
+              id="3"
+              type="radio"
+              checked={false}
+              label="To the stars"
+              readOnly={isEditing ? false : true}
+              readOnlyIcon="✨"
+              onChange={() => console.log('change')}
+            />
           </Fieldset>
           <Fieldset legend="Stage" variant="inline">
             <Choice
               name="1"
               id="1"
               type="radio"
-              checked={true}
+              checked={false}
               label="Discovery"
               readOnly={isEditing ? false : true}
               readOnlyIcon="🔬"
