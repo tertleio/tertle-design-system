@@ -266,7 +266,11 @@ const Profile = () => {
 
         <Section
           title="Preferences"
-          aside={<AsideStartup data={dummyData.startupLinks} />}
+          aside={
+            <div className="flex gap-2">
+              <Controls />
+            </div>
+          }
         >
           <p>Preferences here</p>
         </Section>
