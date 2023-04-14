@@ -7,7 +7,7 @@ type FieldWrapperProps = {
   children: ReactNode;
   className?: string;
   type?: 'text' | 'email' | 'password' | 'radio' | 'checkbox';
-  readOnly: boolean;
+  readOnly?: boolean;
   label?: string;
   checked?: boolean;
   info?: string;
@@ -28,7 +28,7 @@ const FieldWrapper = (props: FieldWrapperProps) => {
     error,
     id,
     type,
-    readOnly,
+    readOnly = false,
     checked,
   } = props;
   const isText = type === 'text' || type === 'email' || type === 'password';
