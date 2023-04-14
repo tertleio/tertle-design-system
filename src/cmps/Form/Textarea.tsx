@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 
 type TextareaProps = FieldWrapperPassProps & {
@@ -36,11 +37,11 @@ const Textarea = (props: TextareaProps) => {
         id={value}
         value={value}
         onChange={onChange}
-        className={`
-          w-full bg-transparent placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700
-          ${readOnly ? 'resize-none' : ''}
-          ${className}
-        `}
+        className={clsx(
+          'w-full bg-transparent placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700',
+          readOnly && 'resize-none',
+          className
+        )}
       />
     </FieldWrapper>
   );
