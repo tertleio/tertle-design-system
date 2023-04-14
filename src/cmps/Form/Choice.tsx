@@ -29,7 +29,7 @@ const Choice = (props: ChoiceProps) => {
   } = props;
 
   return (
-    <FieldWrapper label={label} checked={checked}>
+    <FieldWrapper label={label} checked={checked} readOnly={readOnly}>
       {readOnly ? (
         <span className={`mr-2 text-sm ${className}`}>{readOnlyIcon}</span>
       ) : (

@@ -9,6 +9,7 @@ type FieldWrapperProps = {
   type?: 'text' | 'email' | 'password' | 'radio' | 'checkbox';
   readOnly: boolean;
   label?: string;
+  checked?: boolean;
   info?: string;
   id?: string;
   error?: string;
@@ -20,7 +21,16 @@ type FieldWrapperPassProps = Omit<
 >;
 
 const FieldWrapper = (props: FieldWrapperProps) => {
-  const { children, className = '', label, error, id, type, readOnly } = props;
+  const {
+    children,
+    className = '',
+    label,
+    error,
+    id,
+    type,
+    readOnly,
+    checked,
+  } = props;
   const isText = type === 'text' || type === 'email' || type === 'password';
 
   return (
@@ -34,6 +44,7 @@ const FieldWrapper = (props: FieldWrapperProps) => {
            isText && twText,
            readOnly && 'pointer-events-none border-transparent dark:border-transparent',
            readOnly && isText && 'border-b-transparent dark:border-b-transparent',
+           readOnly && !isText ? checked ? 'text-primary dark:text-primary-dark' : 'opacity-40' : '',
            className
         )}
       >
