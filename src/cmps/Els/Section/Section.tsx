@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 type SectionProps = {
   title?: string;
   children: React.ReactNode;
@@ -15,7 +17,7 @@ const Section = (props: SectionProps) => {
         dark:border-gray-700 dark:hover:bg-gray-900 sm:px-6 sm:py-5 sm:pb-7
         ${className}`}
     >
-      <div className="mb-6 flex justify-between sm:mb-6">
+      <div className={clsx('flex justify-between', aside && 'mb-6 sm:mb-6')}>
         <h2>{title}</h2>
         {aside && (
           <div className="ml-1 flex h-full flex-col justify-start">{aside}</div>

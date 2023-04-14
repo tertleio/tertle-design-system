@@ -267,7 +267,7 @@ const Profile = () => {
         <Section
           title="Preferences"
           aside={
-            <div className="flex gap-2">
+            <div className="flex gap-3.5 sm:gap-2">
               <Controls />
             </div>
           }
