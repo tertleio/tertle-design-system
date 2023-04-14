@@ -15,9 +15,10 @@
 }
 
 @layer base {
-  * {
+  /* * {
     outline: 1px solid red;
-  }
+  } */
+
   html {
     font-family: 'proxima-nova', Helvetica, Arial, system-ui, sans-serif;
     font-style: normal;

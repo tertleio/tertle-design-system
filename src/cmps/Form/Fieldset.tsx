@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 type FieldsetProps = {
   children: React.ReactNode;
-  legend?: string;
+  legend: string;
   className?: string;
 };
 
@@ -12,8 +12,8 @@ const Fieldset = (props: FieldsetProps) => {
 
   return (
     <fieldset className={clsx(className)}>
-      <span>
-        <legend className="text-md font-primary text-gray-600  dark:text-gray-300">
+      <span className="flex flex-grow">
+        <legend className="text-md my-1 font-primary text-gray-600  dark:text-gray-300">
           {legend}
         </legend>
       </span>
