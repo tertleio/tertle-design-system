@@ -1,5 +1,6 @@
 // imported icon base size must be 16x16px
 import * as icons from '@/assets/icons';
+import clsx from 'clsx';
 
 const sizes = {
   sm: 'w-[14px] h-[14px]',
@@ -19,12 +20,7 @@ const Icon = (props: IconProps) => {
   const paths = icons[name];
 
   return (
-    <svg
-      className={`
-        ${sizes[size]}
-        ${className}`}
-      viewBox="0 0 16 16"
-    >
+    <svg className={clsx(sizes[size], className)} viewBox="0 0 16 16">
       {paths.map((path, i) => (
         <path key={i + name} d={path} />
       ))}
