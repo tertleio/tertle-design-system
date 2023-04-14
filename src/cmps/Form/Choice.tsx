@@ -1,4 +1,6 @@
 import React from 'react';
+import clsx from 'clsx';
+
 import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 
 type ChoiceProps = FieldWrapperPassProps & {
@@ -30,23 +32,24 @@ const Choice = (props: ChoiceProps) => {
 
   return (
     <FieldWrapper label={label} checked={checked} readOnly={readOnly}>
-      {readOnly ? (
-        <span className={`mr-2 text-sm ${className}`}>{readOnlyIcon}</span>
-      ) : (
-        <input
-          readOnly={readOnly}
-          name={name}
-          id={id}
-          type={type}
-          checked={checked}
-          onChange={onChange}
-          value={value}
-          className={`
-            mr-2 checked:border-primary  hover:border-primary
-            dark:checked:border-primary-dark dark:hover:border-primary-dark
-            ${className}`}
-        />
-      )}
+      <span className={clsx('mr-2 text-sm', className)}>
+        {!readOnly && (
+          <input
+            readOnly={readOnly}
+            name={name}
+            id={id}
+            type={type}
+            checked={checked}
+            onChange={onChange}
+            value={value}
+            className={clsx(
+              'mr-2.5 checked:border-primary  hover:border-primary dark:checked:border-primary-dark dark:hover:border-primary-dark',
+              className
+            )}
+          />
+        )}
+        {readOnly && readOnlyIcon}
+      </span>
     </FieldWrapper>
   );
 };
