@@ -128,7 +128,7 @@ const Profile = () => {
                 type="radio"
                 checked={true}
                 label="AI"
-                readOnly={isEditing ? false : true}
+                readOnly={!isEditing}
                 readOnlyIcon="#"
                 onChange={() => console.log('change')}
               />
@@ -138,7 +138,7 @@ const Profile = () => {
                 type="radio"
                 checked={false}
                 label="SaaS"
-                readOnly={isEditing ? false : true}
+                readOnly={!isEditing}
                 readOnlyIcon="#"
                 onChange={() => console.log('change')}
               />
@@ -148,7 +148,7 @@ const Profile = () => {
                 type="radio"
                 checked={false}
                 label="B2C"
-                readOnly={isEditing ? false : true}
+                readOnly={!isEditing}
                 readOnlyIcon="#"
                 onChange={() => console.log('change')}
               />
@@ -177,7 +177,7 @@ const Profile = () => {
                   type="radio"
                   checked={false}
                   label="Indie"
-                  readOnly={isEditing ? false : true}
+                  readOnly={!isEditing}
                   readOnlyIcon="🌎"
                   onChange={() => console.log('change')}
                 />
@@ -187,7 +187,7 @@ const Profile = () => {
                   type="radio"
                   checked={true}
                   label="To the moon"
-                  readOnly={isEditing ? false : true}
+                  readOnly={!isEditing}
                   readOnlyIcon="🌙"
                   onChange={() => console.log('change')}
                 />
@@ -197,7 +197,7 @@ const Profile = () => {
                   type="radio"
                   checked={false}
                   label="To the stars"
-                  readOnly={isEditing ? false : true}
+                  readOnly={!isEditing}
                   readOnlyIcon="✨"
                   onChange={() => console.log('change')}
                 />
@@ -214,7 +214,7 @@ const Profile = () => {
                   type="radio"
                   checked={false}
                   label="Discovery"
-                  readOnly={isEditing ? false : true}
+                  readOnly={!isEditing}
                   readOnlyIcon="🔬"
                   onChange={() => console.log('change')}
                 />
@@ -224,7 +224,7 @@ const Profile = () => {
                   type="radio"
                   checked={false}
                   label="Prototype"
-                  readOnly={isEditing ? false : true}
+                  readOnly={!isEditing}
                   readOnlyIcon="🧪"
                   onChange={() => console.log('change')}
                 />
@@ -234,7 +234,7 @@ const Profile = () => {
                   type="radio"
                   checked={true}
                   label="Paying customers"
-                  readOnly={isEditing ? false : true}
+                  readOnly={!isEditing}
                   readOnlyIcon="💰"
                   onChange={() => console.log('change')}
                 />
