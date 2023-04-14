@@ -121,7 +121,7 @@ const Profile = () => {
           )}
         >
           <Fieldset legend="Idea" className="flex flex-wrap items-center">
-            <div className="flex h-8 gap-[1px]">
+            <div className="flex gap-[1px]">
               <Choice
                 name="1"
                 id="1"
