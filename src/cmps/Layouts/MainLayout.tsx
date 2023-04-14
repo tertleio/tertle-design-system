@@ -1,11 +1,16 @@
+import clsx from 'clsx';
+
 type MainLayoutProps = {
   children: React.ReactNode;
+  className?: string;
 };
 
-const MainLayout = ({ children }: MainLayoutProps) => {
+const MainLayout = (props: MainLayoutProps) => {
+  const { children, className } = props;
+
   return (
     <div className="w-full py-5">
-      <main className="m-auto max-w-xl">{children}</main>
+      <main className={clsx('m-auto max-w-xl', className)}>{children}</main>
     </div>
   );
 };

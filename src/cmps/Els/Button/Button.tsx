@@ -1,4 +1,6 @@
 import React from 'react';
+import clsx from 'clsx';
+
 import { Icon, IconMember } from '../Icon';
 
 const variants = {
@@ -56,22 +58,22 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         type={type}
-        className={`
-            flex content-center items-center justify-center font-primary font-medium uppercase
-            hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70
-            ${variants[variant]}
-            ${sizes[size]}
-            ${className}`}
+        className={clsx(
+          'flex content-center items-center justify-center font-primary font-medium uppercase hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70',
+          variants[variant],
+          sizes[size],
+          className
+        )}
         {...props}
       >
         {icon && (
           <Icon
             name={icon}
             size={size}
-            className={`
-                ${iconFills[variant]}
-                ${isIconOnly ? 'mr-0' : size === 'sm' ? 'mr-2' : 'mr-3'}
-                `}
+            className={clsx(
+              iconFills[variant],
+              isIconOnly ? 'mr-0' : size === 'sm' ? 'mr-2' : 'mr-3'
+            )}
           />
         )}
         {props.children}

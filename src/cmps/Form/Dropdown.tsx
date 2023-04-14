@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 
 type Opt = {
@@ -20,9 +22,7 @@ const Dropdown = (props: DropdownProps) => {
       <select
         name={name}
         placeholder={placeholder}
-        className={`
-         bg-transparent focus:outline-none
-        ${className}`}
+        className={clsx('bg-transparent focus:outline-none', className)}
       >
         {opts.map(({ label, value }) => (
           <option key={label?.toString()} value={value}>

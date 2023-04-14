@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 type FormProps = {
   children: React.ReactNode;
@@ -11,7 +12,7 @@ const Form = (props: FormProps) => {
   const { children, id, onSubmit, className } = props;
 
   return (
-    <form id={id} onSubmit={onSubmit} className={className}>
+    <form id={id} onSubmit={onSubmit} className={clsx(className)}>
       {children}
     </form>
   );

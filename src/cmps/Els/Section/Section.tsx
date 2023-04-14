@@ -12,10 +12,10 @@ const Section = (props: SectionProps) => {
 
   return (
     <div
-      className={`
-        border-b border-gray-300 p-5 text-gray-600 first:rounded-t-3xl last:rounded-b-3xl last:border-b-0 hover:cursor-pointer hover:bg-gray-100
-        dark:border-gray-700 dark:hover:bg-gray-900 sm:px-6 sm:py-5 sm:pb-7
-        ${className}`}
+      className={clsx(
+        'border-b border-gray-300 p-5 text-gray-600 first:rounded-t-3xl last:rounded-b-3xl last:border-b-0 hover:cursor-pointer hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-900 sm:px-6 sm:py-5 sm:pb-7',
+        className
+      )}
     >
       <div className={clsx('flex justify-between', aside && 'mb-6 sm:mb-6')}>
         <h2>{title}</h2>
