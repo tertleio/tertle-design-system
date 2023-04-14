@@ -2,7 +2,7 @@ import React from 'react';
 
 const variants = {
   default: `flex flex-col gap-[1px] [&>:nth-child(2)]:mt-2 [&>:last-child]:mb-6`,
-  inline: `flex flex-col gap-[1px] sm:flex-row gap-[1px]sm: sm:items-center justify-end [&>*]:h-8 last:mb-3 flex-wrap`,
+  inline: `flex flex-col gap-[1px] sm:flex-row gap-[1px]sm: sm:items-center justify-end last:mb-3 flex-wrap`,
 };
 
 type FieldsetProps = {

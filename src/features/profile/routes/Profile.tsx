@@ -199,7 +199,7 @@ const Profile = () => {
               checked={true}
               label="Discovery"
               readOnly={isEditing ? false : true}
-              readOnlyIcon="🔬"
+              readOnlyIcon="#"
               onChange={() => console.log('change')}
             />
             <Choice
@@ -209,7 +209,7 @@ const Profile = () => {
               checked={false}
               label="Prototype"
               readOnly={isEditing ? false : true}
-              readOnlyIcon="🧪"
+              readOnlyIcon="#"
               onChange={() => console.log('change')}
             />
             <Choice
@@ -219,7 +219,7 @@ const Profile = () => {
               checked={false}
               label="Paying customers"
               readOnly={isEditing ? false : true}
-              readOnlyIcon="💰"
+              readOnlyIcon="#"
               onChange={() => console.log('change')}
             />
           </Fieldset>
