@@ -79,7 +79,7 @@ const MeCard = (props: MeCardProps) => {
 
   return (
     <Section
-      className={clsx('flex flex-col gap-5 ', className)}
+      className={clsx('flex flex-col gap-3 ', className)}
       title="Me"
       aside={
         <Aside
@@ -99,28 +99,25 @@ const MeCard = (props: MeCardProps) => {
           onChange={props.onChange}
         />
       </Fieldset>
-      <Fieldset
-        legend="Skills"
-        className={clsx(
-          '[&>*:nth-child(1)] grid grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-[1px]'
-        )}
-      >
-        {skills.map((skill) => {
-          return (
-            <Choice
-              key={skill.id}
-              name="skills"
-              readOnly={!isEditing}
-              readOnlyIcon={(skillIcons[skill.strVal] as SkillType) || '📚'}
-              size="sm"
-              type="checkbox"
-              value={skill.id}
-              label={skill.strVal}
-              checked={skill.isSelected}
-              onChange={onChange}
-            />
-          );
-        })}
+      <Fieldset legend="Skills">
+        <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-[1px]">
+          {skills.map((skill) => {
+            return (
+              <Choice
+                key={skill.id}
+                name="skills"
+                readOnly={!isEditing}
+                readOnlyIcon={(skillIcons[skill.strVal] as SkillType) || '📚'}
+                size="sm"
+                type="checkbox"
+                value={skill.id}
+                label={skill.strVal}
+                checked={skill.isSelected}
+                onChange={onChange}
+              />
+            );
+          })}
+        </div>
       </Fieldset>
     </Section>
   );
