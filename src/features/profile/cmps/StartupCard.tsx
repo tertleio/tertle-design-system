@@ -61,7 +61,7 @@ const StartupCard = (props: StartupCardProps) => {
       title="Startup"
       aside={<Aside data={{ github: startupUrl }} />}
       className={clsx(
-        'flex flex-col',
+        'flex flex-col gap-2 sm:gap-3',
         isEditing && 'hover:bg-transparent dark:hover:bg-transparent'
       )}
     >
