@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-const spacings = `py-6 px-5 first:pb-8 sm:px-6 sm:py-7 sm:px-7 sm:pb-9`;
+const spacings = `py-6 px-4 first:pb-8 sm:py-7 sm:px-7 sm:pb-9`;
 
 type SectionProps = {
   title?: string;
