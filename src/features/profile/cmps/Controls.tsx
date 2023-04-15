@@ -7,6 +7,7 @@ type ControlsProps = {
   showSave: boolean;
   showCancel?: boolean;
   // showDelete?: boolean;
+  className?: string;
   onSave: () => void;
   onEdit: () => void;
   // onDelete?: () => void;
@@ -23,10 +24,11 @@ const Controls = (props: ControlsProps) => {
     onSave,
     onCancel,
     // onDelete,
+    className,
   } = props;
 
   return (
-    <div className={clsx('flex flex-row justify-end')}>
+    <div className={clsx('flex flex-row justify-end', className)}>
       {showEdit && (
         <Button
           className="border-orange dark:border-orange-dark"
