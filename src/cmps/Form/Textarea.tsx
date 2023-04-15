@@ -24,7 +24,6 @@ const Textarea = (props: TextareaProps) => {
   const ref = useRef<HTMLTextAreaElement>(null);
 
   function resize(e: React.FocusEvent<HTMLTextAreaElement, Element>): void {
-    console.log('e', e);
     e.target.style.height = 'inherit';
     e.target.style.height = e.target.scrollHeight + 'px';
   }
@@ -45,7 +44,6 @@ const Textarea = (props: TextareaProps) => {
         readOnly={readOnly}
         name={name}
         placeholder={placeholder}
-        id={value}
         value={value}
         onChange={onChange}
         className={clsx(

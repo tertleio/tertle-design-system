@@ -38,6 +38,8 @@ const FieldWrapper = (props: FieldWrapperProps) => {
   } = props;
   const isText = type === 'text' || type === 'email' || type === 'password';
 
+  // console.log('id', id);
+
   return (
     <>
       <label
