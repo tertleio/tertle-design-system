@@ -26,7 +26,7 @@ const Profile = () => {
         <ProfileCard
           // isAdmin={isAdmin}
           firstName={user.firstName}
-          imgSrc={profile.display_pic || user.gPic}
+          imgSrc={profile.display_pic || user.gPic || ''}
           lastName={user.lastName}
           location={profile.city_country}
           packageId={profile.package_id}

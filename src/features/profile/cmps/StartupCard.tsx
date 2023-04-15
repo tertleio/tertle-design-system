@@ -2,8 +2,8 @@ import { useState } from 'react';
 import clsx from 'clsx';
 
 import { Textarea, Fieldset, Choice } from '@/cmps/Form';
-import { IconMember, Button, Section } from '@/cmps/Els';
-import { Controls } from './Controls';
+import { Section } from '@/cmps/Els';
+import { Aside } from './Aside/Aside';
 
 type StartupCardProps = {
   startupPitch: string;
@@ -28,38 +28,21 @@ const StartupCard = (props: StartupCardProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
-  const Aside = ({ data }: any) => {
-    return (
-      <ul className="flex items-center gap-3.5 sm:gap-2">
-        {Object.entries(data).map((item, i) => {
-          const iconName = item[0] as IconMember;
-          const url = item[1] as string;
-          return (
-            <li key={item[0] + i}>
-              <a href={url}>
-                <Button icon={iconName} variant="secondaryGray" />
-              </a>
-            </li>
-          );
-        })}
-        {isAdmin && (
-          <Controls
-            showEdit={!isEditing}
-            showCancel={isEditing}
-            showSave={isEditing}
-            onEdit={() => setIsEditing(true)}
-            onCancel={() => setIsEditing(false)}
-            onSave={() => setIsSaving(false)}
-          />
-        )}
-      </ul>
-    );
-  };
-
   return (
     <Section
       title="Startup"
-      aside={<Aside data={{ github: startupUrl }} />}
+      aside={
+        <Aside
+          buttons={{ github: startupUrl }}
+          allowControls={isAdmin}
+          showEdit={!isEditing}
+          showCancel={isEditing}
+          showSave={isEditing}
+          onEdit={() => setIsEditing(true)}
+          onCancel={() => setIsEditing(false)}
+          onSave={() => setIsSaving(false)}
+        />
+      }
       className={clsx(
         'flex flex-col gap-2 sm:gap-3',
         isEditing && 'hover:bg-transparent dark:hover:bg-transparent'

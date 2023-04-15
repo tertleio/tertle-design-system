@@ -3,15 +3,15 @@ import clsx from 'clsx';
 import { Button } from '@/cmps/Els/Button';
 
 type ControlsProps = {
-  showEdit: boolean;
-  showSave: boolean;
+  showEdit?: boolean;
+  showSave?: boolean;
   showCancel?: boolean;
   // showDelete?: boolean;
   className?: string;
-  onSave: () => void;
-  onEdit: () => void;
+  onSave?: () => void;
+  onEdit?: () => void;
   // onDelete?: () => void;
-  onCancel?: () => void;
+  onCancel: () => void;
 };
 
 const Controls = (props: ControlsProps) => {
