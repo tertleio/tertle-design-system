@@ -10,7 +10,7 @@ import { MainLayout } from '@/cmps/Layouts';
 import { Container } from '@/cmps/Container';
 import { Section } from '@/cmps/Els/Section';
 import { Form, Textarea, Fieldset, Choice } from '@/cmps/Form';
-import { ProfileCard } from '@/features/profile/cmps/ProfileCard';
+import { ProfileCard, Controls } from '../cmps';
 
 // startup_history [1, 2, 3]
 // package_id [1, 2, 3]
@@ -46,34 +46,17 @@ const Profile = () => {
             </li>
           );
         })}
-        {isAdmin && <Controls />}
+        {isAdmin && (
+          <Controls
+            showEdit={!isEditing}
+            onEdit={() => setIsEditing(true)}
+            showCancel={isEditing}
+            onCancel={() => setIsEditing(false)}
+            showSave={isEditing}
+            onSave={() => setIsSaving(false)}
+          />
+        )}
       </ul>
-    );
-  };
-
-  const Controls = () => {
-    return !isEditing ? (
-      <Button
-        className="border-orange dark:border-orange-dark"
-        variant="secondaryOrange"
-        icon="edit"
-        onClick={() => setIsEditing(true)}
-      ></Button>
-    ) : (
-      <>
-        <Button
-          className="border-red dark:border-red-dark"
-          variant="secondaryRed"
-          icon="cancel"
-          onClick={() => setIsEditing(false)}
-        />
-        <Button
-          className="border"
-          variant="primaryGreen"
-          icon="save"
-          onClick={() => setIsEditing(false)}
-        ></Button>
-      </>
     );
   };
 
@@ -263,7 +246,14 @@ const Profile = () => {
           title="Preferences"
           aside={
             <div className="flex gap-3.5 sm:gap-2">
-              <Controls />
+              <Controls
+                showEdit={!isEditing}
+                onEdit={() => setIsEditing(true)}
+                showCancel={isEditing}
+                onCancel={() => setIsEditing(false)}
+                showSave={isEditing}
+                onSave={() => setIsSaving(false)}
+              />
             </div>
           }
         >
