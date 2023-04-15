@@ -101,7 +101,7 @@ const StartupCard = (props: StartupCardProps) => {
             onChange={() => console.log('change')}
           />
         </div>
-        <div className="mb-5 w-full">
+        <div className="w-full">
           <Textarea
             name="startupPitch"
             placeholder="Write something about your idea..."

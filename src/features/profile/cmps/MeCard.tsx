@@ -93,7 +93,7 @@ const MeCard = (props: MeCardProps) => {
         />
       }
     >
-      <Fieldset legend="Looking for">
+      <Fieldset legend="Headline">
         <Text
           name="headline"
           placeholder="What type of co-founder are you looking for?"

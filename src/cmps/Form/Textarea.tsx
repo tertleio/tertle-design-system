@@ -16,10 +16,10 @@ const Textarea = (props: TextareaProps) => {
     label,
     value,
     name,
-    onChange,
     placeholder,
     readOnly = false,
     className = '',
+    onChange,
   } = props;
   const ref = useRef<HTMLTextAreaElement>(null);
 
