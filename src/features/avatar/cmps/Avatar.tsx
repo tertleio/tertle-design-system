@@ -7,16 +7,6 @@ type AvatarProps = {
   alt?: string;
 };
 
-// margin: 0 auto;
-// object-fit: cover;
-// min-height: 8em;
-// width: 100%;
-// height: 100%;
-// background: $color-grey1;
-// border: 1px solid $color-grey1;
-// background-size: cover;
-// border-radius: 50%;
-
 const Avatar = (props: AvatarProps) => {
   const { className, src = '', title = '', alt = '' } = props;
   return (
