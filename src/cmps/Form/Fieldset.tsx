@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 type FieldsetProps = {
-  children: React.ReactNode;
+  children: React.ReactNode | React.ReactNode[];
   legend: string;
   className?: string;
 };

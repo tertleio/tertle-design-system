@@ -8,7 +8,7 @@ type User = {
   // pid: string | number;
   firstName: string;
   lastName: string;
-  gPic: string | undefined;
+  gPic: string | undefined | null;
   // email: string;
   // onboard: number;
   // onboarded: boolean;

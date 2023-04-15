@@ -23,29 +23,31 @@ const Profile = () => {
     <MainLayout>
       <Container>
         <ProfileCard
+          // isAdmin={isAdmin}
           firstName={user.firstName}
           imgSrc={profile.display_pic || user.gPic}
           lastName={user.lastName}
           location={profile.city_country}
           packageId={profile.package_id}
-          // isAdmin={isAdmin}
           lookingFor={prefs.need_idea}
         />
 
         <StartupCard
+          isAdmin={isAdmin}
           startupPitch={profile.startup_pitch}
           startupHistory={profile.startup_history}
           startupStage={profile.startup_stage}
           startupUrl={profile.startup_link}
-          isAdmin={isAdmin}
           onChange={handleProfileChange}
           // hasStartup={profile.has_startup}
         />
 
         <MeCard
+          isAdmin={isAdmin}
           headline={profile.headline}
           linkedin={profile.link_linkedin}
           twitter={profile.link_twitter}
+          personal={profile.link_personal}
           skills={profile.skills}
           workplace={profile.workplace}
           onChange={handleProfileChange}

@@ -3,18 +3,30 @@ import clsx from 'clsx';
 
 import { Controls } from './Controls';
 import { Section, Button, IconMember } from '@/cmps/Els';
+import { Fieldset, Text, Choice } from '@/cmps/Form';
 
+const skillIcons = {
+  'software development': '⚒️',
+  'product management': '📈',
+  'business development': '📊',
+  marketing: '📣',
+  design: '✏️',
+  other: '📚',
+};
+
+type SkillType = keyof typeof skillIcons;
 type Skill = {
   id: number;
   category: string;
-  strVal: string;
+  strVal: SkillType;
   isSelected: boolean;
 };
 
 type MeCardProps = {
   // profile: Profile;
-  linkedin: string;
-  twitter: string;
+  linkedin?: string;
+  personal?: string;
+  twitter?: string;
   headline: string;
   skills: Skill[];
   workplace: number;
@@ -31,7 +43,7 @@ const MeCard = (props: MeCardProps) => {
 
   const Aside = ({ data }: any) => {
     return (
-      <ul className="flex items-center gap-3.5 sm:gap-2">
+      <ul className="flex items-center gap-3 sm:gap-2">
         {Object.entries(data).map((item, i) => {
           const iconName = item[0] as IconMember;
           const url = item[1] as string;
@@ -59,6 +71,7 @@ const MeCard = (props: MeCardProps) => {
 
   return (
     <Section
+      className={clsx('flex flex-col gap-5 ', className)}
       title="Me"
       aside={
         <Aside
@@ -69,8 +82,38 @@ const MeCard = (props: MeCardProps) => {
         />
       }
     >
-      <h3 className="mb-3">Looking for</h3>
-      <p>{headline}</p>
+      <Fieldset legend="Looking for" className="mt-6">
+        <Text
+          name="headline"
+          placeholder="What type of co-founder are you looking for?"
+          readOnly={!isEditing}
+          value={headline}
+          onChange={props.onChange}
+        />
+      </Fieldset>
+      <Fieldset
+        legend="Skills"
+        className={clsx(
+          '[&>*:nth-child(1)] grid grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-[1px]'
+        )}
+      >
+        {skills.map((skill) => {
+          return (
+            <Choice
+              key={skill.id}
+              name="skills"
+              readOnly={!isEditing}
+              readOnlyIcon={(skillIcons[skill.strVal] as SkillType) || '📚'}
+              size="sm"
+              type="checkbox"
+              value={skill.id}
+              label={skill.strVal}
+              checked={skill.isSelected}
+              onChange={props.onChange}
+            />
+          );
+        })}
+      </Fieldset>
     </Section>
   );
 };
