@@ -20,10 +20,12 @@ import { ProfileCard } from '@/features/profile/cmps/ProfileCard';
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
   const [profile, setProfile] = useState(jsonProfile);
   const [prefs, setPrefs] = useState(jsonPrefs);
   const [user] = useState(jsonUser);
+
+  console.log(profile);
 
   function handleProfileChange(e: any) {
     const { name, value } = e.target;
@@ -141,7 +143,7 @@ const Profile = () => {
             </div>
             <div className="mb-5 w-full">
               <Textarea
-                name="ideaPitch"
+                name="startup_pitch"
                 placeholder="Write something about your idea..."
                 readOnly={!isEditing}
                 value={profile.startup_pitch}

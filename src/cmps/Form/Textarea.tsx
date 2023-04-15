@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import clsx from 'clsx';
 
 import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
@@ -21,17 +21,27 @@ const Textarea = (props: TextareaProps) => {
     readOnly = false,
     className = '',
   } = props;
+  const ref = useRef<HTMLTextAreaElement>(null);
 
   function resize(e: React.FocusEvent<HTMLTextAreaElement, Element>): void {
-    e.target.style.height = '70px';
+    console.log('e', e);
+    e.target.style.height = 'inherit';
     e.target.style.height = e.target.scrollHeight + 'px';
   }
+
+  useEffect(() => {
+    if (!ref.current) return;
+    resize({ target: ref.current } as any);
+  }, [ref.current]);
 
   return (
     <FieldWrapper label={label} type="text" readOnly={readOnly}>
       <textarea
         onFocus={resize}
         onInput={resize}
+        // onLoad={resize()}
+        // onBlur={resize}
+        ref={ref}
         readOnly={readOnly}
         name={name}
         placeholder={placeholder}
@@ -39,8 +49,8 @@ const Textarea = (props: TextareaProps) => {
         value={value}
         onChange={onChange}
         className={clsx(
-          'w-full bg-transparent placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700',
-          readOnly && 'resize-none',
+          'bg-transparent placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700',
+          'resize-none',
           className
         )}
       />
