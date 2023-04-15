@@ -4,61 +4,21 @@ import jsonProfile from '@/assets/data/profile.json';
 import jsonUser from '@/assets/data/user.json';
 import jsonPrefs from '@/assets/data/prefs.json';
 
-import { IconMember } from '@/cmps/Els/Icon';
-import { Button } from '@/cmps/Els/Button';
 import { MainLayout } from '@/cmps/Layouts';
 import { Container } from '@/cmps/Container';
 import { Section } from '@/cmps/Els/Section';
-import { Form, Textarea, Fieldset, Choice } from '@/cmps/Form';
 import { ProfileCard, StartupCard, Controls } from '../cmps';
 
-// startup_history [1, 2, 3]
-// package_id [1, 2, 3]
-// achievement string
-// profile_url string
-
 const Profile = () => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [isSaving, setIsSaving] = useState(false);
   const [isAdmin, setIsAdmin] = useState(true);
   const [profile, setProfile] = useState(jsonProfile);
   const [prefs, setPrefs] = useState(jsonPrefs);
   const [user] = useState(jsonUser);
 
-  console.log(profile);
-
   function handleProfileChange(e: any) {
     const { name, value } = e.target;
     setProfile({ ...profile, [name]: value });
   }
-
-  const AsideStartup = ({ data }: any) => {
-    return (
-      <ul className="flex items-center gap-3.5 sm:gap-2">
-        {Object.entries(data).map((item, i) => {
-          const iconName = item[0] as IconMember;
-          const url = item[1] as string;
-          return (
-            <li key={item[0] + i}>
-              <a href={url}>
-                <Button icon={iconName} variant="secondaryGray" />
-              </a>
-            </li>
-          );
-        })}
-        {isAdmin && (
-          <Controls
-            showEdit={!isEditing}
-            showCancel={isEditing}
-            showSave={isEditing}
-            onEdit={() => setIsEditing(true)}
-            onCancel={() => setIsEditing(false)}
-            onSave={() => setIsSaving(false)}
-          />
-        )}
-      </ul>
-    );
-  };
 
   return (
     <MainLayout>
@@ -69,6 +29,7 @@ const Profile = () => {
           lastName={user.lastName}
           location={profile.city_country}
           packageId={profile.package_id}
+          // isAdmin={isAdmin}
           lookingFor={prefs.need_idea}
         />
 
@@ -77,11 +38,12 @@ const Profile = () => {
           startupHistory={profile.startup_history}
           startupStage={profile.startup_stage}
           startupUrl={profile.startup_link}
+          isAdmin={isAdmin}
           onChange={handleProfileChange}
           // hasStartup={profile.has_startup}
         />
 
-        <Section
+        {/* <Section
           title="Me"
           aside={
             <AsideStartup
@@ -113,7 +75,7 @@ const Profile = () => {
           }
         >
           <p>Preferences here</p>
-        </Section>
+        </Section> */}
       </Container>
     </MainLayout>
   );

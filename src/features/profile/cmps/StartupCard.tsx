@@ -3,12 +3,16 @@ import { useState } from 'react';
 
 import { Section } from '@/cmps/Els';
 import { Textarea, Fieldset, Choice } from '@/cmps/Form';
+import { IconMember } from '@/cmps/Els/Icon';
+import { Controls } from './Controls';
+import { Button } from '@/cmps/Els/Button';
 
 type StartupCardProps = {
   startupPitch: string;
   startupHistory: number;
   startupStage: number;
   startupUrl: string;
+  isAdmin?: boolean;
   className?: string;
   onChange: (e: any) => void;
 };
@@ -20,18 +24,44 @@ const StartupCard = (props: StartupCardProps) => {
     startupStage,
     startupUrl,
     className,
+    isAdmin,
     onChange,
   } = props;
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(true);
+
+  const Aside = ({ data }: any) => {
+    return (
+      <ul className="flex items-center gap-3.5 sm:gap-2">
+        {Object.entries(data).map((item, i) => {
+          const iconName = item[0] as IconMember;
+          const url = item[1] as string;
+          return (
+            <li key={item[0] + i}>
+              <a href={url}>
+                <Button icon={iconName} variant="secondaryGray" />
+              </a>
+            </li>
+          );
+        })}
+        {isAdmin && (
+          <Controls
+            showEdit={!isEditing}
+            showCancel={isEditing}
+            showSave={isEditing}
+            onEdit={() => setIsEditing(true)}
+            onCancel={() => setIsEditing(false)}
+            onSave={() => setIsSaving(false)}
+          />
+        )}
+      </ul>
+    );
+  };
 
   return (
     <Section
       title="Startup"
-      // aside={{
-      //   github: profile.link_personal,
-      // }}
+      aside={<Aside data={{ github: startupUrl }} />}
       className={clsx(
         'flex flex-col',
         isEditing && 'hover:bg-transparent dark:hover:bg-transparent'
