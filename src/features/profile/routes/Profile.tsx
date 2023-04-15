@@ -49,10 +49,10 @@ const Profile = () => {
         {isAdmin && (
           <Controls
             showEdit={!isEditing}
-            onEdit={() => setIsEditing(true)}
             showCancel={isEditing}
-            onCancel={() => setIsEditing(false)}
             showSave={isEditing}
+            onEdit={() => setIsEditing(true)}
+            onCancel={() => setIsEditing(false)}
             onSave={() => setIsSaving(false)}
           />
         )}
@@ -248,10 +248,10 @@ const Profile = () => {
             <div className="flex gap-3.5 sm:gap-2">
               <Controls
                 showEdit={!isEditing}
-                onEdit={() => setIsEditing(true)}
                 showCancel={isEditing}
-                onCancel={() => setIsEditing(false)}
                 showSave={isEditing}
+                onEdit={() => setIsEditing(true)}
+                onCancel={() => setIsEditing(false)}
                 onSave={() => setIsSaving(false)}
               />
             </div>

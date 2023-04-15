@@ -28,7 +28,9 @@ const Controls = (props: ControlsProps) => {
   } = props;
 
   return (
-    <div className={clsx('flex flex-row justify-end', className)}>
+    <div
+      className={clsx('flex flex-row justify-end gap-3.5 sm:gap-2', className)}
+    >
       {showEdit && (
         <Button
           className="border-orange dark:border-orange-dark"
