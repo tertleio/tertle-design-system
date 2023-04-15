@@ -20,22 +20,25 @@ const Text = (props: TextProps) => {
     label,
     placeholder,
     id,
-    onChange,
+    readOnly = false,
     className = '',
+    onChange,
   } = props;
 
   return (
-    <FieldWrapper label={label} id={id} type={type}>
+    <FieldWrapper label={label} id={id} type={type} readOnly={readOnly}>
       <input
         name={name}
         id={id}
         type={type}
+        readOnly={readOnly}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={`
-          w-full bg-transparent placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700
-          ${className}`}
+        className={clsx(
+          'w-full bg-transparent placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700',
+          className
+        )}
       />
     </FieldWrapper>
   );
