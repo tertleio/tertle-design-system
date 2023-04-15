@@ -10,7 +10,7 @@ import { MainLayout } from '@/cmps/Layouts';
 import { Container } from '@/cmps/Container';
 import { Section } from '@/cmps/Els/Section';
 import { Form, Textarea, Fieldset, Choice } from '@/cmps/Form';
-import { ProfileCard, Controls } from '../cmps';
+import { ProfileCard, Controls } from '../cmps/index';
 
 // startup_history [1, 2, 3]
 // package_id [1, 2, 3]
