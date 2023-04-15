@@ -49,7 +49,7 @@ const Textarea = (props: TextareaProps) => {
         value={value}
         onChange={onChange}
         className={clsx(
-          'bg-transparent placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700',
+          'w-full bg-transparent  placeholder:text-gray-400 focus:outline-none dark:placeholder:text-gray-700',
           'resize-none',
           className
         )}
