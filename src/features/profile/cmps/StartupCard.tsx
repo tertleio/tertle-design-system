@@ -57,15 +57,15 @@ const EXPERIENCE = [
 
 // -> was COMMITMENT
 const READYNESS = [
-  { label: 'Now, part-time', value: 1, emoji: '⬇️' },
-  { label: 'Now, full-time', value: 2, emoji: '⬇️' },
   { label: 'In the future', value: 3, emoji: '➡️' }, // new
+  { label: 'Now, part-time', value: 1, emoji: '↘️' },
+  { label: 'Now, full-time', value: 2, emoji: '⬇️' },
 ];
 
 const WORKPLACE = [
+  { label: 'Remote', value: 2, emoji: '🎒' },
+  { label: 'Hybrid', value: 3, emoji: '↔️' },
   { label: 'Office', value: 1, emoji: '🏢' },
-  { label: 'Hybrid', value: 2, emoji: '↔️' },
-  { label: 'Remote', value: 3, emoji: '🎒' },
 ];
 
 // new
