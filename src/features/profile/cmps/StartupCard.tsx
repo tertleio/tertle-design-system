@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { useState } from 'react';
+import clsx from 'clsx';
 
 import { Section } from '@/cmps/Els';
 import { Textarea, Fieldset, Choice } from '@/cmps/Form';
@@ -23,8 +23,8 @@ const StartupCard = (props: StartupCardProps) => {
     startupHistory,
     startupStage,
     startupUrl,
-    className,
     isAdmin,
+    className,
     onChange,
   } = props;
   const [isEditing, setIsEditing] = useState(false);

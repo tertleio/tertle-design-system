@@ -6,8 +6,7 @@ import jsonPrefs from '@/assets/data/prefs.json';
 
 import { MainLayout } from '@/cmps/Layouts';
 import { Container } from '@/cmps/Container';
-import { Section } from '@/cmps/Els/Section';
-import { ProfileCard, StartupCard, Controls } from '../cmps';
+import { ProfileCard, StartupCard, MeCard } from '../cmps';
 
 const Profile = () => {
   const [isAdmin, setIsAdmin] = useState(true);
@@ -43,21 +42,16 @@ const Profile = () => {
           // hasStartup={profile.has_startup}
         />
 
-        {/* <Section
-          title="Me"
-          aside={
-            <AsideStartup
-              data={{
-                linkedin: profile.link_linkedin,
-                github: profile.link_personal,
-                twitter: profile.link_twitter,
-              }}
-            />
-          }
-        >
-          <h3 className="mb-3">Looking for</h3>
-          <p>{profile.headline}</p>
-        </Section>
+        <MeCard
+          headline={profile.headline}
+          linkedin={profile.link_linkedin}
+          twitter={profile.link_twitter}
+          skills={profile.skills}
+          workplace={profile.workplace}
+          onChange={handleProfileChange}
+        />
+
+        {/* 
 
         <Section
           title="Preferences"
