@@ -24,16 +24,6 @@ type ProfileHeaderProps = Omit<User, 'gPic'> & {
 const ProfileCard = (props: ProfileHeaderProps) => {
   const { firstName, lastName, location, avatar, className } = props;
 
-  const Avatar = () => {
-    return (
-      <img
-        className="ml-2 h-24 w-24 rounded-full border-2 border-gray-700 dark:border-gray-700 md:h-28 md:w-28"
-        src={avatar}
-        alt={`${firstName} ${lastName}`}
-      />
-    );
-  };
-
   return (
     <div className={clsx('flex justify-between', className)}>
       <div>
