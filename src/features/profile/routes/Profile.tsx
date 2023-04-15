@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import clsx from 'clsx';
+
 import jsonProfile from '@/assets/data/profile.json';
 import jsonUser from '@/assets/data/user.json';
 import jsonPrefs from '@/assets/data/prefs.json';
@@ -35,17 +35,17 @@ const Profile = () => {
           lookingFor={prefs.need_idea}
         />
 
-        {profile.has_startup && (
-          <StartupCard
-            isAdmin={isAdmin}
-            startupPitch={profile.startup_pitch}
-            startupHistory={profile.startup_history}
-            startupStage={profile.startup_stage}
-            startupUrl={profile.startup_link}
-            onChange={handleProfileChange}
-            // hasStartup={profile.has_startup}
-          />
-        )}
+        <StartupCard
+          isAdmin={isAdmin}
+          ambition={1}
+          readyness={profile.commitment}
+          startupPitch={profile.startup_pitch}
+          startupHistory={profile.startup_history}
+          startupStage={profile.startup_stage}
+          startupUrl={profile.startup_link}
+          onChange={handleProfileChange}
+          // hasStartup={profile.has_startup}
+        />
 
         <MeCard
           isAdmin={isAdmin}
@@ -59,7 +59,6 @@ const Profile = () => {
         />
 
         {/* 
-
         <Section
           title="Preferences"
           aside={
