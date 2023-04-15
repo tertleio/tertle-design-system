@@ -60,23 +60,26 @@ const Profile = () => {
     );
   };
 
-  console.log(profile);
-
   return (
     <MainLayout>
       <Container>
-        <Section className="bg-black hover:cursor-default  hover:bg-black dark:bg-gray-800 dark:hover:bg-[#171717]">
-          <ProfileCard
-            firstName={user.firstName}
-            imgSrc={profile.display_pic || user.gPic}
-            lastName={user.lastName}
-            location={profile.city_country}
-            packageId={profile.package_id}
-            lookingFor={prefs.need_idea}
-          />
-        </Section>
+        <ProfileCard
+          firstName={user.firstName}
+          imgSrc={profile.display_pic || user.gPic}
+          lastName={user.lastName}
+          location={profile.city_country}
+          packageId={profile.package_id}
+          lookingFor={prefs.need_idea}
+        />
 
-        <StartupCard />
+        <StartupCard
+          startupPitch={profile.startup_pitch}
+          startupHistory={profile.startup_history}
+          startupStage={profile.startup_stage}
+          startupUrl={profile.startup_link}
+          onChange={handleProfileChange}
+          // hasStartup={profile.has_startup}
+        />
 
         <Section
           title="Me"
