@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import { Avatar } from '@/features/avatar/cmps/Avatar';
-import { Section } from '@/cmps/Els/Section';
+import { Section } from '@/cmps/Els';
 
 type User = {
   // id: string;

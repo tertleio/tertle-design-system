@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 
-import { Section } from '@/cmps/Els';
 import { Textarea, Fieldset, Choice } from '@/cmps/Form';
-import { IconMember } from '@/cmps/Els/Icon';
+import { IconMember, Button, Section } from '@/cmps/Els';
 import { Controls } from './Controls';
-import { Button } from '@/cmps/Els/Button';
 
 type StartupCardProps = {
   startupPitch: string;
