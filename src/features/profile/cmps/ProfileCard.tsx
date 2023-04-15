@@ -42,7 +42,7 @@ const ProfileCard = (props: ProfileHeaderProps) => {
           <li className="text-white dark:text-primary-dark">Join my idea</li>
         </ul>
       </div>
-      <Avatar firstName={firstName} lastName={lastName} src={imgSrc} />
+      <Avatar src={imgSrc} title={`${firstName}'s Avatar`} />
     </div>
   );
 };
