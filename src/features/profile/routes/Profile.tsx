@@ -39,12 +39,12 @@ const Profile = () => {
           isAdmin={isAdmin}
           ambition={1}
           readyness={profile.commitment}
-          startupPitch={profile.startup_pitch}
-          startupHistory={profile.startup_history}
-          startupStage={profile.startup_stage}
+          pitch={profile.startup_pitch}
+          experience={profile.startup_history}
+          stage={profile.startup_stage}
           startupUrl={profile.startup_link}
           onChange={handleProfileChange}
-          // hasStartup={profile.has_startup}
+          hasStartup={profile.has_startup}
         />
 
         <MeCard

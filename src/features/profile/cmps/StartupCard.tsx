@@ -6,11 +6,12 @@ import { Section } from '@/cmps/Els';
 import { Aside } from './Aside/Aside';
 
 type StartupCardProps = {
-  startupPitch: string;
-  startupHistory: number;
-  startupStage: number;
+  pitch: string;
+  experience: number;
+  stage: number;
   startupUrl: string;
   ambition: number;
+  hasStartup: boolean;
   readyness: number;
   isAdmin?: boolean;
   className?: string;
@@ -40,21 +41,22 @@ type StartupCardProps = {
 //   any: 3,
 // };
 
-const STARTUP_STAGE = [
+// -> was STARTUP_STAGE
+const STAGE = [
   { label: 'Discovery', value: 1, emoji: '🔬' },
   { label: 'Prototype', value: 2, emoji: '🧪' },
   { label: 'Paying Customers', value: 3, emoji: '💰' },
 ];
 
-// --> experience
-const STARTUP_HISTORY = [
+// --> was STARTUP_HISTORY
+const EXPERIENCE = [
   { label: 'First rodeo', value: 1, emoji: '🚀' },
   { label: 'Not first rodeo', value: 2, emoji: '🐎' },
   { label: 'Had exit', value: 3, emoji: '🏃‍♂️' },
 ];
 
-// -> readyness
-const COMMITMENT = [
+// -> was COMMITMENT
+const READYNESS = [
   { label: 'Now, part-time', value: 1, emoji: '⬇️' },
   { label: 'Now, full-time', value: 2, emoji: '⬇️' },
   { label: 'In the future', value: 3, emoji: '➡️' }, // new
@@ -75,11 +77,12 @@ const AMBITION = [
 
 const StartupCard = (props: StartupCardProps) => {
   const {
-    startupPitch,
-    startupHistory,
-    startupStage,
+    pitch,
+    experience,
+    stage,
     startupUrl,
     readyness,
+    hasStartup,
     isAdmin,
     ambition,
     className,
@@ -88,7 +91,6 @@ const StartupCard = (props: StartupCardProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
-  console.log(readyness);
   return (
     <Section
       title="Startup"
@@ -116,9 +118,9 @@ const StartupCard = (props: StartupCardProps) => {
           type="radio"
           size="sm"
           checked={true}
-          label="AI"
+          label="Have idea"
           readOnly={!isEditing}
-          readOnlyIcon="#"
+          readOnlyIcon="✅"
           onChange={() => console.log('change')}
         />
         <Choice
@@ -127,36 +129,27 @@ const StartupCard = (props: StartupCardProps) => {
           type="radio"
           size="sm"
           checked={false}
-          label="SaaS"
+          label="No idea"
           readOnly={!isEditing}
-          readOnlyIcon="#"
+          readOnlyIcon="❌"
           onChange={() => console.log('change')}
         />
-        <Choice
-          name="3"
-          id="3"
-          type="radio"
-          size="sm"
-          checked={false}
-          label="B2C"
-          readOnly={!isEditing}
-          readOnlyIcon="#"
-          onChange={() => console.log('change')}
-        />
-        <div className="w-full">
-          <Textarea
-            name="startupPitch"
-            placeholder="Write something about your idea..."
-            readOnly={!isEditing}
-            value={startupPitch}
-            onChange={onChange}
-          />
-        </div>
+        {hasStartup && (
+          <div className="w-full">
+            <Textarea
+              name="pitch"
+              placeholder="Write something about your idea..."
+              readOnly={!isEditing}
+              value={pitch}
+              onChange={onChange}
+            />
+          </div>
+        )}
       </Fieldset>
 
       <div className={clsx('flex flex-col sm:gap-[3px]', isEditing && 'gap-5')}>
         <Fieldset legend="Readyness" className="flex flex-wrap items-center">
-          {COMMITMENT.map((item) => (
+          {READYNESS.map((item) => (
             <Choice
               key={item.value}
               name="startupCommitment"
@@ -186,6 +179,7 @@ const StartupCard = (props: StartupCardProps) => {
               id={item.value.toString()}
               type="radio"
               size="sm"
+              value={item.value}
               checked={ambition === item.value}
               label={item.label}
               readOnly={!isEditing}
@@ -202,14 +196,15 @@ const StartupCard = (props: StartupCardProps) => {
             !isEditing && 'flex'
           )}
         >
-          {STARTUP_STAGE.map((item) => (
+          {STAGE.map((item) => (
             <Choice
               key={item.value}
-              name="startupStage"
-              id={item.value.toString()}
+              name="stage"
+              id={item.label}
               type="radio"
               size="sm"
-              checked={startupStage === item.value}
+              value={item.value}
+              checked={stage === item.value}
               label={item.label}
               readOnly={!isEditing}
               readOnlyIcon={item.emoji}
@@ -219,14 +214,14 @@ const StartupCard = (props: StartupCardProps) => {
         </Fieldset>
 
         <Fieldset legend="Experience" className="flex flex-wrap items-center">
-          {STARTUP_HISTORY.map((item) => (
+          {EXPERIENCE.map((item) => (
             <Choice
               key={item.value}
-              name="startupHistory"
+              name="experience"
               id={item.value.toString()}
               type="radio"
               size="sm"
-              checked={startupHistory === item.value}
+              checked={experience === item.value}
               label={item.label}
               readOnly={!isEditing}
               readOnlyIcon={item.emoji}
@@ -239,11 +234,12 @@ const StartupCard = (props: StartupCardProps) => {
           {WORKPLACE.map((item) => (
             <Choice
               key={item.value}
-              name="startupWorkplace"
+              name="workplace"
               id={item.value.toString()}
               type="radio"
               size="sm"
-              checked={startupStage === item.value}
+              value={item.value}
+              checked={stage === item.value}
               label={item.label}
               readOnly={!isEditing}
               readOnlyIcon={item.emoji}
