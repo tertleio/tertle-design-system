@@ -36,8 +36,16 @@ type MeCardProps = {
 };
 
 const MeCard = (props: MeCardProps) => {
-  const { linkedin, twitter, headline, skills, workplace, isAdmin, className } =
-    props;
+  const {
+    linkedin,
+    twitter,
+    headline,
+    skills,
+    workplace,
+    isAdmin,
+    className,
+    onChange,
+  } = props;
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -82,7 +90,7 @@ const MeCard = (props: MeCardProps) => {
         />
       }
     >
-      <Fieldset legend="Looking for" className="mt-6">
+      <Fieldset legend="Looking for">
         <Text
           name="headline"
           placeholder="What type of co-founder are you looking for?"
@@ -109,7 +117,7 @@ const MeCard = (props: MeCardProps) => {
               value={skill.id}
               label={skill.strVal}
               checked={skill.isSelected}
-              onChange={props.onChange}
+              onChange={onChange}
             />
           );
         })}

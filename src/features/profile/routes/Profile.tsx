@@ -12,6 +12,7 @@ const Profile = () => {
   const [isAdmin, setIsAdmin] = useState(true);
   const [profile, setProfile] = useState(jsonProfile);
   const [prefs, setPrefs] = useState(jsonPrefs);
+  const [skills, setSkills] = useState(jsonProfile.skills);
   const [user] = useState(jsonUser);
 
   function handleProfileChange(e: any) {
@@ -32,15 +33,17 @@ const Profile = () => {
           lookingFor={prefs.need_idea}
         />
 
-        <StartupCard
-          isAdmin={isAdmin}
-          startupPitch={profile.startup_pitch}
-          startupHistory={profile.startup_history}
-          startupStage={profile.startup_stage}
-          startupUrl={profile.startup_link}
-          onChange={handleProfileChange}
-          // hasStartup={profile.has_startup}
-        />
+        {profile.has_startup && (
+          <StartupCard
+            isAdmin={isAdmin}
+            startupPitch={profile.startup_pitch}
+            startupHistory={profile.startup_history}
+            startupStage={profile.startup_stage}
+            startupUrl={profile.startup_link}
+            onChange={handleProfileChange}
+            // hasStartup={profile.has_startup}
+          />
+        )}
 
         <MeCard
           isAdmin={isAdmin}
@@ -48,7 +51,7 @@ const Profile = () => {
           linkedin={profile.link_linkedin}
           twitter={profile.link_twitter}
           personal={profile.link_personal}
-          skills={profile.skills}
+          skills={skills}
           workplace={profile.workplace}
           onChange={handleProfileChange}
         />
