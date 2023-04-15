@@ -146,7 +146,6 @@ const StartupCard = (props: StartupCardProps) => {
           </div>
         )}
       </Fieldset>
-
       <div className={clsx('flex flex-col sm:gap-[3px]', isEditing && 'gap-5')}>
         <Fieldset legend="Readyness" className="flex flex-wrap items-center">
           {READYNESS.map((item) => (
@@ -164,7 +163,6 @@ const StartupCard = (props: StartupCardProps) => {
             />
           ))}
         </Fieldset>
-
         <Fieldset
           legend="Ambition"
           className={clsx(
@@ -188,7 +186,6 @@ const StartupCard = (props: StartupCardProps) => {
             />
           ))}
         </Fieldset>
-
         <Fieldset
           legend="Stage"
           className={clsx(
@@ -212,7 +209,6 @@ const StartupCard = (props: StartupCardProps) => {
             />
           ))}
         </Fieldset>
-
         <Fieldset
           legend="Experience"
           className={clsx(
@@ -235,7 +231,6 @@ const StartupCard = (props: StartupCardProps) => {
             />
           ))}
         </Fieldset>
-
         <Fieldset
           legend="Workplace"
           className={clsx(
