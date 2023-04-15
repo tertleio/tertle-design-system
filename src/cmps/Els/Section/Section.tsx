@@ -1,5 +1,8 @@
 import clsx from 'clsx';
 
+const spacings =
+  'py-5 px-4 first:pt-4 first:pb-8 sm:first:pt-5 sm:px-6 sm:py-7 sm:last:pb-10';
+
 type SectionProps = {
   title?: string;
   children: React.ReactNode;
@@ -13,7 +16,8 @@ const Section = (props: SectionProps) => {
   return (
     <div
       className={clsx(
-        'border-b border-gray-300 p-4 text-gray-600 first:rounded-t-3xl last:rounded-b-3xl last:border-b-0 hover:cursor-pointer  hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-900 sm:p-6 sm:pb-10',
+        'border-b border-gray-300 text-gray-600 first:rounded-t-3xl last:rounded-b-3xl  last:border-b-0 hover:cursor-pointer hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-900',
+        spacings,
         className
       )}
     >

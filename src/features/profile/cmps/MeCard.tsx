@@ -103,7 +103,7 @@ const MeCard = (props: MeCardProps) => {
         />
       </Fieldset>
       <Fieldset legend="Skills">
-        <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-[1px]">
+        <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-[2px]">
           {skills.map((skill) => {
             return (
               <Choice
