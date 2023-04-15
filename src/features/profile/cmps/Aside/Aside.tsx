@@ -29,7 +29,7 @@ const Aside = (props: AsideProps) => {
   } = props;
 
   return (
-    <ul className={clsx('flex items-center gap-3.5 sm:gap-2', className)}>
+    <ul className={clsx('flex items-center gap-4 sm:gap-2', className)}>
       {Object.entries(buttons).map((item, i) => {
         const iconName = item[0] as IconMember;
         const url = item[1] as string;

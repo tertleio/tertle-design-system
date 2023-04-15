@@ -15,6 +15,17 @@ type StartupCardProps = {
   onChange: (e: any) => void;
 };
 
+const STARTUP_HISTORY = {
+  firstTimer: 1,
+  experienced: 2,
+  veteran: 3,
+};
+
+const COMMITMENT = {
+  partTime: 1,
+  fullTime: 2,
+};
+
 const StartupCard = (props: StartupCardProps) => {
   const {
     startupPitch,

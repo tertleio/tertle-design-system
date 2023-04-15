@@ -20,6 +20,8 @@ const Profile = () => {
     setProfile({ ...profile, [name]: value });
   }
 
+  console.log(profile);
+
   return (
     <MainLayout>
       <Container>
