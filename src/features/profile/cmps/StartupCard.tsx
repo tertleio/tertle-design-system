@@ -213,7 +213,13 @@ const StartupCard = (props: StartupCardProps) => {
           ))}
         </Fieldset>
 
-        <Fieldset legend="Experience" className="flex flex-wrap items-center">
+        <Fieldset
+          legend="Experience"
+          className={clsx(
+            'block items-center gap-[2px] sm:flex',
+            !isEditing && 'flex'
+          )}
+        >
           {EXPERIENCE.map((item) => (
             <Choice
               key={item.value}
@@ -230,7 +236,13 @@ const StartupCard = (props: StartupCardProps) => {
           ))}
         </Fieldset>
 
-        <Fieldset legend="Workplace" className="flex flex-wrap items-center">
+        <Fieldset
+          legend="Workplace"
+          className={clsx(
+            'block items-center gap-[2px] sm:flex',
+            !isEditing && 'flex'
+          )}
+        >
           {WORKPLACE.map((item) => (
             <Choice
               key={item.value}
