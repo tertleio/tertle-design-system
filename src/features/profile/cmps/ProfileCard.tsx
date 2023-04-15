@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import { Avatar } from '@/features/avatar/cmps/Avatar';
+
 type User = {
   // id: string;
   // pid: string | number;

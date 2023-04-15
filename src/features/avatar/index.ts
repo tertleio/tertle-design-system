@@ -1,1 +1,1 @@
-export * from './routes/Avatar';
+export * from './cmps/Avatar';
