@@ -3,14 +3,12 @@ import clsx from 'clsx';
 type AvatarProps = {
   src: string;
   className?: string;
-  firstName?: string;
   title?: string;
   alt?: string;
-  lastName?: string;
 };
 
 const Avatar = (props: AvatarProps) => {
-  const { className, firstName = '', lastName = '', src, title } = props;
+  const { className, src = '', title = '' } = props;
   return (
     <img
       className={clsx(
@@ -18,8 +16,8 @@ const Avatar = (props: AvatarProps) => {
         className
       )}
       src={src}
-      title={title || `${firstName} ${lastName}`}
-      alt={`${firstName} ${lastName}`}
+      title={title}
+      alt={title}
     />
   );
 };
