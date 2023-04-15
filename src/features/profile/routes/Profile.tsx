@@ -77,13 +77,15 @@ const Profile = () => {
     );
   };
 
+  console.log(profile);
+
   return (
     <MainLayout>
       <Container>
         <Section className="bg-black hover:cursor-default  hover:bg-black dark:bg-gray-800 dark:hover:bg-[#171717]">
           <ProfileCard
             firstName={user.firstName}
-            avatar={profile.display_pic || user.gPic}
+            imgSrc={profile.display_pic || user.gPic}
             lastName={user.lastName}
             location={profile.city_country}
             packageId={profile.package_id}

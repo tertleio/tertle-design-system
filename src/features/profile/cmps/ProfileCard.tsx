@@ -7,7 +7,6 @@ type User = {
   // pid: string | number;
   firstName: string;
   lastName: string;
-  avatar: string | undefined;
   gPic: string | undefined;
   // email: string;
   // onboard: number;
@@ -16,7 +15,7 @@ type User = {
 
 type ProfileHeaderProps = Omit<User, 'gPic'> & {
   // profile: Profile;
-  avatar: string | undefined;
+  imgSrc: string;
   location: string;
   packageId: number;
   className?: string;
@@ -24,7 +23,9 @@ type ProfileHeaderProps = Omit<User, 'gPic'> & {
 };
 
 const ProfileCard = (props: ProfileHeaderProps) => {
-  const { firstName, lastName, location, avatar, className } = props;
+  const { firstName, lastName, location, imgSrc, className } = props;
+
+  console.log(imgSrc);
 
   return (
     <div className={clsx('flex justify-between', className)}>
@@ -41,7 +42,7 @@ const ProfileCard = (props: ProfileHeaderProps) => {
           <li className="text-white dark:text-primary-dark">Join my idea</li>
         </ul>
       </div>
-      <Avatar />
+      <Avatar firstName={firstName} lastName={lastName} src={imgSrc} />
     </div>
   );
 };
