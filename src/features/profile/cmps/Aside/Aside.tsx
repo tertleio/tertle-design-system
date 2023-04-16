@@ -18,9 +18,10 @@ const Aside = (props: AsideProps) => {
       {Object.entries(buttons).map((item, i) => {
         const iconName = item[0] as IconMember;
         const url = item[1] as string;
+        if (!url) return null;
         return (
           <li key={i}>
-            <a href={url}>
+            <a href={url} target="_blank">
               <Button icon={iconName} variant="secondaryGray" />
             </a>
           </li>
