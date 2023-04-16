@@ -10,7 +10,7 @@ const dataStruct = {
   headline: '',
   googlePic: '',
   displayPic: '',
-  hasStartup: false,
+  hasStartup: null as boolean | null,
   startupStage: 0,
   startupPitch: '',
   startupLink: '',
