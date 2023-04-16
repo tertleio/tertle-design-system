@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import { useProfile } from '../api/getProfile';
 
-import jsonProfile from '@/assets/data/profile.json';
 import jsonPrefs from '@/assets/data/prefs.json';
 
 import { MainLayout } from '@/cmps/Layouts';
 import { Container } from '@/cmps/Container';
 import { ProfileCard, StartupCard, MeCard } from '../cmps';
-
-import { Icon } from '@/cmps/Els';
 
 const Profile = () => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -29,18 +26,18 @@ const Profile = () => {
       <Container>
         <ProfileCard
           isLoading={loading}
-          isAdmin={isAdmin}
+          // isAdmin={isAdmin}
           name={profile?.firstName + ' ' + profile?.lastName || ''}
           imgSrc={profile?.displayPic || profile?.googlePic || ''}
           location={profile?.cityCountry}
           countryCode={profile?.countryCode}
           packageId={profile?.packageId}
-          lookingFor={prefs.need_idea}
+          lookingFor={profile?.hasStartup ? 'myIdea' : 'yourIdea'}
         />
 
         <StartupCard
           isLoading={loading}
-          isAdmin={isAdmin}
+          // isAdmin={isAdmin}
           ambition={1}
           readyness={profile?.commitment}
           pitch={profile?.startupPitch}
@@ -53,7 +50,7 @@ const Profile = () => {
 
         <MeCard
           isLoading={loading}
-          isAdmin={isAdmin}
+          // isAdmin={isAdmin}
           headline={profile?.headline}
           linkedin={profile?.linkLinkedin}
           twitter={profile?.linkTwitter}
