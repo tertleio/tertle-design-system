@@ -7,7 +7,7 @@ import { MainLayout } from '@/cmps/Layouts';
 import { Container } from '@/cmps/Container';
 import { ProfileCard, StartupCard, MeCard } from '../cmps';
 
-const Profile = ({ profileUrl = '' }) => {
+const Profile = ({ profileUrl = 'raz' }) => {
   console.log(profileUrl);
   const [isAdmin, setIsAdmin] = useState(false);
   const [prefs, setPrefs] = useState(jsonPrefs);

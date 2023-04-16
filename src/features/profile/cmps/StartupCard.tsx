@@ -101,7 +101,7 @@ const StartupCard = (props: StartupCardProps) => {
       isLoading={isLoading}
       aside={
         <Aside
-          buttons={{ twitter: '' }}
+          buttons={{ link: startupUrl }}
           allowControls={isAdmin}
           showEdit={!isEditing}
           showCancel={isEditing}

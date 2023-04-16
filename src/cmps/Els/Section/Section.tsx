@@ -6,9 +6,9 @@ const spacings = `px-5 py-6 first:pb-8 sm:py-7 sm:px-7 sm:pb-9`;
 // const clickable = `hover:cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900`;
 
 type SectionProps = {
+  children: React.ReactNode;
   isLoading?: boolean;
   title?: string;
-  children: React.ReactNode;
   aside?: React.ReactNode;
   className?: string;
 };

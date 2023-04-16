@@ -38,7 +38,6 @@ async function getProfile(profileUrl: string) {
   const baseUrl = 'http://localhost:1337';
   const path = profileUrl ? `api/profile/${profileUrl}` : `/api/profile`;
   const res = await fetch(`${baseUrl}/${path}`);
-  console.log('fetching data');
   return res.json();
 }
 
@@ -53,7 +52,7 @@ const useProfile = (profileUrl: string) => {
     getProfile(profileUrl)
       .then(({ status, msg, payload }) => {
         if (status !== 'success') throw new Error('Problem fetching profile');
-
+        console.log('useProfile payload:', payload);
         setProfile({
           id: payload.pid,
           // url: payload.profile_url,
@@ -89,7 +88,7 @@ const useProfile = (profileUrl: string) => {
         setError(true);
         // setLoading(false);
       });
-  }, []);
+  }, [profileUrl]);
 
   return [profile, loading, error] as [Profile, boolean, boolean];
 };
