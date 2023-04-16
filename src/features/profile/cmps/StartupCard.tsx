@@ -7,20 +7,6 @@ import { Aside } from './Aside/Aside';
 
 import { SectionPassProps } from '@/cmps/Els/Section/Section';
 
-type StartupCardProps = SectionPassProps & {
-  isLoading: boolean;
-  pitch: string;
-  experience: number;
-  stage: number;
-  startupUrl: string;
-  ambition: number;
-  hasStartup: boolean;
-  readyness: number;
-  isAdmin?: boolean;
-  className?: string;
-  onChange: (e: any) => void;
-};
-
 // const STARTUP_STAGE = {
 //   idea: 1,
 //   prototyped: 2,
@@ -78,6 +64,20 @@ const WORKPLACE = [
 //   { label: 'To the stars', value: 3, emoji: '⭐️' },
 // ];
 
+type StartupCardProps = SectionPassProps & {
+  isLoading: boolean;
+  pitch: string;
+  experience: number;
+  stage: number;
+  startupUrl: string;
+  ambition: number;
+  hasStartup: boolean;
+  readyness: number;
+  isAdmin?: boolean;
+  className?: string;
+  onChange: (e: any) => void;
+};
+
 const StartupCard = (props: StartupCardProps) => {
   const {
     pitch,
@@ -87,8 +87,8 @@ const StartupCard = (props: StartupCardProps) => {
     readyness,
     hasStartup,
     isAdmin,
-    ambition,
-    className,
+    // ambition,
+    // className,
     onChange,
     isLoading = false,
   } = props;
@@ -115,22 +115,22 @@ const StartupCard = (props: StartupCardProps) => {
     >
       <Fieldset legend="Idea" className="mb-1 flex flex-wrap items-center">
         <Choice
-          name="1"
+          name="hasStartup"
           id="1"
           type="radio"
           size="sm"
-          checked={true}
+          checked={hasStartup}
           label="Have idea"
           readOnly={!isEditing}
           readOnlyIcon="✅"
           onChange={() => console.log('change')}
         />
         <Choice
-          name="2"
+          name="noStartup"
           id="2"
           type="radio"
           size="sm"
-          checked={false}
+          checked={!hasStartup}
           label="No idea"
           readOnly={!isEditing}
           readOnlyIcon="❌"
