@@ -2,32 +2,36 @@ import { useEffect, useState } from 'react';
 // import jsonProfile from '@/assets/data/profile.json';
 // const getLocalProfile = async () => return jsonProfile;
 
+const dataStruct = {
+  id: '',
+  url: '',
+  firstName: '',
+  lastName: '',
+  headline: '',
+  googlePic: '',
+  displayPic: '',
+  hasStartup: false,
+  startupStage: 0,
+  startupPitch: '',
+  startupLink: '',
+  cityCountry: '',
+  // cntryName: '',
+  countryCode: '',
+  // latLong: '',
+  // isTechnical: null,
+  linkLinkedin: '',
+  linkPersonal: '',
+  linkTwitter: '',
+  startupHistory: 0,
+  achievement: '',
+  commitment: 0,
+  workplace: 0,
+  packageId: 0,
+  skills: [],
+};
+
 type Profile = {
-  id: number | null;
-  url: string;
-  firstName: string;
-  lastName: string;
-  headline: string;
-  googlePic: string;
-  displayPic: string;
-  hasStartup: boolean;
-  startupStage: number;
-  startupPitch: string;
-  startupLink: string;
-  cityCountry: string;
-  // cntryName: string;
-  countryCode: string;
-  // latLong: string; // define shape
-  // isTechnical: boolean | null;
-  linkLinkedin: string;
-  linkPersonal: string;
-  linkTwitter: string;
-  startupHistory: number;
-  achievement: string;
-  commitment: number;
-  workplace: number;
-  packageId: number;
-  skills: string[];
+  [key in keyof typeof dataStruct]: (typeof dataStruct)[key];
 };
 
 async function getProfile(profileUrl: string) {
@@ -39,7 +43,7 @@ async function getProfile(profileUrl: string) {
 }
 
 const useProfile = (profileUrl: string) => {
-  const [profile, setProfile] = useState<Profile | null>(null);
+  const [profile, setProfile] = useState<Profile>(dataStruct);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
 
@@ -87,7 +91,7 @@ const useProfile = (profileUrl: string) => {
       });
   }, []);
 
-  return [profile, loading, error] as [Profile | null, boolean, boolean];
+  return [profile, loading, error] as [Profile, boolean, boolean];
 };
 
 export { getProfile, useProfile, type Profile };

@@ -7,7 +7,7 @@ import { MainLayout } from '@/cmps/Layouts';
 import { Container } from '@/cmps/Container';
 import { ProfileCard, StartupCard, MeCard } from '../cmps';
 
-const Profile = ({ profileUrl = 'raz' }) => {
+const Profile = ({ profileUrl = '' }) => {
   console.log(profileUrl);
   const [isAdmin, setIsAdmin] = useState(false);
   const [prefs, setPrefs] = useState(jsonPrefs);
@@ -26,7 +26,7 @@ const Profile = ({ profileUrl = 'raz' }) => {
       <Container>
         <ProfileCard
           isLoading={loading}
-          isAdmin={isAdmin}
+          // isAdmin={isAdmin}
           name={profile?.firstName + ' ' + profile?.lastName || ''}
           imgSrc={profile?.displayPic || profile?.googlePic || ''}
           location={profile?.cityCountry}
@@ -37,7 +37,7 @@ const Profile = ({ profileUrl = 'raz' }) => {
 
         <StartupCard
           isLoading={loading}
-          isAdmin={isAdmin}
+          // isAdmin={isAdmin}
           hasStartup={profile?.hasStartup}
           ambition={1}
           readyness={profile?.commitment}
@@ -46,7 +46,6 @@ const Profile = ({ profileUrl = 'raz' }) => {
           stage={profile?.startupStage}
           startupUrl={profile?.startupLink}
           onChange={handleProfileChange}
-          hasStartup={profile?.hasStartup}
         />
 
         <MeCard

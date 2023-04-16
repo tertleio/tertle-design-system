@@ -41,8 +41,8 @@ function getFlagEmoji(countryCode: string) {
 const ProfileCard = (props: ProfileHeaderProps) => {
   const {
     isLoading,
-    name = '',
-    location = '',
+    name,
+    location,
     imgSrc,
     countryCode,
     lookingFor,
