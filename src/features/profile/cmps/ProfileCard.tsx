@@ -16,7 +16,7 @@ type User = {
 
 type ProfileHeaderProps = Omit<User, 'gPic'> & {
   // profile: Profile;
-  imgSrc: string;
+  imgSrc: any;
   location: string;
   packageId: number;
   className?: string;

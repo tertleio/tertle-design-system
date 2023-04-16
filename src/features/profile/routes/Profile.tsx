@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useProfile } from '../api/getProfile';
 
 import jsonProfile from '@/assets/data/profile.json';
 import jsonUser from '@/assets/data/user.json';
@@ -10,17 +11,29 @@ import { ProfileCard, StartupCard, MeCard } from '../cmps';
 
 const Profile = () => {
   const [isAdmin, setIsAdmin] = useState(true);
-  const [profile, setProfile] = useState(jsonProfile);
+  // const [profile, setProfile] = useState(jsonProfile);
   const [prefs, setPrefs] = useState(jsonPrefs);
   const [skills, setSkills] = useState(jsonProfile.skills);
   const [user] = useState(jsonUser);
+  const [profile, loading, error] = useProfile('raz');
 
-  function handleProfileChange(e: any) {
-    const { name, value } = e.target;
-    setProfile({ ...profile, [name]: value });
+  if (loading) {
+    console.log('loading', loading);
+    return <div>Loading...</div>;
   }
 
-  console.log(profile);
+  if (error) {
+    console.log('error', error);
+    return <div>Error...</div>;
+  }
+
+  function handleProfileChange(e: any) {
+    console.log('handling profile change');
+    // const { name, value } = e.target;
+    // setProfile({ ...profile, [name]: value });
+  }
+
+  // console.log(profile);
 
   return (
     <MainLayout>
@@ -28,10 +41,10 @@ const Profile = () => {
         <ProfileCard
           // isAdmin={isAdmin}
           firstName={user.firstName}
-          imgSrc={profile.display_pic || user.gPic || ''}
+          imgSrc={profile.displayPic || user.gPic || ''}
           lastName={user.lastName}
-          location={profile.city_country}
-          packageId={profile.package_id}
+          location={profile.cityCountry}
+          packageId={profile.packageId}
           lookingFor={prefs.need_idea}
         />
 
@@ -39,20 +52,20 @@ const Profile = () => {
           isAdmin={isAdmin}
           ambition={1}
           readyness={profile.commitment}
-          pitch={profile.startup_pitch}
-          experience={profile.startup_history}
-          stage={profile.startup_stage}
-          startupUrl={profile.startup_link}
+          pitch={profile.startupPitch}
+          experience={profile.startupHistory}
+          stage={profile.startupStage}
+          startupUrl={profile.startupLink}
           onChange={handleProfileChange}
-          hasStartup={profile.has_startup}
+          hasStartup={profile.hasStartup}
         />
 
         <MeCard
           isAdmin={isAdmin}
           headline={profile.headline}
-          linkedin={profile.link_linkedin}
-          twitter={profile.link_twitter}
-          personal={profile.link_personal}
+          linkedin={profile.linkLinkedin}
+          twitter={profile.linkTwitter}
+          personal={profile.linkPersonal}
           skills={skills}
           workplace={profile.workplace}
           onChange={handleProfileChange}
