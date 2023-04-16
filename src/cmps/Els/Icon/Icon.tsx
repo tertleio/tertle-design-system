@@ -22,11 +22,7 @@ type IconProps = {
 };
 
 const Icon = (props: IconProps) => {
-  const {
-    name = '',
-    className = 'fill-black dark:fill-white',
-    size = 'sm',
-  } = props;
+  const { name, className = 'fill-black dark:fill-white', size = 'sm' } = props;
   const paths = icons[name as IconMember];
   const isSpinner = name === 'spinner';
 

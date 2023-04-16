@@ -78,7 +78,9 @@ const useProfile = (profileUrl: string) => {
           skills: payload.skills,
         });
 
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       })
       .catch((err) => {
         console.log('useProfile Error:', err);

@@ -39,7 +39,6 @@ const Profile = () => {
   return (
     <MainLayout>
       {/* <Icon name="github" /> */}
-      <Icon name="spinner" />
       <Container>
         <ProfileCard
           // isAdmin={isAdmin}
