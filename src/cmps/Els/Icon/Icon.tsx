@@ -12,9 +12,6 @@ const sizes = {
   sm: 'w-[14px] h-[14px]',
   md: 'w-[18px] h-[18px]',
   lg: 'w-[20px] h-[20px]',
-  // sm: 'h-4 w-4',
-  // md: 'h-8 w-8',
-  // lg: 'h-16 w-16',
 };
 
 type IconMember = keyof typeof icons;
