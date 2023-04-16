@@ -101,7 +101,12 @@ const StartupCard = (props: StartupCardProps) => {
       isLoading={isLoading}
       aside={
         <Aside
-          buttons={{ github: startupUrl }}
+          buttons={{
+            github: startupUrl,
+            deck: 'hello',
+            briefcase: 'hello',
+            link: 'hello',
+          }}
           allowControls={isAdmin}
           showEdit={!isEditing}
           showCancel={isEditing}
