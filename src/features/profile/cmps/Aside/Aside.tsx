@@ -11,17 +11,7 @@ type AsideProps = ControlsProps & {
 };
 
 const Aside = (props: AsideProps) => {
-  const {
-    buttons,
-    allowControls = false,
-    showEdit,
-    showCancel,
-    showSave,
-    className,
-    onEdit,
-    onCancel,
-    onSave,
-  } = props;
+  const { buttons, allowControls = false, className } = props;
 
   return (
     <ul className={clsx('flex items-center gap-4 sm:gap-2', className)}>
@@ -36,16 +26,7 @@ const Aside = (props: AsideProps) => {
           </li>
         );
       })}
-      {allowControls && (
-        <Controls
-          showEdit={showEdit}
-          showCancel={showCancel}
-          showSave={showSave}
-          onEdit={onEdit}
-          onCancel={onCancel}
-          onSave={onSave}
-        />
-      )}
+      {allowControls && <Controls {...props} />}
     </ul>
   );
 };
