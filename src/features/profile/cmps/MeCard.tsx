@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import clsx from 'clsx';
+// import clsx from 'clsx';
 
 import { Aside } from './Aside/Aside';
 import { Section } from '@/cmps/Els';
 import { Fieldset, Text, Choice } from '@/cmps/Form';
+
+import { SectionPassProps } from '@/cmps/Els/Section/Section';
 
 const skillIcons = {
   'software development': '⚒️',
@@ -22,7 +24,7 @@ type Skill = {
   isSelected: boolean;
 };
 
-type MeCardProps = {
+type MeCardProps = SectionPassProps & {
   // profile: Profile;
   linkedin?: string;
   personal?: string;
@@ -37,6 +39,7 @@ type MeCardProps = {
 
 const MeCard = (props: MeCardProps) => {
   const {
+    isLoading,
     linkedin = '',
     twitter,
     headline,
@@ -51,8 +54,9 @@ const MeCard = (props: MeCardProps) => {
 
   return (
     <Section
-      className={clsx('flex flex-col gap-2 sm:gap-3')}
+      isLoading={isLoading}
       title="Me"
+      className="flex flex-col gap-2 sm:gap-3"
       aside={
         <Aside
           buttons={{ linkedin, twitter }}

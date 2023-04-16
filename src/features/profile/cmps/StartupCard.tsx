@@ -2,10 +2,12 @@ import { useState } from 'react';
 import clsx from 'clsx';
 
 import { Textarea, Fieldset, Choice } from '@/cmps/Form';
-import { Section, Icon } from '@/cmps/Els';
+import { Section } from '@/cmps/Els';
 import { Aside } from './Aside/Aside';
 
-type StartupCardProps = {
+import { SectionPassProps } from '@/cmps/Els/Section/Section';
+
+type StartupCardProps = SectionPassProps & {
   isLoading: boolean;
   pitch: string;
   experience: number;

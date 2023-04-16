@@ -18,23 +18,11 @@ const Profile = () => {
   const [user] = useState(jsonUser);
   const [profile, loading, error] = useProfile('raz');
 
-  // if (loading) {
-  //   console.log('loading', loading);
-  //   return <div>Loading...</div>;
-  // }
-
-  // if (error) {
-  //   console.log('error', error);
-  //   return <div>Error...</div>;
-  // }
-
   function handleProfileChange(e: any) {
     console.log('handling profile change');
     // const { name, value } = e.target;
     // setProfile({ ...profile, [name]: value });
   }
-
-  // console.log(profile);
 
   return (
     <MainLayout>
@@ -65,6 +53,7 @@ const Profile = () => {
         />
 
         <MeCard
+          isLoading={loading}
           isAdmin={isAdmin}
           headline={profile?.headline}
           linkedin={profile?.linkLinkedin}

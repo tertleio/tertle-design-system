@@ -13,6 +13,8 @@ type SectionProps = {
   className?: string;
 };
 
+type SectionPassProps = Omit<SectionProps, 'className'>;
+
 const Section = (props: SectionProps) => {
   const { isLoading = false, title, aside, children, className = '' } = props;
 
@@ -41,4 +43,4 @@ const Section = (props: SectionProps) => {
   );
 };
 
-export { Section };
+export { Section, type SectionPassProps };

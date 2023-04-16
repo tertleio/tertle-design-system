@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import { Avatar } from '@/features/avatar/cmps/Avatar';
 import { Section } from '@/cmps/Els';
 
+import { SectionPassProps } from '@/cmps/Els/Section/Section';
+
 type User = {
   // id: string;
   // pid: string | number;
@@ -14,14 +16,15 @@ type User = {
   // onboarded: boolean;
 };
 
-type ProfileHeaderProps = Omit<User, 'gPic'> & {
-  // profile: Profile;
-  imgSrc: string;
-  location: string;
-  packageId: number;
-  className?: string;
-  lookingFor: number;
-};
+type ProfileHeaderProps = SectionPassProps &
+  Omit<User, 'gPic'> & {
+    // profile: Profile;
+    imgSrc: string;
+    location: string;
+    packageId: number;
+    className?: string;
+    lookingFor: number;
+  };
 
 const ProfileCard = (props: ProfileHeaderProps) => {
   const { firstName, lastName, location, imgSrc, className, isLoading } = props;
