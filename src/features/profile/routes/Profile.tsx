@@ -26,7 +26,7 @@ const Profile = ({ profileUrl = 'raz' }) => {
       <Container>
         <ProfileCard
           isLoading={loading}
-          // isAdmin={isAdmin}
+          isAdmin={isAdmin}
           name={profile?.firstName + ' ' + profile?.lastName || ''}
           imgSrc={profile?.displayPic || profile?.googlePic || ''}
           location={profile?.cityCountry}
@@ -37,7 +37,7 @@ const Profile = ({ profileUrl = 'raz' }) => {
 
         <StartupCard
           isLoading={loading}
-          // isAdmin={isAdmin}
+          isAdmin={isAdmin}
           hasStartup={profile?.hasStartup}
           ambition={1}
           readyness={profile?.commitment}

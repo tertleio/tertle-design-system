@@ -26,12 +26,12 @@ type Skill = {
 
 type MeCardProps = SectionPassProps & {
   // profile: Profile;
-  linkedin?: string;
-  personal?: string;
-  twitter?: string;
   headline: string;
   skills: Skill[];
   workplace: number;
+  linkedin?: string;
+  personal?: string;
+  twitter?: string;
   isAdmin?: boolean;
   className?: string;
   onChange: (e: any) => void;
@@ -41,8 +41,8 @@ const MeCard = (props: MeCardProps) => {
   const {
     isLoading,
     linkedin = '',
-    twitter,
-    headline,
+    twitter = '',
+    headline = '',
     skills,
     workplace,
     isAdmin,
@@ -62,7 +62,7 @@ const MeCard = (props: MeCardProps) => {
       aside={
         <Aside
           buttons={{ linkedin, twitter }}
-          showControls={isAdmin}
+          allowControls={isAdmin}
           showEdit={!isEditing}
           showCancel={isEditing}
           showSave={isEditing}

@@ -59,4 +59,4 @@ const Controls = (props: ControlsProps) => {
   );
 };
 
-export { Controls };
+export { Controls, type ControlsProps };
