@@ -42,7 +42,7 @@ const Section = (props: SectionProps) => {
           <div
             className={clsx(
               'ml-1 flex h-full flex-col justify-start',
-              isLoading && 'pointer-events-none cursor-default opacity-70'
+              isLoading && 'pointer-events-none cursor-default opacity-30'
             )}
           >
             {aside}
