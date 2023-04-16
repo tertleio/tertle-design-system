@@ -51,10 +51,7 @@ const MeCard = (props: MeCardProps) => {
 
   return (
     <Section
-      className={clsx(
-        'flex flex-col gap-2 sm:gap-3',
-        isEditing && 'hover:bg-transparent dark:hover:bg-transparent'
-      )}
+      className={clsx('flex flex-col gap-2 sm:gap-3')}
       title="Me"
       aside={
         <Aside
