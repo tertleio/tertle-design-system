@@ -17,8 +17,9 @@ type User = {
 };
 
 type ProfileHeaderProps = SectionPassProps &
-  Omit<User, 'gPic'> & {
+  Omit<User, 'gPic, firstName, lastName'> & {
     // profile: Profile;
+    name: string;
     imgSrc: string;
     location: string;
     packageId: number;
@@ -36,23 +37,13 @@ function getFlagEmoji(countryCode: string) {
 }
 
 const ProfileCard = (props: ProfileHeaderProps) => {
-  const {
-    firstName,
-    lastName,
-    location,
-    imgSrc,
-    className,
-    isLoading,
-    countryCode,
-  } = props;
+  const { name, location, imgSrc, className, isLoading, countryCode } = props;
 
   return (
     <Section isLoading={isLoading} className="bg-black dark:bg-gray-800">
       <div className={clsx('flex justify-between', className)}>
         <div>
-          <h1 className="mb-0.5 text-white sm:mb-1">
-            {firstName + ' ' + lastName}
-          </h1>
+          <h1 className="mb-0.5 text-white sm:mb-1">{name}</h1>
           <div className="text-[1.25em] text-gray-500 dark:text-gray-500 md:text-2xl">
             {location} {!isLoading && getFlagEmoji(countryCode)}
           </div>
@@ -62,7 +53,7 @@ const ProfileCard = (props: ProfileHeaderProps) => {
             <li className="text-white dark:text-primary-dark">Join my idea</li>
           </ul>
         </div>
-        <Avatar src={imgSrc} title={`${firstName}'s Avatar`} />
+        <Avatar src={imgSrc} title={`${name}'s Avatar`} />
       </div>
     </Section>
   );

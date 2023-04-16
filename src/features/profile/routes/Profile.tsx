@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useProfile } from '../api/getProfile';
 
 import jsonProfile from '@/assets/data/profile.json';
-import jsonUser from '@/assets/data/user.json';
 import jsonPrefs from '@/assets/data/prefs.json';
 
 import { MainLayout } from '@/cmps/Layouts';
@@ -12,11 +11,11 @@ import { ProfileCard, StartupCard, MeCard } from '../cmps';
 import { Icon } from '@/cmps/Els';
 
 const Profile = () => {
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [prefs, setPrefs] = useState(jsonPrefs);
-  const [skills, setSkills] = useState(jsonProfile.skills);
-  const [user] = useState(jsonUser);
   const [profile, loading, error] = useProfile('raz');
+
+  console.log('FETCHED', profile);
 
   function handleProfileChange(e: any) {
     console.log('handling profile change');
@@ -29,13 +28,12 @@ const Profile = () => {
       {/* <Icon name="github" /> */}
       <Container>
         <ProfileCard
-          // isAdmin={isAdmin}
           isLoading={loading}
-          firstName={user.firstName}
-          imgSrc={profile?.displayPic || user.gPic || ''}
-          lastName={user.lastName}
+          isAdmin={isAdmin}
+          name={profile?.firstName + ' ' + profile?.lastName || ''}
+          imgSrc={profile?.displayPic || profile?.googlePic || ''}
           location={profile?.cityCountry}
-          countryCode={'GB'}
+          countryCode={profile?.countryCode}
           packageId={profile?.packageId}
           lookingFor={prefs.need_idea}
         />
@@ -60,7 +58,7 @@ const Profile = () => {
           linkedin={profile?.linkLinkedin}
           twitter={profile?.linkTwitter}
           personal={profile?.linkPersonal}
-          skills={skills}
+          skills={profile?.skills || []}
           workplace={profile?.workplace}
           onChange={handleProfileChange}
         />

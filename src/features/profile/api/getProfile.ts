@@ -8,6 +8,7 @@ type Profile = {
   firstName: string;
   lastName: string;
   headline: string;
+  googlePic: string;
   displayPic: string;
   hasStartup: boolean;
   startupStage: number;
@@ -15,7 +16,7 @@ type Profile = {
   startupLink: string;
   cityCountry: string;
   // cntryName: string;
-  // cntryCode: string;
+  countryCode: string;
   // latLong: string; // define shape
   // isTechnical: boolean | null;
   linkLinkedin: string;
@@ -47,7 +48,6 @@ const useProfile = (profileUrl: string) => {
 
     getProfile(profileUrl)
       .then(({ status, msg, payload }) => {
-        console.log('PAYLOAD', payload);
         if (status !== 'success') throw new Error('Problem fetching profile');
 
         setProfile({
@@ -57,6 +57,7 @@ const useProfile = (profileUrl: string) => {
           firstName: payload.first_name,
           lastName: payload.last_name,
           headline: payload.headline,
+          googlePic: payload.google_pic,
           displayPic: payload.display_pic,
           hasStartup: payload.has_startup,
           startupStage: payload.startup_stage,
@@ -64,7 +65,7 @@ const useProfile = (profileUrl: string) => {
           startupLink: payload.startup_link,
           cityCountry: payload.city_country,
           // cntryName: payload.cntry_name,
-          // cntryCode: payload.cntry_code,
+          countryCode: payload.country_code,
           // latLong: payload.lat_long,
           // isTechnical: payload.is_technical,
           linkLinkedin: payload.link_linkedin,
@@ -77,7 +78,6 @@ const useProfile = (profileUrl: string) => {
           packageId: payload.package_id,
           skills: payload.skills,
         });
-
         setLoading(false);
       })
       .catch((err) => {
