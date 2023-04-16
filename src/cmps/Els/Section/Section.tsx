@@ -13,7 +13,7 @@ type SectionProps = {
   className?: string;
 };
 
-type SectionPassProps = Omit<SectionProps, 'className'>;
+type SectionPassProps = Omit<SectionProps, 'class'>;
 
 const Section = (props: SectionProps) => {
   const { isLoading = false, title, aside, children, className = '' } = props;
@@ -30,11 +30,23 @@ const Section = (props: SectionProps) => {
         <h2>{title}</h2>
         {isLoading && (
           <span className="py-1.2 absolute right-0 top-0">
-            <Icon name="spinner" size="lg" />
+            <Button
+              variant="primaryGray"
+              className="mr-0 bg-transparent p-0 dark:bg-transparent"
+            >
+              <Icon name="spinner" size="md" />
+            </Button>
           </span>
         )}
-        {!isLoading && aside && (
-          <div className="ml-1 flex h-full flex-col justify-start">{aside}</div>
+        {aside && (
+          <div
+            className={clsx(
+              'ml-1 flex h-full flex-col justify-start',
+              isLoading && 'pointer-events-none cursor-default opacity-70'
+            )}
+          >
+            {aside}
+          </div>
         )}
       </div>
 
