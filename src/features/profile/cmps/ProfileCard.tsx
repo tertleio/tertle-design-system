@@ -27,7 +27,7 @@ const ProfileCard = (props: ProfileHeaderProps) => {
   const { firstName, lastName, location, imgSrc, className } = props;
 
   return (
-    <Section className="bg-black hover:cursor-default  hover:bg-black dark:bg-gray-800 dark:hover:bg-[#171717]">
+    <Section className="bg-black dark:bg-gray-800">
       <div className={clsx('flex justify-between', className)}>
         <div>
           <h1 className="mb-0.5 text-white sm:mb-1">

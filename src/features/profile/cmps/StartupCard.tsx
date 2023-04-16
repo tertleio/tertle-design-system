@@ -106,10 +106,7 @@ const StartupCard = (props: StartupCardProps) => {
           onSave={() => setIsSaving(false)}
         />
       }
-      className={clsx(
-        'flex flex-col gap-2 sm:gap-3',
-        isEditing && 'hover:bg-transparent dark:hover:bg-transparent'
-      )}
+      className={clsx('flex flex-col gap-2 sm:gap-3')}
     >
       <Fieldset legend="Idea" className="mb-1 flex flex-wrap items-center">
         <Choice

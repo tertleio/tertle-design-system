@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
-const spacings = `py-6 px-4 first:pb-8 sm:py-7 sm:px-7 sm:pb-9`;
+const spacings = `px-5 py-6 first:pb-8 sm:py-7 sm:px-7 sm:pb-9`;
+// const clickable = `hover:cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900`;
 
 type SectionProps = {
   title?: string;
@@ -15,7 +16,7 @@ const Section = (props: SectionProps) => {
   return (
     <div
       className={clsx(
-        'border-b border-gray-300 text-gray-600 first:rounded-t-3xl last:rounded-b-3xl  last:border-b-0 hover:cursor-pointer hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-900',
+        'border-b border-gray-300 text-gray-600 first:rounded-t-3xl last:rounded-b-3xl  last:border-b-0 dark:border-gray-700',
         spacings,
         className
       )}
