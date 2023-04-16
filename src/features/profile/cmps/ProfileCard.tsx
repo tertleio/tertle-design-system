@@ -5,7 +5,7 @@ import { Section } from '@/cmps/Els';
 
 import { SectionPassProps } from '@/cmps/Els/Section/Section';
 
-const active = 'text-white dark:text-primary-dark opacity-100';
+const active = 'text-white dark:text-primary-dark';
 
 type User = {
   // id: string;
@@ -60,8 +60,7 @@ const ProfileCard = (props: ProfileHeaderProps) => {
           <ul className="flex-inline flex flex-wrap gap-3 sm:mt-1">
             <li
               className={clsx(
-                'opacity-50',
-                lookingFor === 'yourIdea' && !isLoading && active
+                lookingFor === 'yourIdea' && !isLoading ? active : 'opacity-50'
               )}
             >
               Join your idea
@@ -69,8 +68,7 @@ const ProfileCard = (props: ProfileHeaderProps) => {
             <li className="opacity-50">|</li>
             <li
               className={clsx(
-                'opacity-50',
-                lookingFor === 'myIdea' && !isLoading && active
+                lookingFor === 'myIdea' && !isLoading ? active : 'opacity-50'
               )}
             >
               Join my idea
