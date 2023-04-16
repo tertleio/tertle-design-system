@@ -61,14 +61,17 @@ const ProfileCard = (props: ProfileHeaderProps) => {
             <li
               className={clsx(
                 'opacity-50',
-                lookingFor === 'yourIdea' && active
+                lookingFor === 'yourIdea' && !isLoading && active
               )}
             >
               Join your idea
             </li>
             <li className="opacity-50">|</li>
             <li
-              className={clsx('opacity-50', lookingFor === 'myIdea' && active)}
+              className={clsx(
+                'opacity-50',
+                lookingFor === 'myIdea' && !isLoading && active
+              )}
             >
               Join my idea
             </li>
