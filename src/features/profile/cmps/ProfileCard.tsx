@@ -55,7 +55,7 @@ const ProfileCard = (props: ProfileHeaderProps) => {
         <div>
           <h1 className="mb-0.5 text-white sm:mb-1">{name}</h1>
           <div className="text-[1.25em] text-gray-500 dark:text-gray-500 md:text-2xl">
-            {location} {!isLoading && getFlagEmoji(countryCode)}
+            {location} {countryCode && getFlagEmoji(countryCode)}
           </div>
           <ul className="flex-inline flex flex-wrap gap-3 sm:mt-1">
             <li
