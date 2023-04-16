@@ -11,6 +11,7 @@ const skillIcons = {
   'software development': '⚒️',
   'product management': '📈',
   'business development': '📊',
+  research: '🔬',
   marketing: '📣',
   design: '✏️',
   other: '📚',
@@ -18,10 +19,10 @@ const skillIcons = {
 
 type SkillType = keyof typeof skillIcons;
 type Skill = {
-  id: number;
-  category: string;
+  // id: number;
+  // category: string;
   strVal: SkillType;
-  isSelected: boolean;
+  // isSelected: boolean;
 };
 
 type MeCardProps = SectionPassProps & {
@@ -52,6 +53,8 @@ const MeCard = (props: MeCardProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
+  console.log('passsed skills', skills);
+
   return (
     <Section
       isLoading={isLoading}
@@ -81,7 +84,7 @@ const MeCard = (props: MeCardProps) => {
       </Fieldset>
       <Fieldset legend="Skills">
         <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-[2px]">
-          {skills.map((skill) => (
+          {/* {skills.map((skill) => (
             <Choice
               key={skill.id}
               name="skills"
@@ -92,6 +95,20 @@ const MeCard = (props: MeCardProps) => {
               value={skill.id}
               label={skill.strVal}
               checked={skill.isSelected}
+              onChange={onChange}
+            />
+          ))} */}
+          {skills.map((skill) => (
+            <Choice
+              key={skill.strVal}
+              name="skills"
+              readOnly={!isEditing}
+              readOnlyIcon={(skillIcons[skill.strVal] as SkillType) || '📚'}
+              size="sm"
+              type="checkbox"
+              value={skill.strVal}
+              label={skill.strVal}
+              checked={true}
               onChange={onChange}
             />
           ))}
