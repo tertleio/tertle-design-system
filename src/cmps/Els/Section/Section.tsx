@@ -25,9 +25,7 @@ const Section = (props: SectionProps) => {
       )}
     >
       <div className={clsx('relative flex justify-between')}>
-        <span className="flex">
-          <h2>{title}</h2>
-        </span>
+        <h2>{title}</h2>
         {isLoading && (
           <span className="py-1.2 absolute right-0 top-0">
             <Icon name="spinner" size="lg" />
