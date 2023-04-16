@@ -11,7 +11,6 @@ import { ProfileCard, StartupCard, MeCard } from '../cmps';
 
 const Profile = () => {
   const [isAdmin, setIsAdmin] = useState(true);
-  // const [profile, setProfile] = useState(jsonProfile);
   const [prefs, setPrefs] = useState(jsonPrefs);
   const [skills, setSkills] = useState(jsonProfile.skills);
   const [user] = useState(jsonUser);

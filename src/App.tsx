@@ -25,16 +25,16 @@ const opts = [
 const pid = '1';
 
 function App() {
-  const { isLoading, data } = useFetch(pid);
+  // const { isLoading, data } = useFetch(pid);
   const [text, setText] = useState('');
   const [textarea, setTextarea] = useState('');
   const [darkTheme, setDarkTheme] = useTheme(null);
   const [dummyData, setDummyData] = useState<any>({});
 
-  useEffect(() => {
-    if (data) setDummyData(data);
-  }, [isLoading, data]);
-  if (isLoading) return <h1 className="m-5 flex justify-center">Loading...</h1>;
+  // useEffect(() => {
+  //   if (data) setDummyData(data);
+  // }, [isLoading, data]);
+  // if (isLoading) return <h1 className="m-5 flex justify-center">Loading...</h1>;
 
   function handleChange(e: any) {
     const { name, value } = e.target;
