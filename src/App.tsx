@@ -1,40 +1,27 @@
-import { useState, useEffect } from 'react';
-import clsx from 'clsx';
+// import { useState, useEffect } from 'react';
+// import clsx from 'clsx';
 import useTheme from '@/hooks/useTheme';
-import fetchSim from '@/hooks/useFetch';
-import useFetch from '@/hooks/useFetch';
+// import fetchSim from '@/hooks/useFetch';
+// import useFetch from '@/hooks/useFetch';
 
 // Components
-import { Container } from '@/cmps/Container';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Button, Link } from '@/cmps/Els';
+// import { Container } from '@/cmps/Container';
+// import { BrowserRouter as Router } from 'react-router-dom';
+// import { Button, Link } from '@/cmps/Els';
 import { Form, Fieldset, Dropdown, Choice, Text, Textarea } from '@/cmps/Form';
 import { Profile } from '@/features/profile';
 
-const opts = [
-  {
-    label: 'Option Number one',
-    value: 'opt1',
-  },
-  {
-    label: 'Option Number Two',
-    value: 'opt2',
-  },
-];
-
-const pid = '1';
-
 function App() {
-  // const { isLoading, data } = useFetch(pid);
-  const [text, setText] = useState('');
-  const [textarea, setTextarea] = useState('');
   const [darkTheme, setDarkTheme] = useTheme(null);
-  const [dummyData, setDummyData] = useState<any>({});
+  // const { isLoading, data } = useFetch(pid);
+  // const [text, setText] = useState('');
+  // const [textarea, setTextarea] = useState('');;
+  // const [dummyData, setDummyData] = useState<any>({});
 
-  function handleChange(e: any) {
-    const { name, value } = e.target;
-    setDummyData({ ...dummyData, [name]: value });
-  }
+  // function handleChange(e: any) {
+  //   const { name, value } = e.target;
+  //   setDummyData({ ...dummyData, [name]: value });
+  // }
 
   function handleSubmit(e: any) {
     e.preventDefault();
@@ -45,16 +32,16 @@ function App() {
 
   return (
     <>
-      <Fieldset className="mx-5">
+      <Fieldset legend="" className="mx-5">
         <Choice
           name="darkTheme"
           type="checkbox"
           checked={darkTheme ? true : false}
-          onChange={() => setDarkTheme((isDark) => !isDark)}
+          onChange={(isDark) => setDarkTheme(!isDark)}
           label="Dark mode on"
         />
       </Fieldset>
-      <Profile />
+      <Profile url="raz" />
     </>
     // <div className="flex-column m-10 flex justify-center gap-3">
     //   <h1 className="text-green-600 text-3xl font-bold">Links</h1>

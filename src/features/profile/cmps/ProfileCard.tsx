@@ -7,28 +7,15 @@ import { SectionPassProps } from '@/cmps/Els/Section/Section';
 
 const active = 'text-white dark:text-primary-dark';
 
-type User = {
-  // id: string;
-  // pid: string | number;
-  firstName: string;
-  lastName: string;
-  gPic: string | undefined | null;
-  // email: string;
-  // onboard: number;
-  // onboarded: boolean;
+type ProfileHeaderProps = SectionPassProps & {
+  name: string;
+  imgSrc: string;
+  location: string;
+  packageId: number;
+  countryCode: string;
+  lookingFor: 'myIdea' | 'yourIdea';
+  className?: string;
 };
-
-type ProfileHeaderProps = SectionPassProps &
-  Omit<User, 'gPic, firstName, lastName'> & {
-    // profile: Profile;
-    name: string;
-    imgSrc: string;
-    location: string;
-    packageId: number;
-    countryCode: string;
-    lookingFor: 'myIdea' | 'yourIdea';
-    className?: string;
-  };
 
 function getFlagEmoji(countryCode: string) {
   const codePoints = countryCode

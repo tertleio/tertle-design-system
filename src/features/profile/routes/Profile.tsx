@@ -1,19 +1,14 @@
 import { useState } from 'react';
 import { useProfile } from '../api/getProfile';
-
-import jsonPrefs from '@/assets/data/prefs.json';
+// import jsonPrefs from '@/assets/data/prefs.json';
 
 import { MainLayout } from '@/cmps/Layouts';
 import { Container } from '@/cmps/Container';
 import { ProfileCard, StartupCard, MeCard } from '../cmps';
 
-const Profile = ({ profileUrl = 'raz' }) => {
-  console.log(profileUrl);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [prefs, setPrefs] = useState(jsonPrefs);
-  const [profile, loading, error] = useProfile(profileUrl);
-
-  console.log('FETCHED', profile);
+const Profile = ({ url }: { url: string }) => {
+  // const [isAdmin, setIsAdmin] = useState(false);
+  const [profile, loading, error] = useProfile(url);
 
   function handleProfileChange(e: any) {
     console.log('handling profile change');
@@ -38,7 +33,7 @@ const Profile = ({ profileUrl = 'raz' }) => {
         <StartupCard
           isLoading={loading}
           // isAdmin={isAdmin}
-          hasStartup={profile?.hasStartup}
+          hasStartup={profile?.hasStartup || false}
           ambition={1}
           readyness={profile?.commitment}
           pitch={profile?.startupPitch}
