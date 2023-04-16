@@ -31,6 +31,9 @@ module.exports = {
       transparent: 'transparent',
     },
     extend: {
+      animation: {
+        spin: 'spin 0.3s linear infinite',
+      },
       fontFamily: {
         primary: ['poppins', 'Helvetica', 'Arial', 'sans-serif'],
         secondary: ['proxima-nova', 'Helvetica', 'Arial', 'sans-serif'],

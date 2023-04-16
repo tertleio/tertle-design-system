@@ -9,6 +9,8 @@ import { MainLayout } from '@/cmps/Layouts';
 import { Container } from '@/cmps/Container';
 import { ProfileCard, StartupCard, MeCard } from '../cmps';
 
+import { Icon } from '@/cmps/Els';
+
 const Profile = () => {
   const [isAdmin, setIsAdmin] = useState(true);
   const [prefs, setPrefs] = useState(jsonPrefs);
@@ -36,6 +38,8 @@ const Profile = () => {
 
   return (
     <MainLayout>
+      {/* <Icon name="github" /> */}
+      <Icon name="spinner" />
       <Container>
         <ProfileCard
           // isAdmin={isAdmin}
