@@ -83,7 +83,7 @@ const useProfile = (profileUrl: string) => {
       .catch((err) => {
         console.log('useProfile Error:', err);
         setError(true);
-        setLoading(false);
+        // setLoading(false);
       });
   }, []);
 
