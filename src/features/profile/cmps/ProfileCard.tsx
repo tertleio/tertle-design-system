@@ -22,12 +22,29 @@ type ProfileHeaderProps = SectionPassProps &
     imgSrc: string;
     location: string;
     packageId: number;
-    className?: string;
+    countryCode: string;
     lookingFor: number;
+    className?: string;
   };
 
+function getFlagEmoji(countryCode: string) {
+  const codePoints = countryCode
+    .toUpperCase()
+    .split('')
+    .map((char) => 127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
+}
+
 const ProfileCard = (props: ProfileHeaderProps) => {
-  const { firstName, lastName, location, imgSrc, className, isLoading } = props;
+  const {
+    firstName,
+    lastName,
+    location,
+    imgSrc,
+    className,
+    isLoading,
+    countryCode,
+  } = props;
 
   return (
     <Section isLoading={isLoading} className="bg-black dark:bg-gray-800">
@@ -37,7 +54,7 @@ const ProfileCard = (props: ProfileHeaderProps) => {
             {firstName + ' ' + lastName}
           </h1>
           <div className="text-[1.25em] text-gray-500 dark:text-gray-500 md:text-2xl">
-            {location} 🇬🇧
+            {location} {!isLoading && getFlagEmoji(countryCode)}
           </div>
           <ul className="flex-inline flex flex-wrap gap-3 sm:mt-1">
             <li className="opacity-50">Join your idea</li>

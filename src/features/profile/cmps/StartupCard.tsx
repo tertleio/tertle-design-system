@@ -72,11 +72,11 @@ const WORKPLACE = [
 ];
 
 // new
-const AMBITION = [
-  { label: 'Indie', value: 1, emoji: '🌎' },
-  { label: 'To the moon', value: 2, emoji: '🌙' },
-  { label: 'To the stars', value: 3, emoji: '⭐️' },
-];
+// const AMBITION = [
+//   { label: 'Indie', value: 1, emoji: '🌎' },
+//   { label: 'To the moon', value: 2, emoji: '🌙' },
+//   { label: 'To the stars', value: 3, emoji: '⭐️' },
+// ];
 
 const StartupCard = (props: StartupCardProps) => {
   const {
@@ -165,7 +165,7 @@ const StartupCard = (props: StartupCardProps) => {
             />
           ))}
         </Fieldset>
-        <Fieldset
+        {/* <Fieldset
           legend="Ambition"
           className={clsx(
             'block items-center gap-[2px] sm:flex',
@@ -187,7 +187,7 @@ const StartupCard = (props: StartupCardProps) => {
               onChange={onChange}
             />
           ))}
-        </Fieldset>
+        </Fieldset> */}
         <Fieldset
           legend="Stage"
           className={clsx(

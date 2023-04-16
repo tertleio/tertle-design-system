@@ -35,6 +35,7 @@ const Profile = () => {
           imgSrc={profile?.displayPic || user.gPic || ''}
           lastName={user.lastName}
           location={profile?.cityCountry}
+          countryCode={'GB'}
           packageId={profile?.packageId}
           lookingFor={prefs.need_idea}
         />
