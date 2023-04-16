@@ -14,7 +14,6 @@ const skillIcons = {
   research: '🔬',
   marketing: '📣',
   design: '✏️',
-  other: '📚',
 };
 
 type SkillType = keyof typeof skillIcons;
