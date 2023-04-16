@@ -4,8 +4,7 @@ import { Controls } from './Controls';
 import { Button, IconMember } from '@/cmps/Els';
 
 type AsideProps = {
-  buttons: Record<IconMember, string>;
-  allowControls?: boolean;
+  buttons: Partial<Record<IconMember, string>>;
   showEdit?: boolean;
   showCancel?: boolean;
   showSave?: boolean;
@@ -27,6 +26,10 @@ const Aside = (props: AsideProps) => {
     onCancel,
     onSave,
   } = props;
+
+  console.log('buttons', buttons);
+
+  console.log(Object.keys(buttons));
 
   return (
     <ul className={clsx('flex items-center gap-4 sm:gap-2', className)}>
