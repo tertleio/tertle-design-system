@@ -44,7 +44,7 @@ const Icon = (props: IconProps) => {
         ></circle>
       )}
       {paths.map((path, i) => (
-        <path className={clsx(isSpinner && 'opacity-30')} key={i} d={path} />
+        <path className={clsx(isSpinner && 'opacity-50')} key={i} d={path} />
       ))}
     </svg>
   );

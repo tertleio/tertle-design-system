@@ -1,9 +1,12 @@
 import clsx from 'clsx';
 
+import { Icon, Button } from '@/cmps/Els';
+
 const spacings = `px-5 py-6 first:pb-8 sm:py-7 sm:px-7 sm:pb-9`;
 // const clickable = `hover:cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900`;
 
 type SectionProps = {
+  isLoading?: boolean;
   title?: string;
   children: React.ReactNode;
   aside?: React.ReactNode;
@@ -11,7 +14,7 @@ type SectionProps = {
 };
 
 const Section = (props: SectionProps) => {
-  const { title, aside, children, className = '' } = props;
+  const { isLoading = false, title, aside, children, className = '' } = props;
 
   return (
     <div
@@ -21,9 +24,16 @@ const Section = (props: SectionProps) => {
         className
       )}
     >
-      <div className={clsx('flex justify-between')}>
-        <h2>{title}</h2>
-        {aside && (
+      <div className={clsx('relative flex justify-between')}>
+        <span className="flex">
+          <h2>{title}</h2>
+        </span>
+        {isLoading && (
+          <span className="py-1.2 absolute right-0 top-0">
+            <Icon name="spinner" size="lg" />
+          </span>
+        )}
+        {!isLoading && aside && (
           <div className="ml-1 flex h-full flex-col justify-start">{aside}</div>
         )}
       </div>

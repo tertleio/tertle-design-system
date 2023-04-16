@@ -40,17 +40,19 @@ const Profile = () => {
     <MainLayout>
       {/* <Icon name="github" /> */}
       <Container>
-        {/* <ProfileCard
+        <ProfileCard
           // isAdmin={isAdmin}
+          isLoading={loading}
           firstName={user.firstName}
-          imgSrc={profile.displayPic || user.gPic || ''}
+          imgSrc={profile?.displayPic || user.gPic || ''}
           lastName={user.lastName}
-          location={profile.cityCountry}
-          packageId={profile.packageId}
+          location={profile?.cityCountry}
+          packageId={profile?.packageId}
           lookingFor={prefs.need_idea}
-        /> */}
+        />
 
         <StartupCard
+          isLoading={loading}
           isAdmin={isAdmin}
           ambition={1}
           readyness={profile?.commitment}
@@ -62,16 +64,16 @@ const Profile = () => {
           hasStartup={profile?.hasStartup}
         />
 
-        {/* <MeCard
+        <MeCard
           isAdmin={isAdmin}
-          headline={profile.headline}
-          linkedin={profile.linkLinkedin}
-          twitter={profile.linkTwitter}
-          personal={profile.linkPersonal}
+          headline={profile?.headline}
+          linkedin={profile?.linkLinkedin}
+          twitter={profile?.linkTwitter}
+          personal={profile?.linkPersonal}
           skills={skills}
-          workplace={profile.workplace}
+          workplace={profile?.workplace}
           onChange={handleProfileChange}
-        /> */}
+        />
 
         {/* 
         <Section

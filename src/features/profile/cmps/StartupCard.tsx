@@ -2,10 +2,11 @@ import { useState } from 'react';
 import clsx from 'clsx';
 
 import { Textarea, Fieldset, Choice } from '@/cmps/Form';
-import { Section } from '@/cmps/Els';
+import { Section, Icon } from '@/cmps/Els';
 import { Aside } from './Aside/Aside';
 
 type StartupCardProps = {
+  isLoading: boolean;
   pitch: string;
   experience: number;
   stage: number;
@@ -87,6 +88,7 @@ const StartupCard = (props: StartupCardProps) => {
     ambition,
     className,
     onChange,
+    isLoading = false,
   } = props;
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -94,6 +96,7 @@ const StartupCard = (props: StartupCardProps) => {
   return (
     <Section
       title="Startup"
+      isLoading={isLoading}
       aside={
         <Aside
           buttons={{ github: startupUrl }}
