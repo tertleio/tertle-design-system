@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 type ContainerProps = {
   children: React.ReactNode;
@@ -8,10 +9,10 @@ type ContainerProps = {
 const Container = ({ children, className }: ContainerProps) => {
   return (
     <div
-      className={`
-      dark:black rounded-3xl border border-gray-300
-       bg-white dark:border-gray-700 dark:bg-black
-      ${className}`}
+      className={clsx(
+        'dark:black border-gray-300bg-white rounded-3xl border dark:border-gray-700 dark:bg-black',
+        className
+      )}
     >
       {children}
     </div>
