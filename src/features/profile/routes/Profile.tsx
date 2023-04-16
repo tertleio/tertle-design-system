@@ -18,15 +18,15 @@ const Profile = () => {
   const [user] = useState(jsonUser);
   const [profile, loading, error] = useProfile('raz');
 
-  if (loading) {
-    console.log('loading', loading);
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   console.log('loading', loading);
+  //   return <div>Loading...</div>;
+  // }
 
-  if (error) {
-    console.log('error', error);
-    return <div>Error...</div>;
-  }
+  // if (error) {
+  //   console.log('error', error);
+  //   return <div>Error...</div>;
+  // }
 
   function handleProfileChange(e: any) {
     console.log('handling profile change');
@@ -40,7 +40,7 @@ const Profile = () => {
     <MainLayout>
       {/* <Icon name="github" /> */}
       <Container>
-        <ProfileCard
+        {/* <ProfileCard
           // isAdmin={isAdmin}
           firstName={user.firstName}
           imgSrc={profile.displayPic || user.gPic || ''}
@@ -48,21 +48,21 @@ const Profile = () => {
           location={profile.cityCountry}
           packageId={profile.packageId}
           lookingFor={prefs.need_idea}
-        />
+        /> */}
 
         <StartupCard
           isAdmin={isAdmin}
           ambition={1}
-          readyness={profile.commitment}
-          pitch={profile.startupPitch}
-          experience={profile.startupHistory}
-          stage={profile.startupStage}
-          startupUrl={profile.startupLink}
+          readyness={profile?.commitment}
+          pitch={profile?.startupPitch}
+          experience={profile?.startupHistory}
+          stage={profile?.startupStage}
+          startupUrl={profile?.startupLink}
           onChange={handleProfileChange}
-          hasStartup={profile.hasStartup}
+          hasStartup={profile?.hasStartup}
         />
 
-        <MeCard
+        {/* <MeCard
           isAdmin={isAdmin}
           headline={profile.headline}
           linkedin={profile.linkLinkedin}
@@ -71,7 +71,7 @@ const Profile = () => {
           skills={skills}
           workplace={profile.workplace}
           onChange={handleProfileChange}
-        />
+        /> */}
 
         {/* 
         <Section
