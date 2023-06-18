@@ -9,9 +9,11 @@ const icons = {
 }
 
 const sizes = {
-  sm: 'w-[14px] h-[14px]',
-  md: 'w-[18px] h-[18px]',
+  xs: 'w-[10px] h-[10px]',
+  sm: 'w-[12px] h-[12px]',
+  md: 'w-[14px] h-[14px]',
   lg: 'w-[20px] h-[20px]',
+  xl: 'w-[24px] h-[24px]',
 };
 
 type IconMember = keyof typeof icons;
@@ -22,13 +24,13 @@ type IconProps = {
 };
 
 const Icon = (props: IconProps) => {
-  const { name, className = 'fill-black dark:fill-white', size = 'sm' } = props;
+  const { name, size = 'sm', className } = props;
   const paths = icons[name as IconMember];
   const isSpinner = name === 'spinner';
 
   return (
     <svg
-      className={clsx(isSpinner && 'animate-spin', className, sizes[size])}
+      className={clsx(isSpinner && 'animate-spin', sizes[size], className)}
       viewBox={clsx(isSpinner ? '0 0 24 24' : '0 0 16 16')}
       fill="currentColor"
     >
@@ -43,7 +45,7 @@ const Icon = (props: IconProps) => {
           strokeWidth="4"
         ></circle>
       )}
-      {paths.map((path, i) => (
+      {paths?.map((path, i) => (
         <path className={clsx(isSpinner && 'opacity-50')} key={i} d={path} />
       ))}
     </svg>

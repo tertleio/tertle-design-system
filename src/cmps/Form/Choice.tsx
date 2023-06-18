@@ -5,60 +5,38 @@ import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 
 type ChoiceProps = FieldWrapperPassProps & {
   name: string;
-  type: 'radio' | 'checkbox';
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  value: unknown;
+  type: 'radio' | 'checkbox' | 'dropdown';
   checked: boolean;
-  value?: string | number;
-  readOnly?: boolean;
   readOnlyIcon?: React.ReactNode | string;
   className?: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-// TODO: switch
-
-const Choice = (props: ChoiceProps) => {
+const Choice = ({ id, name, value, onChange, ...props }: ChoiceProps) => {
   const {
     type,
-    label,
-    value,
-    name,
     checked,
-    onChange,
-    id,
-    size,
     readOnly = false,
     readOnlyIcon = '',
-    className = '',
+    className,
   } = props;
 
   return (
-    <FieldWrapper
-      label={label}
-      checked={checked}
-      readOnly={readOnly}
-      size={size}
-    >
-      <span className={clsx(size === 'sm' ? 'mr-2 text-xs' : 'mr-2.5 text-sm')}>
-        {!readOnly && (
-          <input
-            readOnly={readOnly}
-            name={name}
-            id={id}
-            type={type}
-            checked={checked}
-            onChange={onChange}
-            value={value}
-            className={clsx(
-              'text-sm checked:border-primary hover:border-primary dark:checked:border-primary-dark dark:hover:border-primary-dark',
-              className
-            )}
-          />
-        )}
-        {readOnly && readOnlyIcon}
-      </span>
+    <FieldWrapper {...props}>
+      {!readOnly && (
+        <input
+          name={name}
+          type={type}
+          checked={checked}
+          value={value}
+          className={clsx(className, 'cursor-pointer')}
+          onChange={onChange}
+        />
+      )}
+      {readOnly && readOnlyIcon}
     </FieldWrapper>
   );
 };
 
-Choice.displayName = 'Choice';
 export { Choice };

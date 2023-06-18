@@ -5,28 +5,27 @@ import { FieldWrapper, FieldWrapperPassProps } from './FieldWrapper';
 type Opt = {
   label: string;
   value: string | number | string[];
+  emoji?: string;
 };
 
 export type DropdownProps = FieldWrapperPassProps & {
   name: string;
   opts: Opt[];
-  placeholder?: string;
+  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   className?: string;
 };
 
-const Dropdown = (props: DropdownProps) => {
-  const { name, label, opts, error, className, placeholder } = props;
-
+const Dropdown = ({ name, opts, label, onChange, ...props }: DropdownProps) => {
   return (
-    <FieldWrapper label={label} error={error} {...props}>
+    <FieldWrapper {...props}>
       <select
         name={name}
-        placeholder={placeholder}
-        className={clsx('bg-transparent focus:outline-none', className)}
+        onChange={onChange}
+        className={clsx('bg-transparent focus:outline-none')}
       >
-        {opts.map(({ label, value }) => (
+        {opts.map(({ label, value, emoji }) => (
           <option key={label?.toString()} value={value}>
-            {label}
+            {emoji} {label}
           </option>
         ))}
       </select>

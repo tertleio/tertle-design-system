@@ -1,21 +1,15 @@
 import { ReactNode } from 'react';
 import clsx from 'clsx';
 
-const sizes = {
-  sm: 'py-3 px-2.5 sm:px-2 sm:py-1 rounded-md',
-  md: 'p-2 rounded-lg',
-};
+import { ActionWrapper, ActionWrapperProps } from '@/cmps/Core';
 
-type FieldWrapperProps = {
+type FieldWrapperProps = ActionWrapperProps & {
   children: ReactNode;
-  className?: string;
   type?: 'text' | 'email' | 'password' | 'radio' | 'checkbox';
   readOnly?: boolean;
   label?: string;
-  size?: keyof typeof sizes;
   checked?: boolean;
   info?: string;
-  id?: string;
   error?: string;
 };
 
@@ -26,41 +20,37 @@ type FieldWrapperPassProps = Omit<
 
 const FieldWrapper = (props: FieldWrapperProps) => {
   const {
-    children,
-    className = '',
+    size = 'sm',
+    readOnly = false,
     label,
     error,
-    id,
-    size = 'md',
-    type,
-    readOnly = false,
     checked,
+    className = '',
+    children,
   } = props;
-  const isText = type === 'text' || type === 'email' || type === 'password';
-
-  // console.log('id', id);
+  const emojiSize = size === 'sm' ? 'text-xs' : 'text-sm';
 
   return (
     <>
-      <label
-        htmlFor={id}
-        // prettier-ignore
-        className={clsx(
-          `dark:hover:bg-700 flex cursor-pointer items-center justify-start rounded-lg border mb-[-1px]
-           font-secondary text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 border-gray-100 dark:border-gray-800`,
-           sizes[size],
-           isText && 'dark:border-b-gray-700 border-b-gray-300 dark:border-transparent border-transparent hover:bg-transparent dark:hover:bg-transparent focus-within:border-b-primary dark:focus-within:border-b-primary-dark',
-           readOnly && 'pointer-events-none border-transparent dark:border-transparent',
-           readOnly && isText && 'border-b-transparent dark:border-b-transparent',
-           readOnly && !isText ? checked ? 'text-primary dark:text-primary-dark' : 'opacity-20 dark:opacity-30' : '',
-           readOnly && !isText && !checked && 'hidden sm:flex',
-           className
+      <label className={clsx(className)}>
+        <ActionWrapper
+          variant="tertiary"
+          color={error ? 'red' : readOnly && checked ? 'green' : 'gray'}
+          size={size}
+          // prettier-ignore
+          className={clsx(
+            'flex items-center mr-[1px] mb-[1px] !border-opacity-40 !justify-start',
+            readOnly && '!border-transparent pointer-events-none',
+            readOnly && !checked && 'hidden sm:flex sm:opacity-30',
         )}
-      >
-        {children}
-        {label}
+        >
+          <span className="flex items-center gap-2">
+            <span className={emojiSize}>{children}</span>
+            {label}
+          </span>
+        </ActionWrapper>
       </label>
-      {error && <div>{error}</div>}
+      {/* {error && <div>{error}</div>} */}
     </>
   );
 };

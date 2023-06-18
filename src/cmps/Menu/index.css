@@ -1,0 +1,77 @@
+.user-menu-btn {
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  cursor: pointer;
+}
+
+.user-first-name {
+  margin-left: 0.6em;
+}
+
+.user-menu {
+  z-index: 999;
+  position: absolute;
+  right: 0;
+  top: 2.5em;
+  font-size: 0.95em;
+  border-radius: 0.8em;
+}
+.user-menu-details {
+  border-radius: inherit;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 20em;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 2em 1em 0.9em 2.5em;
+  min-width: 15em;
+  cursor: initial;
+}
+.user-menu ul {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+.user-menu li {
+  border-bottom: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+  padding: 1em 1em 1em 2.5em;
+}
+.user-menu li:hover {
+  background: black;
+  color: white;
+}
+
+.user-menu li:last-child {
+  padding-bottom: 0.7em;
+  border-radius: 0 0 0.8em 0.8em;
+  border-bottom: none;
+  border-bottom: 1px solid #e5e5e5;
+}
+.user-menu .logout {
+  color: red;
+}
+
+.dark .user-menu ul li {
+  border-bottom: 1px solid #313131;
+  border-left: 1px solid #313131;
+  border-right: 1px solid #313131;
+}
+
+.dark .user-menu ul li:last-child {
+  border-bottom: 1px solid #313131;
+}
+.dark .user-menu ul li:hover {
+  background: #313131;
+  color: white;
+}
+
+.user-menu .emoji {
+  border: none !important;
+}
