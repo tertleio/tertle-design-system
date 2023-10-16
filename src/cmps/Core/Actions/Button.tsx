@@ -12,7 +12,7 @@ type ButtonProps = ActionWrapperProps &
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
-      // isLoading = false,
+      isLoading = false,
       type = 'button',
       color,
       variant,
@@ -30,15 +30,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type={type}
         className={clsx(
           'group disabled:opacity-30 disabled:cursor-not-allowed',
+          isLoading && 'pointer-events-none',
           className
         )}
         {...props}
       >
         <ActionWrapper
-          icon={icon}
+          icon={isLoading ? 'spinner' : icon}
           color={color}
           variant={variant}
           size={size}
+          // className={className}
           classNameText={classNameText}
         >
           {props.children}

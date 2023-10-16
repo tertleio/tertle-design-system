@@ -1,41 +1,37 @@
-import clsx from 'clsx';
+import { cn } from '@/utils/classes';
 import {
   NavLink as RouterNavLink,
   NavLinkProps as RouterNavLinkProps,
 } from 'react-router-dom';
 
-import { ActionWrapper, ActionWrapperProps } from './ActionWrapper';
+import { sizes } from './ActionWrapper';
 
-type NavLinkProps = RouterNavLinkProps &
-  ActionWrapperProps & {
-    count?: number | string;
-  };
+type NavLinkProps = RouterNavLinkProps & {
+  count?: number | string;
+  size?: keyof typeof sizes;
+  className?: string;
+  children: React.ReactNode | string;
+};
 
 const NavLink = ({
-  color,
-  size,
-  variant,
-  icon,
+  size = 'sm',
   count,
   children,
   className,
-  classNameText,
   ...props
 }: NavLinkProps) => {
   // RouterNavLink auto adds 'active' class when url matches
   return (
-    <RouterNavLink className="group" {...props}>
-      <ActionWrapper
-        icon={icon}
-        color={color}
-        variant={variant}
-        size={size}
-        className={clsx('group-[&:not(.active)]:bg-transparent', className)}
-        classNameText={clsx(
-          'text-gray-500 group-[.active]:text-white group-[.active]:dark:text-black',
-          classNameText
-        )}
-      >
+    <RouterNavLink
+      {...props}
+      className={cn(
+        'text-gray-600 dark:text-gray-600 [&.active]:text-black [&.active]:dark:text-white',
+        'hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-800',
+        sizes[size],
+        className
+      )}
+    >
+      <>
         {!count && children}
         {!!count && count !== 0 && (
           <span className="flex gap-2 items-center">
@@ -45,9 +41,9 @@ const NavLink = ({
             {children}
           </span>
         )}
-      </ActionWrapper>
+      </>
     </RouterNavLink>
   );
 };
 
-export { NavLink };
+export { NavLink, type NavLinkProps };

@@ -1,18 +1,19 @@
-import clsx from 'clsx';
+import { clsx } from '@/utils/classes';
+
+const calcCircumference = (radius: number) => 2 * Math.PI * radius;
+const circumference = calcCircumference(30);
 
 type ProgressCircleProps = {
+  show?: boolean;
   percent: number;
   withText?: boolean;
   className?: string;
 };
 
 const ProgressCircle = (props: ProgressCircleProps) => {
-  const { percent = 0, withText = true, className } = props;
+  const { percent = 0, withText = true, show = true, className } = props;
 
-  const calcCircumference = (radius: number) => 2 * Math.PI * radius;
-  const circumference = calcCircumference(30);
-
-  return (
+  return show ? (
     <div className="flex items-center justify-center relative ml-1.5">
       <svg viewBox="0 0 62 62" className={clsx(className || 'w-10 h-10')}>
         <circle
@@ -50,7 +51,7 @@ const ProgressCircle = (props: ProgressCircleProps) => {
         </span>
       )}
     </div>
-  );
+  ) : null;
 };
 
 export { ProgressCircle };

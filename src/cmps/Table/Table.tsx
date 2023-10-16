@@ -18,10 +18,11 @@ const Table = <Entry extends { id: string | number }>({
   cols,
   selectedId,
 }: TableProps<Entry>) => {
-  const nav = useNavigate();
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col">
-      <table className="table-auto text-left text-sm border-separate border-spacing-y-[1px] mx-[-1em]">
+      <table className="table-auto text-left text-sm border-separate border-spacing-y-[1px]">
         <thead>
           <tr className="text-gray-500 font-primary text-sm">
             {cols.map((col, i) => (
@@ -39,7 +40,7 @@ const Table = <Entry extends { id: string | number }>({
           {data.map((entry, entryIdx) => (
             <tr
               key={entry.id || entryIdx}
-              onClick={() => entry.discloseUrl && nav(entry.discloseUrl)}
+              onClick={() => entry.discloseUrl && navigate(entry.discloseUrl)}
               // prettier-ignore
               className={clsx(
                   'cursor-pointer hover:text-black  hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-white',

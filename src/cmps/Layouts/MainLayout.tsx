@@ -7,24 +7,28 @@ import { useTheme } from '@/hooks/useTheme';
 import { Menu } from '@/cmps/Menu';
 
 import { SIGN_ME } from '@/constants/urls';
-import { PACKAGES } from '@/constants/consts';
+import { PACKAGES } from '@/constants/constants';
 
 const Theme = () => {
   const [isDark, setIsDark] = useTheme(null);
   const activeFill = 'fill-green dark:fill-green-dark';
   const activeStroke = 'stroke-green dark:stroke-green-dark';
+  const isSmall = window.innerWidth < 640;
 
   return (
     <>
-      <button className="" onClick={() => setIsDark(false)}>
-        {/* // light */}
+      {/* // light */}
+      <button
+        className={clsx('sm:block', isDark === false ? 'block' : 'hidden')}
+        onClick={() => setIsDark(isSmall ? true : false)}
+      >
         <svg
           viewBox="0 0 24 24"
           fill="none"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="w-6 h-6 ml-3"
+          className="w-6 h-6 ml-2"
         >
           <path
             d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
@@ -44,9 +48,12 @@ const Theme = () => {
           ></path>
         </svg>
       </button>
-      <button onClick={() => setIsDark(true)}>
+      <button
+        onClick={() => setIsDark(isSmall ? false : true)}
+        className={clsx('sm:block', isDark === true ? 'block' : 'hidden')}
+      >
         {/* // dark */}
-        <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 ml-3">
+        <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 ml-2 sm:ml-1.5">
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -70,13 +77,12 @@ const Theme = () => {
         </svg>
       </button>
 
-      <button
+      {/* <button
         onClick={() => {
           localStorage.removeItem('theme');
           setIsDark(null);
         }}
       >
-        {/* // system */}
         <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 ml-3">
           <path
             d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z"
@@ -100,7 +106,7 @@ const Theme = () => {
             )}
           ></path>
         </svg>
-      </button>
+      </button> */}
     </>
   );
 };
@@ -213,14 +219,24 @@ const Separator = ({ showGradient = true, className = '' }) => {
 
 const MainNav = ({ user, className = '' }) => {
   if (!user) return <></>;
+  // eslint-disable-next-line react/prop-types
+  const isAdmin = user?.email?.endsWith('@tertle.io');
+  const isHomeFeatEnable = user?.features?.includes('posts');
   // const isAuthed = isAuth();
   // if (!isAuthed) return null;
 
   return (
-    <nav className={clsx('flex gap-8 justify-around', className)}>
-      {/* <NavLink to="/home" variant="primary" color="base" size="md">
-        Home
-      </NavLink> */}
+    <nav className={clsx('flex gap-6 justify-around', className)}>
+      {isHomeFeatEnable && (
+        <NavLink to="/home" variant="primary" color="base" size="md">
+          Home
+        </NavLink>
+      )}
+      {isAdmin && (
+        <NavLink to="/admin" variant="primary" color="base" size="md">
+          Admin
+        </NavLink>
+      )}
       <NavLink
         to={`${user.profileUrl}`}
         variant="primary"
@@ -271,10 +287,7 @@ const Header = () => {
                 <NavLink
                   to="/settings/package"
                   size="md"
-                  variant="primary"
-                  color="green"
-                  className="text-green"
-                  classNameText="text-green dark:text-green-dark"
+                  className="text-green dark:text-green-dark"
                 >
                   Upgrade
                 </NavLink>
@@ -284,16 +297,16 @@ const Header = () => {
             </>
           )}
           {!user && (
-            <NavLink
-              to="/sign/in"
-              variant="primary"
-              size="md"
-              color="green"
-              className="group-[.active]:hidden"
-              classNameText="text-green dark:text-green-dark"
-            >
-              Log In / Sign-Up
-            </NavLink>
+            <Link to="/sign/in">
+              <Button
+                variant="primary"
+                size="md"
+                color="green"
+                className="group-[.active]:hidden"
+              >
+                Log In / Sign-Up
+              </Button>
+            </Link>
           )}
         </div>
       </div>
@@ -316,8 +329,12 @@ const MainLayout = (props: MainLayoutProps) => {
       <Header />
       <main className={clsx('m-auto max-w-xl', className)}>{children}</main>
       <footer className="sm:hidden fixed bottom-0 pb-6  w-full z-50 bg-white dark:bg-black">
-        <Separator showGradient={false} />
-        <MainNav user={user} className="w-full flex pt-3" />
+        {user?.hasOnboarded && (
+          <>
+            <Separator showGradient={false} />
+            <MainNav user={user} className="w-full flex pt-3" />
+          </>
+        )}
       </footer>
     </>
   );

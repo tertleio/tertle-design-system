@@ -7,7 +7,7 @@ import { useStore } from '@/store';
 import './index.css';
 import defaultPic from '../../assets/dp-default.svg';
 import { useNavigate } from 'react-router-dom';
-import { MATCH_SCHEDULE } from '../../constants/consts';
+import { MATCH_SCHEDULE } from '../../constants/constants';
 
 const Menu = ({ handleLogout }) => {
   const navigate = useNavigate();
