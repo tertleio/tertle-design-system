@@ -1,12 +1,7 @@
-// imported icon base size must be 16x16px
-import * as ICONS from '@/assets/icons';
-import clsx from 'clsx';
+import { clsx } from '@/utils/classes';
 
-// prettier-ignore
-const icons = {
-  spinner: ['M4 12a8 8 1 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'],
-  ...ICONS
-}
+import { Icons } from './icons';
+import { colors } from '../Actions/ActionWrapper';
 
 const sizes = {
   xs: 'w-[10px] h-[10px]',
@@ -16,40 +11,21 @@ const sizes = {
   xl: 'w-[24px] h-[24px]',
 };
 
-type IconMember = keyof typeof icons;
+type IconMember = keyof typeof Icons;
 type IconProps = {
   name: IconMember;
   size?: keyof typeof sizes;
+  color?: keyof typeof colors;
   className?: string;
 };
 
 const Icon = (props: IconProps) => {
-  const { name, size = 'sm', className } = props;
-  const paths = icons[name as IconMember];
-  const isSpinner = name === 'spinner';
+  const { name = 'link', color, size = 'sm', className } = props;
+  const iconFn = Icons[name];
 
-  return (
-    <svg
-      className={clsx(isSpinner && 'animate-spin', sizes[size], className)}
-      viewBox={clsx(isSpinner ? '0 0 24 24' : '0 0 16 16')}
-      fill="currentColor"
-    >
-      {isSpinner && (
-        <circle
-          className="opacity-10"
-          cx="12"
-          cy="12"
-          r="10"
-          stroke="currentColor"
-          fill="none"
-          strokeWidth="4"
-        ></circle>
-      )}
-      {paths?.map((path, i) => (
-        <path className={clsx(isSpinner && 'opacity-50')} key={i} d={path} />
-      ))}
-    </svg>
-  );
+  return iconFn({
+    className: clsx(sizes[size], color && colors[color], className),
+  });
 };
 
 export { Icon, type IconMember };

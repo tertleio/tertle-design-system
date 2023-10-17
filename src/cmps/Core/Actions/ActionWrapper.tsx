@@ -72,4 +72,4 @@ const ActionWrapper = (props: ActionWrapperProps) => {
   );
 };
 
-export { ActionWrapper, type ActionWrapperProps, sizes };
+export { ActionWrapper, type ActionWrapperProps, sizes, colors };
