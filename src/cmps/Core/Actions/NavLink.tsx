@@ -12,11 +12,13 @@ type CountProps = {
 };
 
 type NavLinkProps = RouterNavLinkProps & {
+  idleIcon?: React.ReactNode | string;
+  activeIcon?: React.ReactNode | string;
   count?: CountProps['count'];
-  countVariant?: 'left' | 'corner';
+  countPosition?: 'left' | 'corner'; // TODO: more positions
   size?: keyof typeof sizes;
   className?: string;
-  children: React.ReactNode | string;
+  children?: React.ReactNode | string;
 };
 
 const Count = ({ count, className }: CountProps) => {
@@ -37,44 +39,43 @@ const Count = ({ count, className }: CountProps) => {
 const NavLink = (props: NavLinkProps) => {
   const {
     size = 'sm',
-    countVariant = 'left',
+    countPosition = 'left',
     count = 0,
+    idleIcon,
+    activeIcon,
     children,
     className,
     ...rest
   } = props;
-  // RouterNavLink auto adds 'active' class when url matches
+  // RouterNavLink auto adds 'activeIcon' class when url matches
   return (
     <RouterNavLink
       {...rest}
       className={cn(
-        'text-gray-500 dark:text-gray-600 [&.active]:text-black [&.active]:dark:text-white',
+        'group text-gray-500 dark:text-gray-600 [&.active]:text-black [&.active]:dark:text-white',
         'hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-800',
         sizes[size],
         className
       )}
     >
-      <>
-        {count === 0 ? (
-          children
-        ) : (
-          <span
+      <div className="flex items-center gap-1 relative">
+        {count !== 0 && (
+          <Count
+            count={count}
             className={clsx(
-              'flex items-center',
-              countVariant === 'corner' ? 'relative' : 'gap-2'
+              countPosition === 'corner' &&
+                'absolute top-[-2px] right-[-0.35rem]'
             )}
-          >
-            <Count
-              count={count}
-              className={clsx(
-                countVariant === 'corner' &&
-                  'absolute top-[-2px] right-[-0.35rem]'
-              )}
-            />
-            {children}
-          </span>
+          />
         )}
-      </>
+        {idleIcon && (
+          <span className="group-[&.active]:hidden">{idleIcon}</span>
+        )}
+        {activeIcon && (
+          <span className="group-[&:not(.active)]:hidden">{activeIcon}</span>
+        )}
+        {children}
+      </div>
     </RouterNavLink>
   );
 };
