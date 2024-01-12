@@ -1,4 +1,5 @@
-build.js
-src/**/*
-node_modules/**/*
-```
+# Ignore everything
+*
+
+# Except this folder
+!/cmps
