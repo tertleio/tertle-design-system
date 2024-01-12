@@ -23,7 +23,7 @@ const ProgressSteps = ({
         className
       )}
     >
-      <ul className="flex gap-5 sm:gap-7 text-sm mb-0.5">
+      <ul className="flex gap-5 sm:gap-7 text-sm mb-[-0.2em]">
         {phases.map((phase, idx) => (
           <li
             key={idx}
@@ -38,7 +38,7 @@ const ProgressSteps = ({
           </li>
         ))}
       </ul>
-      <div className="flex justify-center gap-1 mt-2.5 mb-1.5">
+      <div className="flex justify-center gap-1 mt-2.5">
         {steps.map((step, idx) => (
           <div
             key={idx}

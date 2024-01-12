@@ -22,15 +22,8 @@ type FormDrawerProps = {
 
 const FormDrawer = (props: FormDrawerProps) => {
   const [showResult, setShowResult] = useState(false);
-  const {
-    formId,
-    size = 'md',
-    status,
-    showTrigger,
-    onSuccess,
-    onEdit,
-    onCancel,
-  } = props;
+  const { formId, size, status, showTrigger, onSuccess, onEdit, onCancel } =
+    props;
 
   useEffect(() => {
     if (status === 'success') onSuccess && onSuccess();
@@ -56,7 +49,7 @@ const FormDrawer = (props: FormDrawerProps) => {
       ) : (
         <>
           <Button
-            icon="cancel"
+            icon="cross"
             size={size}
             variant="secondary"
             color="red"
@@ -65,7 +58,7 @@ const FormDrawer = (props: FormDrawerProps) => {
           <Button
             form={formId} // submits based on formId instead of passing a callback
             type="submit"
-            icon={status === 'loading' ? 'spinner' : 'save'}
+            icon={status === 'loading' ? 'spinner' : 'tick'}
             size={size}
             variant="primary"
             color="green"
@@ -83,7 +76,6 @@ const FormDrawer = (props: FormDrawerProps) => {
             className="pointer-events-none"
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1.7"

@@ -47,35 +47,31 @@ const NavLink = (props: NavLinkProps) => {
     className,
     ...rest
   } = props;
-  // RouterNavLink auto adds 'activeIcon' class when url matches
+  // RouterNavLink auto adds 'active' class when url matches
   return (
     <RouterNavLink
       {...rest}
       className={cn(
-        'group text-gray-500 dark:text-gray-600 [&.active]:text-black [&.active]:dark:text-white',
+        'group flex items-center gap-1 relative text-gray-500 dark:text-gray-600 [&.active]:text-black [&.active]:dark:text-white',
         'hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-800',
         sizes[size],
-        className
+        className,
+        'px-2 py-1'
       )}
     >
-      <div className="flex items-center gap-1 relative">
-        {count !== 0 && (
-          <Count
-            count={count}
-            className={clsx(
-              countPosition === 'corner' &&
-                'absolute top-[-2px] right-[-0.35rem]'
-            )}
-          />
-        )}
-        {idleIcon && (
-          <span className="group-[&.active]:hidden">{idleIcon}</span>
-        )}
-        {activeIcon && (
-          <span className="group-[&:not(.active)]:hidden">{activeIcon}</span>
-        )}
-        {children}
-      </div>
+      {count !== 0 && (
+        <Count
+          count={count}
+          className={clsx(
+            countPosition === 'corner' && 'absolute top-0.5 right-0'
+          )}
+        />
+      )}
+      {idleIcon && <span className="group-[&.active]:hidden">{idleIcon}</span>}
+      {activeIcon && (
+        <span className="group-[&:not(.active)]:hidden">{activeIcon}</span>
+      )}
+      {children}
     </RouterNavLink>
   );
 };

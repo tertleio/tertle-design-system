@@ -36,11 +36,11 @@ const Fieldset = (props: FieldsetProps) => {
       <fieldset
         className={clsx(
           variants[variant],
-          'font-primary text-gray-600  dark:text-gray-400',
+          'font-primary text-sm text-gray-600  dark:text-gray-400',
           className
         )}
       >
-        <span className="legend flex items-center mb-[-0.25em]">
+        <span className="legend flex items-center">
           <legend>{legend}</legend>
           <FieldStatus error={error} info={info} />
         </span>

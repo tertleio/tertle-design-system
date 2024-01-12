@@ -1,14 +1,14 @@
 import { clsx } from '@/utils/classes';
 
-import { Icons } from './icons';
+import { Icons } from './Icons';
 import { colors } from '../Actions/ActionWrapper';
 
 const sizes = {
-  xs: 'w-[10px] h-[10px]',
-  sm: 'w-[12px] h-[12px]',
-  md: 'w-[14px] h-[14px]',
-  lg: 'w-[20px] h-[20px]',
-  xl: 'w-[24px] h-[24px]',
+  xs: 'w-3 h-3',
+  sm: 'w-4 h-4',
+  md: 'w-5 h-5',
+  lg: 'w-6 h-6',
+  xl: 'w-7 h-7',
 };
 
 type IconMember = keyof typeof Icons;
@@ -28,4 +28,5 @@ const Icon = (props: IconProps) => {
   });
 };
 
-export { Icon, type IconMember };
+export { Icon };
+export type { IconProps, IconMember };

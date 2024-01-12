@@ -19,17 +19,17 @@ const variants: Record<string, Record<number, string>> = {
     100: 'bg-green bg-green-dark opacity-100',
   },
   trafficLights: {
-    0: 'bg-red dark:bg-red-dark opacity-90',
-    10: 'bg-red dark:bg-red-dark opacity-60',
-    20: 'bg-red-300 dark:bg-red-dark opacity-40',
-    30: 'bg-red-300 dark:bg-red-dark opacity-20',
-    40: 'bg-orange dark:bg-red-dark',
+    0: '',
+    10: 'bg-red dark:bg-red-dark opacity-90',
+    20: 'bg-red dark:bg-red-dark opacity-60',
+    30: 'bg-red dark:bg-red-dark opacity-30',
+    40: 'bg-orange dark:bg-orange-dark opacity-30',
     50: 'bg-orange dark:bg-orange-dark opacity-60',
     60: 'bg-orange dark:bg-orange-dark',
     70: 'bg-green dark:bg-green-dark opacity-40',
     80: 'bg-green dark:bg-green-dark opacity-80',
     90: 'bg-green dark:bg-green-dark',
-    100: 'bg-green dark:bg-green',
+    100: 'bg-green dark:bg-green-dark',
   },
 };
 
@@ -57,7 +57,7 @@ const ProgressCell = ({
         role="progressbar"
         // prettier-ignore
         className={clsx(
-          'w-3 h-3 rounded-[0.15em]',
+          'w-3 h-3 rounded-[0.15em] transition-all duration-200 ease-in-out',
           variants[variant][score],
           score == 0 && '!border border-1 border-gray-300 dark:border-gray-700 border-opacity-100',
           className,

@@ -3,14 +3,26 @@ import { clsx } from '@/utils/classes';
 import { ActionWrapper, ActionWrapperProps } from '@/cmps/Core';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
+const colors = {
+  base: `peer-checked:text-black peer-checked:dark:text-white peer-checked:opacity-100`,
+  gray: `peer-checked:text-gray-600 peer-checked:dark:text-gray-500 peer-checked:opacity-100`,
+  green: `peer-checked:text-green peer-checked:dark:text-green-dark peer-checked:opacity-100`,
+  orange: `peer-checked:text-orange peer-checked:dark:text-orange-dark peer-checked:opacity-100`,
+  red: `peer-checked:text-red peer-checked:dark:text-red-dark peer-checked:opacity-100`,
+};
+
 type ChoiceProps = ActionWrapperProps & {
-  label: string;
+  label?: string;
   registration: UseFormRegisterReturn;
-  constantValue: string;
+  constantValue?: string;
+  defaultChecked?: boolean;
   type: 'radio' | 'checkbox';
+  color?: keyof typeof colors;
   readOnly?: boolean;
   readOnlyIcon?: React.ReactNode | string;
+  onChangeCapture?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   isError?: boolean;
+  children?: React.ReactNode; // for custom components e.g probably don't want to pass a standard label prop but re-use the interaction logic
   className?: string;
 };
 
@@ -19,56 +31,57 @@ const Choice = (props: ChoiceProps) => {
     label,
     isError,
     readOnly = false,
-    readOnlyIcon = '❓',
-    size = 'md',
+    readOnlyIcon,
+    size,
+    type,
+    color = 'gray',
     constantValue,
+    onChangeCapture,
+    children,
     registration,
     className,
     ...rest
   } = props;
 
   return (
-    <label
-      className={clsx(
-        'font-secondary',
-        readOnly && 'pointer-events-none',
-        className
-      )}
-    >
+    <label className={clsx(className, readOnly && 'pointer-events-none')}>
       <ActionWrapper
         variant="tertiary"
         color={isError ? 'red' : 'gray'}
         disabled={rest?.disabled}
         size={size}
         className={clsx(
-          'flex items-center border-opacity-40 justify-start',
-          readOnly && '!border-transparent'
+          'flex gap-1.5 content-center items-center',
+          readOnly && '!border-transparent',
+          className
         )}
       >
-        <div className="flex gap-1.5 items-center">
-          <input
-            {...registration}
-            {...rest}
-            defaultValue={constantValue}
-            className={clsx('peer', readOnly && '!hidden')}
-          />
-          <span
-            className={clsx(
-              'text-xs',
-              readOnly ? 'opacity-40 peer-checked:opacity-100' : 'hidden'
-            )}
-          >
+        {children}
+
+        <input
+          {...registration}
+          {...rest}
+          onChangeCapture={onChangeCapture}
+          type={type}
+          defaultValue={constantValue}
+          className={clsx('peer', readOnly && '!hidden')}
+        />
+        {readOnly && readOnlyIcon && (
+          <div className="text-xs opacity-30 peer-checked:opacity-100 ">
             {readOnlyIcon}
-          </span>
+          </div>
+        )}
+
+        {label && (
           <span
             className={clsx(
-              'peer-checked:text-green peer-checked:dark:text-green-dark',
-              readOnly && 'opacity-40 peer-checked:opacity-100'
+              readOnly ? colors[color] : colors['base'],
+              readOnly && 'opacity-30'
             )}
           >
             {label}
           </span>
-        </div>
+        )}
       </ActionWrapper>
     </label>
   );

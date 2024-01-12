@@ -6,3 +6,5 @@ export * from './Textarea';
 
 // custom
 export * from './LocationAutcomplete';
+
+export * from './styles';

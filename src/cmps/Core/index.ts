@@ -5,3 +5,5 @@ export * from './Modal';
 export * from './Container';
 export * from './Tooltip';
 export * from './Progress';
+export * from './Image';
+export * from './Toggle';

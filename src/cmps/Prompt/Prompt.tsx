@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import PromptContext from '@/store/PromptContext';
+import PromptContext from '@/stores/PromptContext';
 
 // import GIFTertleRocketFast from '../../assets/t_rocket-fast-xs.gif';
 

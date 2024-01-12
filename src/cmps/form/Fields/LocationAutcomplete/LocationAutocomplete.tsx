@@ -8,7 +8,7 @@ const GOOGLE_API_KEY = VITE_IS_PROD ? VITE_GAPIK_PROD : VITE_GAPIK_DEV;
 
 import { Text } from '@/cmps/form/Fields';
 import type { TextProps } from '@/cmps/form/Fields';
-const locationsListStyle = `p-4 border-b border-gray-300 dark:border-gray-700 first:rounded-t-lg hover:text-black dark:hover:text-white last:rounded-b-xl last:border-none cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700`;
+const listStyle = `px-4 py-2 border-b border-gray-300 dark:border-gray-700 first:rounded-t-lg hover:text-black dark:hover:text-white last:rounded-b-xl last:border-none cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700`;
 
 type LocationType = {
   cityCountry: string;
@@ -65,8 +65,9 @@ const LocationAutocomplete = (props: LocationAutocompleteProps) => {
     }, searchDebounce);
 
     return () => clearTimeout(timeout);
+    // // -- setSelectedLocation also need to be left out as a dependency
     // eslint-disable-next-line -- getPlacePredictions is returning a new fn ref on every render so we need to leave it out as a dependency or memoize it
-  }, [isDirty, searchInput, setSelectedLocation, searchDebounce]);
+  }, [isDirty, searchInput, searchDebounce]);
 
   async function handleSelectedLocation(placeId: string, description: string) {
     placesService.getDetails(
@@ -98,17 +99,17 @@ const LocationAutocomplete = (props: LocationAutocompleteProps) => {
       />
       <ul
         className={clsx(
-          'absolute border border-gray-300 dark:border-gray-700 z-50 bot-0 left-0 bg-white dark:bg-black rounded-xl'
+          'absolute border border-gray-300 dark:border-gray-700 z-50 bot-0 left-0 bg-white dark:bg-black rounded-lg'
         )}
       >
         {isPlacePredictionsLoading ? (
-          <div className={locationsListStyle}>🐢 Tertle getting city...</div>
+          <div className={listStyle}>🐢 Tertle getting city...</div>
         ) : (
           placePredictions?.map((place) => (
             <li
               key={place.place_id}
               tabIndex={0}
-              className={locationsListStyle}
+              className={listStyle}
               onKeyDown={(e) =>
                 e.key === 'Enter' &&
                 handleSelectedLocation(place.place_id, place.description)
@@ -128,6 +129,7 @@ const LocationAutocomplete = (props: LocationAutocompleteProps) => {
 
 export {
   LocationAutocomplete,
+  listStyle,
   type LocationAutocompleteProps,
   type LocationType,
 };

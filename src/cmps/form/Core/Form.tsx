@@ -58,6 +58,9 @@ const Form = <
     ...options,
   });
 
+  // console.log('formState:', methods.formState.defaultValues);
+  // console.log(methods.formState.dirtyFields);
+  // console.log('form errors:', methods.formState.errors);
   // methods.register('score', { value: scorer.score });
   // methods.setValue('score', scorer.score);
   // console.group('FORM score', scorer.score);

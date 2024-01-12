@@ -1,160 +1,71 @@
-import { useEffect, useState } from 'react';
-import clsx from 'clsx';
-import { useDisclosure } from '@/hooks/useDisclosure';
-// import { useStore as useStoreContext } from '../../context/StoreContext';
-import { useStore } from '@/store';
+import { useEffect } from 'react';
+import { clsx } from '@/utils/classes';
 
-import './index.css';
-import defaultPic from '../../assets/dp-default.svg';
-import { useNavigate } from 'react-router-dom';
-import { MATCH_SCHEDULE } from '../../constants/constants';
+import { NavLink } from '../Core';
 
-const Menu = ({ handleLogout }) => {
-  const navigate = useNavigate();
-  const { user } = useStore();
-  // const { prefs } = useStoreContext() || {};
-  const [name, setName] = useState(user.firstName);
-  const [status, setStatus] = useState('');
-  const [pic, setPic] = useState(user.gPic ? user.gPic : defaultPic);
-  const { isOpen, close, open, toggle } = useDisclosure();
+type MenuProps = {
+  header?: React.ReactNode | string;
+  links: {
+    label: string;
+    path: string;
+    icon: React.ReactNode | string;
+    end?: boolean;
+  }[];
+  show: boolean;
+  className?: string;
+  onClose: () => void;
+};
 
+const Menu = ({ links, className, show, onClose, header }: MenuProps) => {
   useEffect(() => {
-    if (!user) return;
-    if (!user.gPic) {
-      setPic(defaultPic);
-    } else {
-      setPic(user.gPic);
+    function closeOnEscapeKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        onClose();
+      }
     }
-
-    setName(user.firstName);
-  }, [user]);
-
-  // useEffect(() => {
-  //   if (!prefs?.schedule) return;
-  //   setStatus(prefs.schedule);
-  // }, [prefs?.schedule]);
-
-  // MENU HANDLERS
-  useEffect(() => {
-    if (isOpen) window.addEventListener('keydown', closeMenuByKey);
-    if (!isOpen) window.removeEventListener('keydown', closeMenuByKey);
+    if (show) {
+      window.addEventListener('keydown', closeOnEscapeKey);
+    } else {
+      window.removeEventListener('keydown', closeOnEscapeKey);
+    }
 
     return () => {
-      window.removeEventListener('keydown', closeMenuByKey);
+      window.removeEventListener('keydown', closeOnEscapeKey);
     };
-  }, [isOpen]);
+  }, [show, onClose]);
 
-  const closeMenuByKey = (e) => e.key === 'Escape' && close();
-
-  // BUTTON HANDLERS
-  function handleFeedback() {
-    window.location.href = 'mailto:feedback@tertle.io';
-  }
-
-  function handleSettings() {
-    navigate('/settings');
-  }
-
-  function statusRdcer(prefsSchedule) {
-    switch (prefsSchedule) {
-      case MATCH_SCHEDULE.weekly: // active
-        return {
-          text: 'active',
-          avatar: 'border-[2px] border-green dark:border-green-dark',
-          menu: 'bg-green text-white dark:bg-green-dark dark:text-black',
-        };
-      case MATCH_SCHEDULE.paused: // paused
-        return {
-          text: 'paused',
-          avatar: 'border-[2px] border-orange dark:border-orange-dark',
-          menu: 'bg-orange text-white dark:bg-orange-dark dark:text-black',
-        };
-      case MATCH_SCHEDULE.inactive: // inactive
-        return {
-          text: 'inactive',
-          avatar: 'border-[2px] border-red dark:border-red-dark',
-          menu: 'bg-red text-white dark:bg-red-dark dark:text-black',
-        };
-      case 0: // pending
-        return {
-          text: 'pending',
-          avatar: 'border-[2px] border-gray-500 dark:border-gray-500',
-          menu: 'bg-gray-500 text-white dark:bg-white dark:text-black',
-        };
-      default:
-        return {
-          text: 'onboarding',
-          avatar: 'border-[2px] border-gray-500 dark:border-gray-500',
-          menu: 'bg-gray-500 text-white dark:bg-white dark:text-black',
-        };
-    }
-  }
-
-  return (
-    <>
-      <div
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') handleMenuClick();
-        }}
-        onClick={toggle}
-        className="user-menu-btn"
-      >
-        <img
-          alt="User display pic"
+  return show ? (
+    <nav
+      className={clsx(
+        'z-50 absolute bot-0 right-0 w-fit min-w-xl  rounded-2xl0',
+        className
+      )}
+    >
+      {header && (
+        <div className="text-sm p-5 bg-black dark:bg-white rounded-t-2xl text-white dark:text-black mb-[1px]">
+          {header}
+        </div>
+      )}
+      {links.map((link) => (
+        <NavLink
+          key={link.label}
+          to={link.path}
+          end={link.end}
+          onClick={() => {
+            // onClose(); this is causing a complete re-render of the app
+          }}
           className={clsx(
-            'w-8 h-8 rounded-full object-cover sm:w-9 sm:h-9',
-            statusRdcer(status).avatar
+            'bg-white dark:bg-black min-w-[18em] h-14 !px-5 mt-[-1px] text-md flex items-center justify-between border border-gray-300 dark:border-gray-700 first:border-t-none last:border-b-none',
+            'rounded-none last:rounded-b-2xl first:rounded-t-2xl hover:text-green dark:hover:text-green-dark',
+            link.label === 'Logout' && 'text-red dark:text-red-dark'
           )}
-          src={pic}
-          referrerPolicy="no-referrer"
-        />
-        {/* <div className="user-first-name">{name}</div> */}
-        {isOpen && (
-          <div className="user-menu mt-2 bg-white dark:bg-black text-black dark:text-white">
-            {/* <div
-              className={clsx('user-menu-details', statusRdcer(status).menu)}
-            > */}
-            <div
-              className={clsx(
-                'user-menu-details',
-                'bg-black dark:bg-white text-white dark:text-black'
-              )}
-            >
-              <div>{user?.email}</div>
-              {/* <div>
-                matching status: <strong>{statusRdcer(status).text}</strong>
-              </div> */}
-            </div>
-            <ul>
-              <li
-                tabIndex={0}
-                onClick={handleFeedback}
-                onKeyDown={(e) => e.key === 'Enter' && handleFeedback()}
-              >
-                <span className="emoji absolute left-5">💬</span> Feedback
-              </li>
-              <li
-                tabIndex={0}
-                onClick={handleSettings}
-                onKeyDown={(e) => e.key === 'Enter' && handleSettings()}
-              >
-                <span className="emoji absolute left-5">⚙️</span> Settings
-              </li>
-              <li
-                tabIndex={0}
-                onClick={handleLogout}
-                className="logout"
-                onKeyDown={(e) => e.key === 'Enter' && handleLogout()}
-              >
-                <span className="emoji absolute left-5">👋</span> Log out
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
-    </>
-  );
+        >
+          <span className="text-base">{link.icon}</span>
+          <span>{link.label}</span>
+        </NavLink>
+      ))}
+    </nav>
+  ) : null;
 };
 
 export { Menu };

@@ -1,13 +1,18 @@
-import React from 'react';
-import clsx from 'clsx';
-import { useStore } from '@/store';
-import { useNavigate } from 'react-router-dom';
-import { NavLink, Link, Button } from '@/cmps/Core';
+import { useLocation } from 'react-router-dom';
+import { clsx } from '@/utils/classes';
+import { useStore } from '@/stores/useStore';
 import { useTheme } from '@/hooks/useTheme';
-import { Menu } from '@/cmps/Menu';
+import { useDisclosure } from '@/hooks/useDisclosure';
 
-import { SIGN_ME } from '@/constants/urls';
 import { PACKAGES } from '@/constants/constants';
+import AVATAR_DEF from '@/assets/dp-default.svg';
+
+import { NavLink, Link, Button, Image, Icon } from '@/cmps/Core';
+import { Menu } from '@/cmps/Menu';
+import { useGoals } from '@/features/goals/api/getGoals';
+
+// import { usePosts } from '@/features/posts/api/getPosts';
+import { useNotifications } from '@/features/notifications/api/getNotifications';
 
 const Theme = () => {
   const [isDark, setIsDark] = useTheme(null);
@@ -152,7 +157,7 @@ const Separator = ({ showGradient = true, className = '' }) => {
               id="paint0_linear_2015_1491"
               x1="1150"
               y1="2"
-              fill="red"
+              // fill="red"
               x2="0"
               y2="2"
               gradientUnits="userSpaceOnUse"
@@ -217,98 +222,179 @@ const Separator = ({ showGradient = true, className = '' }) => {
   );
 };
 
-const MainNav = ({ user, className = '' }) => {
+const MainNav = ({ user, className = '', goalCount }) => {
   if (!user) return <></>;
-  // eslint-disable-next-line react/prop-types
   const isAdmin = user?.email?.endsWith('@tertle.io');
   const isHomeFeatEnable = user?.features?.includes('posts');
-  // const isAuthed = isAuth();
-  // if (!isAuthed) return null;
 
   return (
-    <nav className={clsx('flex gap-6 justify-around', className)}>
-      {isHomeFeatEnable && (
-        <NavLink to="/home" variant="primary" color="base" size="md">
-          Home
-        </NavLink>
-      )}
+    <nav className={clsx('flex gap-4 justify-around', className)}>
       {isAdmin && (
-        <NavLink to="/admin" variant="primary" color="base" size="md">
-          Admin
+        <NavLink to="/council" color="base" size="md">
+          Council
         </NavLink>
       )}
+
+      {/* {isHomeFeatEnable && (
+        <>
+          <NavLink to="/home" color="base" size="md">
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/guilds/guildless"
+            idleIcon={<Icon name="userGroup" />}
+            activeIcon={<Icon name="userGroupSolid" />}
+            color="base"
+            size="md"
+          >
+            Guild
+          </NavLink>
+        </>
+      )} */}
+
       <NavLink
-        to={`${user.profileUrl}`}
-        variant="primary"
+        to={`/goals/${user?.profileUrl}`}
         color="base"
+        idleIcon={<Icon name="arrowTrendingUp" />}
+        activeIcon={<Icon name="arrowTrendingUp" />}
         size="md"
+        className="relative !pr-3.5"
       >
-        Profile
+        Goals
+        <span
+          className={clsx(
+            'text-xs absolute top-1 right-1.5',
+            goalCount > 0
+              ? 'text-green dark:text-green-dark'
+              : 'text-red dark:text-red-dark'
+          )}
+        >
+          {goalCount}
+        </span>
       </NavLink>
-      <NavLink to="/match" variant="primary" color="base" size="md">
+      <NavLink
+        to="/match"
+        idleIcon={<Icon name="userPair" />}
+        activeIcon={<Icon name="userPairSolid" />}
+      >
         Match
       </NavLink>
     </nav>
   );
 };
 
-const Header = () => {
-  const { user, setUser } = useStore();
+const Header = ({ show = true }) => {
+  const { user } = useStore();
   const profile = { packageId: 1 };
+  const { isOpen, close, toggle } = useDisclosure();
+  const goalsQuery = useGoals({ profileUrl: user.profileUrl });
+  const notificationsQuery = useNotifications();
 
-  function handleLogout() {
-    fetch(`${window.location.origin}/${SIGN_ME}`, { method: 'DELETE' })
-      .then((res) => {
-        if (res.ok) {
-          setUser(null);
-        } else
-          console.log(`Logout server response failed and wasn't caught...`);
-      })
-      .catch((err) => console.log(err));
-  }
+  const memberMenuLinks = user?.hasOnboarded
+    ? [
+        {
+          label: 'Overview',
+          icon: '👤',
+          path: `/${user.profileUrl}`,
+          end: true,
+        },
+        {
+          label: 'Progress',
+          icon: '✅',
+          path: `/${user.profileUrl}/progress`,
+        },
+        { label: 'Package', icon: '📦', path: `/${user.profileUrl}/package` },
+        { label: 'Settings', icon: '⚙️', path: `/${user.profileUrl}/settings` },
+      ]
+    : [];
 
   return (
     <header className="fixed w-full z-50 bg-white dark:bg-black">
-      <div className="flex justify-between items-center px-2 py-1 sm:py-0.5 sm:px-3.5">
-        <div className="flex justify-start w-80">
-          <Link to={user?.profileUrl}>
-            <Logo />
-          </Link>
-          <Theme />
-        </div>
-        {user?.hasOnboarded && (
-          <MainNav user={user} className="hidden sm:flex" />
-        )}
+      <div className="flex justify-between items-center px-2 py-1 sm:py-0.5 sm:px-3.5 h-[2.6rem]">
+        {show && (
+          <>
+            <div className="flex justify-start w-80">
+              <Link to="/inn">
+                <Logo />
+              </Link>
+              <Theme />
+            </div>
 
-        <div className="flex items-center gap-3 justify-end w-80">
-          {user && profile?.packageId === PACKAGES.basic && (
-            <>
-              {user.hasOnboarded && (
-                <NavLink
-                  to="/settings/package"
-                  size="md"
-                  className="text-green dark:text-green-dark"
-                >
-                  Upgrade
-                </NavLink>
+            {user?.hasOnboarded && (
+              <MainNav
+                user={user}
+                className="hidden sm:flex"
+                goalCount={
+                  goalsQuery.data?.filter((goal) => goal?.status === 'active')
+                    .length
+                }
+              />
+            )}
+
+            <div className="flex items-center justify-end w-80">
+              {user?.hasOnboarded && profile.packageId === PACKAGES.basic && (
+                <>
+                  <NavLink
+                    to={`/${user.profileUrl}/package`}
+                    size="md"
+                    className="text-green dark:text-green-dark"
+                  >
+                    Upgrade
+                  </NavLink>
+                  <NavLink
+                    to="/notifications"
+                    size="md"
+                    idleIcon={<Icon name="bell" size="md" />}
+                    activeIcon={<Icon name="bellSolid" size="md" />}
+                    count={notificationsQuery.data?.unseenCount || 0}
+                    countPosition="corner"
+                  />
+                </>
               )}
-              {/* <Link to="/refer">+invite</Link> */}
-              <Menu handleLogout={handleLogout} />
-            </>
-          )}
-          {!user && (
-            <Link to="/sign/in">
-              <Button
-                variant="primary"
-                size="md"
-                color="green"
-                className="group-[.active]:hidden"
-              >
-                Log In / Sign-Up
-              </Button>
-            </Link>
-          )}
-        </div>
+              {user ? (
+                <div className="relative ml-1">
+                  <Image
+                    src={
+                      user?.avatars?.tertle?.smUrl ||
+                      user?.avatars?.tertle?.mdUrl ||
+                      user?.avatars?.google?.smUrl ||
+                      AVATAR_DEF
+                    }
+                    className="hover:cursor-pointer w-8 h-8 sm:w-9 sm:h-9"
+                    onClick={toggle}
+                  />
+                  <Menu
+                    header={
+                      <div className="mt-1 flex flex-col">
+                        <span className="font-primary">{user.email}</span> @
+                        {user.profileUrl}
+                      </div>
+                    }
+                    links={[
+                      ...memberMenuLinks,
+                      { label: 'Logout', icon: '👋', path: '/sign/out' },
+                    ]}
+                    onClose={close}
+                    show={isOpen}
+                  />
+                </div>
+              ) : (
+                !window.location.pathname.includes('sign') && (
+                  <Link to="/sign/in">
+                    <Button
+                      variant="primary"
+                      size="md"
+                      className="group-[.active]:hidden"
+                    >
+                      Log In / Sign-Up
+                    </Button>
+                  </Link>
+                )
+              )}
+            </div>
+          </>
+        )}
       </div>
       <Separator />
     </header>
@@ -323,10 +409,11 @@ type MainLayoutProps = {
 const MainLayout = (props: MainLayoutProps) => {
   const { children, className } = props;
   const { user } = useStore();
+  const { pathname } = useLocation();
 
   return (
     <>
-      <Header />
+      <Header show={!pathname.includes('wizard/pending')} />
       <main className={clsx('m-auto max-w-xl', className)}>{children}</main>
       <footer className="sm:hidden fixed bottom-0 pb-6  w-full z-50 bg-white dark:bg-black">
         {user?.hasOnboarded && (

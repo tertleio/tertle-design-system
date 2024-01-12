@@ -32,7 +32,7 @@ const Container = ({
   return (
     <div
       className={clsx(
-        'bg-white dark:bg-black rounded-3xl border border-gray-300 dark:border-gray-700',
+        'bg-white dark:bg-black rounded-2xl border border-gray-300 dark:border-gray-700',
         className
       )}
     >
